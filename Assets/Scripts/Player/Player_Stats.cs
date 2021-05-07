@@ -23,6 +23,9 @@ public class Player_Stats : MonoBehaviour
 
     [SerializeField] GameObject firePoint;
 
+    public Renderer gun;
+
+
 
     [SerializeField] AmmoType currentAmmo = AmmoType.ammo1; // determines what kind of ammo we are currently using. by default set to ammo type 1
 
@@ -32,12 +35,12 @@ public class Player_Stats : MonoBehaviour
     void Update()
     {
 
-        if(Input.GetButtonDown("Ammo1")) // swaps to ammo 3 if we push this input
+        if(Input.GetButtonDown("Ammo1")) // swaps to ammo 1 if we push this input
         {
             currentAmmo = AmmoType.ammo1;
         }
 
-        if (Input.GetButtonDown("Ammo2")) // swaps to ammo 3 if we push this input
+        if (Input.GetButtonDown("Ammo2")) // swaps to ammo 2 if we push this input
         {
             currentAmmo = AmmoType.ammo2;
         }
