@@ -14,30 +14,43 @@ public class Player_Stats : MonoBehaviour
 
     [SerializeField] int maxAmmoType1; // max amount of this ammo we can have
     [SerializeField] int curAmmoType1; // how much of this ammo we currently have
+    [SerializeField] float ammoType1Range; // how far this can shoot
+    [SerializeField] int ammoType1Damage; // how much damage this does
 
     [SerializeField] int maxAmmoType2; // max amount of this ammo we can have
     [SerializeField] int curAmmoType2; // how much of this ammo we currently have
+    [SerializeField] GameObject ammoType2Collider; // the collider for our shotgun style weapon (Attached to a child of the gun, damage dealt is also on the child)
 
     [SerializeField] int maxAmmoType3; // max amount of this ammo we can have
     [SerializeField] int curAmmoType3; // how much of this ammo we currently have
+    [SerializeField] float ammoType3Range; // how far this can shoot
+    [SerializeField] int ammoType3Damage; // how much damage this does
 
-    [SerializeField] GameObject firePoint;
+    [SerializeField] Camera fpsCamera; // where we fire from (in this case the camera)
+
+    public Renderer gun;
+
 
 
     [SerializeField] AmmoType currentAmmo = AmmoType.ammo1; // determines what kind of ammo we are currently using. by default set to ammo type 1
 
     [SerializeField] bool isDead = false;
 
+    private void Awake()
+    {
+        ammoType2Collider.SetActive(false);
+    }
+
     // Update is called once per frame
     void Update()
     {
 
-        if(Input.GetButtonDown("Ammo1")) // swaps to ammo 3 if we push this input
+        if(Input.GetButtonDown("Ammo1")) // swaps to ammo 1 if we push this input
         {
             currentAmmo = AmmoType.ammo1;
         }
 
-        if (Input.GetButtonDown("Ammo2")) // swaps to ammo 3 if we push this input
+        if (Input.GetButtonDown("Ammo2")) // swaps to ammo 2 if we push this input
         {
             currentAmmo = AmmoType.ammo2;
         }
@@ -97,7 +110,7 @@ public class Player_Stats : MonoBehaviour
 
         if(isRegening == false && timeUntilRegen <= 0 && curHealth < maxHealth) // starts the coroutine that heals the player
         {
-            Debug.Log("Starting regen");
+            //Debug.Log("Starting regen");
             StartCoroutine("RegenHealth");
         }
     }
@@ -127,7 +140,7 @@ public class Player_Stats : MonoBehaviour
     void HPRegen()
     {
         curHealth += 1; // increases our health
-        Debug.Log("Our health is now" + curHealth);
+        //Debug.Log("Our health is now" + curHealth);
         if (curHealth > maxHealth) // makes sure we don't go over our max health
         {
             curHealth = maxHealth;
@@ -166,15 +179,38 @@ public class Player_Stats : MonoBehaviour
 
     void Shoot(AmmoType ammo) // ask what type of ammo we are using and then takes it from the pool
     {
-        GameObject projectile = Projectile_Pooler.ourPooler.GetPlayerPooledObjects(ammo);
 
-        projectile.transform.position = firePoint.transform.position;
-        projectile.transform.rotation = firePoint.transform.rotation;
+        RaycastHit hit;
 
-        projectile.SetActive(true);
-        Rigidbody rb = projectile.GetComponent<Rigidbody>(); // gets the rigidbody of the bullet
+        switch(ammo)
+        {
+            case AmmoType.ammo1:
+               if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, ammoType1Range))
+               {
+                   Debug.Log(hit.transform.name); // placeholder for dealing damage
+               }
+               else
+               {
+                   Debug.Log("Out of range");
+               }
+                break;
 
-        //rb.velocity = projectile.transform.forward * projSpeed; // sends the bullet flying forward
+            case AmmoType.ammo2:
+                ammoType2Collider.SetActive(true);
+                break;
+
+            case AmmoType.ammo3:
+                if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, ammoType3Range))
+                {
+                    Debug.Log(hit.transform.name); // placeholder for dealing damage
+                }
+                else
+                {
+                    Debug.Log("Out of range");
+                }
+                break;
+        }
+
     }
 }
 

@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f7988272129ff24409d9b888d89f2e16, type: 2}
+  - {fileID: 2100000, guid: 9f8a5ea5df55bf8409c46ce273983d0b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -110,3 +110,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammoType: 2
   value: 5
+  active: 1
+  respawnTime: 5
+  curTimeToRespawn: 0
+  player: {fileID: 0}
+  requiredDistanceFromPlayer: 5
+  distFromPlayer: 0
