@@ -132,14 +132,14 @@ public class Player_Stats : MonoBehaviour
         while (curHealth < maxHealth) // while our health is less than our max
         {
             yield return new WaitForSeconds(healthRegen); // wait this long
-            HPRegen(); // then start this function
+            HPRegen(1); // then start this function and give it 1 as a heal value
         }
         isRegening = false; // tells us we aren't regening
     }
 
-    void HPRegen()
+    public void HPRegen(int amount) // amount is the amount we are healed by
     {
-        curHealth += 1; // increases our health
+        curHealth += amount; // increases our health
         //Debug.Log("Our health is now" + curHealth);
         if (curHealth > maxHealth) // makes sure we don't go over our max health
         {
