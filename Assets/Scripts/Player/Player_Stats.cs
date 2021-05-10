@@ -5,24 +5,24 @@ using UnityEngine;
 public class Player_Stats : MonoBehaviour
 {
 
-    [SerializeField] int maxHealth;
-    [SerializeField] int curHealth;
+    public int maxHealth;
+    public int curHealth;
     [SerializeField] float maxTimeUntilRegen; // max time until the player can begin getting their health back
     [SerializeField] float timeUntilRegen; // how long it takes until we START regening health
     [SerializeField] float healthRegen; // how long it takes to restore 1 health
     [SerializeField] bool isRegening = false; // are we currently healing
 
-    [SerializeField] int maxAmmoType1; // max amount of this ammo we can have
-    [SerializeField] int curAmmoType1; // how much of this ammo we currently have
+    public int maxAmmoType1; // max amount of this ammo we can have
+    public int curAmmoType1; // how much of this ammo we currently have
     [SerializeField] float ammoType1Range; // how far this can shoot
     [SerializeField] int ammoType1Damage; // how much damage this does
 
-    [SerializeField] int maxAmmoType2; // max amount of this ammo we can have
-    [SerializeField] int curAmmoType2; // how much of this ammo we currently have
+    public int maxAmmoType2; // max amount of this ammo we can have
+    public int curAmmoType2; // how much of this ammo we currently have
     [SerializeField] GameObject ammoType2Collider; // the collider for our shotgun style weapon (Attached to a child of the gun, damage dealt is also on the child)
 
-    [SerializeField] int maxAmmoType3; // max amount of this ammo we can have
-    [SerializeField] int curAmmoType3; // how much of this ammo we currently have
+    public int maxAmmoType3; // max amount of this ammo we can have
+    public int curAmmoType3; // how much of this ammo we currently have
     [SerializeField] float ammoType3Range; // how far this can shoot
     [SerializeField] int ammoType3Damage; // how much damage this does
 
