@@ -1,0 +1,30 @@
+***IMPORTANT***
+IF ANYONE WISHES TO USE THIS PROJECT IN A PORTFOLIO, THE TEXT BELOW *MUST* BE VISIBLE WITHIN THE GAME.
+-----------------------------------------------------------------------
+Sounds used in this project:
+
+“dirt/gravel footstep 2” by Yoyodaman234 on FreeSound.org under Creative Commons 0
+“Glass lid on.wav” by BillyOftenWilliamPalmer on FreeSound.org under Creative Commons 0
+“Picked Coin Echo” by NenadSimic on FreeSound.org under Attribution License
+“Gold_Pick.wav” by Killersmurf96 on FreeSound.org under Attribution License
+“Pop, Low, A (H1).wav” by InspectorJ on FreeSound.org under Attribution License
+“Double drive screw driver.wav” by jasvanroe on FreeSound.org under Attribution Noncommercial License
+“Screw_In_Bag-08.wav” by CallFlan on FreeSound.org under Creative Commons 0
+“magic_casting_energy.wav” by wangzhuokun on FreeSound.org under Attribution License
+“Glass Pick Up.wav” by kelsey_w on FreeSound.org under Attribution License
+“Thump 1.wav” by _stubb on FreeSound.org under Creative Commons 0
+“launch.wav” by kfatehi on FreeSound.org under Creative Commons 0
+“Death sound (male)” by Replix on FreeSound.org under Creative Commons 0
+“Jump, Climb or Damage Sound (F)” by Temp6754 on FreeSound.org under Creative Commons 0
+“World War 1 Trench warfare battlefield sounds.wav” by paulbogush on FreeSound.org under Creative Commons 0
+“Boom Bang” by bareform  on FreeSound.org under Attribution Noncommercial License
+“Medium Explosion.wav” by ryansnook on FreeSound.org under Attribution Noncommercial License
+“Garage Door Opening.wav” by ANARKYA on FreeSound.org under Creative Commons 0
+“door_unlock_brickhario.wav” by Brickhario on FreeSound.org under Creative Commons 0
+“Water splash, emptying a bucket 6” by wormer2 on FreeSound.org under Creative Commons 0
+“burst2.wav” by ReadeOnly on FreeSound.org under Creative Commons 0
+“firecracker small fire shoot and explode crackle.flac” by kyles on FreeSound.org under Creative Commons 0
+“Rocket Launch” by Jarusca on FreeSound.org under Creative Commons 0
+“Vinegar to Baking Soda with nr.wav” by FreqMan on FreeSound.org under Attribution License
+“Foley_Object_Metal_Chest_Open&Close_Mono.wav” by Nox_Sound on FreeSound.org under Creative Commons 0
+‘“Smashing, Wooden Fence, C.wav” by InspectorJ on FreeSound.org under Attribution License
