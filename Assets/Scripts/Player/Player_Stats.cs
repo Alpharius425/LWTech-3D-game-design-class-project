@@ -16,6 +16,9 @@ public class Player_Stats : MonoBehaviour
     [SerializeField] int curAmmoType1; // how much of this ammo we currently have
     [SerializeField] float ammoType1Range; // how far this can shoot
     [SerializeField] int ammoType1Damage; // how much damage this does
+    [SerializeField] float gasTimeMax; // how long the gas effect stays for our attack
+    [SerializeField] int gasDamage;
+    [SerializeField] GameObject gasTrail; // prefab for our gas attack trail
 
     [SerializeField] int maxAmmoType2; // max amount of this ammo we can have
     [SerializeField] int curAmmoType2; // how much of this ammo we currently have
@@ -27,10 +30,11 @@ public class Player_Stats : MonoBehaviour
     [SerializeField] int ammoType3Damage; // how much damage this does
 
     [SerializeField] Camera fpsCamera; // where we fire from (in this case the camera)
+    [SerializeField] GameObject firePoint;
 
     public Renderer gun;
 
-
+    public bool hasKey = false;
 
     [SerializeField] AmmoType currentAmmo = AmmoType.ammo1; // determines what kind of ammo we are currently using. by default set to ammo type 1
 
@@ -177,6 +181,11 @@ public class Player_Stats : MonoBehaviour
         }
     }
 
+    public void PickUpKey()
+    {
+        hasKey = true;
+    }
+
     void Shoot(AmmoType ammo) // ask what type of ammo we are using and then takes it from the pool
     {
 
@@ -187,11 +196,20 @@ public class Player_Stats : MonoBehaviour
             case AmmoType.ammo1:
                if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, ammoType1Range))
                {
-                   Debug.Log(hit.transform.name); // placeholder for dealing damage
+                    // yes I know this instantiate looks ugly don't judge me ;-;
+                    GameObject trail = Instantiate(gasTrail, firePoint.transform.position, fpsCamera.transform.rotation); // makes our gas trail and spawns it in the right place
+                    trail.GetComponentInChildren<Transform>().localScale = new Vector3(1, 1, hit.distance);// edits the scale of the gas trail to only go where we hit
+                    trail.GetComponent<Trail_Holder>().duration = gasTimeMax; // gives our gas trail a duration
+                    trail.GetComponentInChildren<Gas_Trail>().damage = gasDamage;
+                    Debug.Log(hit.transform.name); // placeholder for dealing damage
                }
                else
                {
-                   Debug.Log("Out of range");
+                    GameObject trail = Instantiate(gasTrail, firePoint.transform.position, fpsCamera.transform.rotation); // makes our gas trail and spawns it in the right place
+                    trail.transform.localScale = new Vector3(1, 1, ammoType1Range); // edits the scale of the gas trail to only go where we hit
+                    trail.GetComponent<Trail_Holder>().duration = gasTimeMax;// gives our gas trail a duration
+                    trail.GetComponentInChildren<Gas_Trail>().damage = gasDamage;
+                    Debug.Log("Out of range");
                }
                 break;
 
@@ -200,8 +218,12 @@ public class Player_Stats : MonoBehaviour
                 break;
 
             case AmmoType.ammo3:
-                if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, ammoType3Range))
+                if (Physics.Raycast(firePoint.transform.position, fpsCamera.transform.forward, out hit, ammoType3Range))
                 {
+                    if(hit.collider.CompareTag("AcidDoor"))
+                    {
+                        hit.collider.GetComponent<AcidDoor>().Melt();
+                    }
                     Debug.Log(hit.transform.name); // placeholder for dealing damage
                 }
                 else
