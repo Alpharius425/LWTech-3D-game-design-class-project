@@ -23,7 +23,7 @@ public class AcidDoor : MonoBehaviour
     {
         myAudio.clip = meltSFX; //set sound clip
         myAudio.Play(); //play sound clip
-        for (float fade = 6f; fade >= -0.1f; fade -= 0.1f) // runs a loop that makes the door slowly become transparent
+        for (float fade = 1f; fade >= -0.1f; fade -= 0.1f) // runs a loop that makes the door slowly become transparent
         {
             Color newColor = myRenderer.material.color; // sets the color to same as our base color
             newColor.a = fade; // sets the alpha of the new color to be more transparent
@@ -31,7 +31,7 @@ public class AcidDoor : MonoBehaviour
 
             if(fade >= 0.1f)
             {
-                yield return new WaitForSeconds(0.05f);
+                yield return new WaitForSeconds(0.1f);
             }
         }
 
