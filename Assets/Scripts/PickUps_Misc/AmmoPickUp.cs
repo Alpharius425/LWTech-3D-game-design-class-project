@@ -18,11 +18,17 @@ public class AmmoPickUp : MonoBehaviour
     Renderer myRender; // allows us to reference the renderer easily
 
     [SerializeField] bool respawns = true;
-
+    //=========================SOUND EFFECTS=========================
+    [Header("Sound Effects")]
+    [SerializeField] AudioSource myAudio; //the source we will be playing sounds from on this specific object
+    [SerializeField] AudioClip pickupSFX; //the audio clip containing the "pickup" SFX
+    //=========================METHODS=========================
     private void OnTriggerEnter(Collider col)
     {
         if (col.CompareTag("Player") && active == true) // checks if the player runs into the pickup and that it is active
         {
+            myAudio.clip = pickupSFX; //set sound clip
+            myAudio.Play(); //play sound clip
             col.GetComponent<Player_Stats>().IncreaseAmmo(ammoType, value); // gives the player ammo
             curTimeToRespawn = respawnTime; // resets the spawn timer
             active = false; // turns off the pickup

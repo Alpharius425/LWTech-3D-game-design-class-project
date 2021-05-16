@@ -7,7 +7,12 @@ public class KeyDoor : MonoBehaviour
 
     Renderer myRenderer; // saves our renderer so its easy to change
     [SerializeField] bool unlocked = false;
-
+    //=========================SOUND EFFECTS=========================
+    [Header("Sound Effects")]
+    [SerializeField] AudioSource myAudio; //the source we will be playing sounds from on this specific object
+    [SerializeField] AudioClip unlockSFX; //the audio clip containing the "unlock" SFX
+    [SerializeField] AudioClip blastdoorSFX; //the audio clip containing the "blast door" SFX
+    //=========================METHODS=========================
     private void Start()
     {
         myRenderer = GetComponent<Renderer>(); // gets our renderer
@@ -21,6 +26,7 @@ public class KeyDoor : MonoBehaviour
             {
                 unlocked = true;
                 StartCoroutine("FadeOut"); // starts the fade away
+                StartCoroutine("playSounds"); //plays SFX for unlocking and opening door
                 Debug.Log("turning off");
             }
         }
@@ -28,7 +34,8 @@ public class KeyDoor : MonoBehaviour
 
     IEnumerator FadeOut()
     {
-        for (float fade = 1f; fade >= -0.1f; fade -= 0.1f) // runs a loop that makes the door slowly become transparent
+        
+        for (float fade = 10f; fade >= -0.1f; fade -= 0.1f) // runs a loop that makes the door slowly become transparent
         {
             Color newColor = myRenderer.material.color; // sets the color to same as our base color
             newColor.a = fade; // sets the alpha of the new color to be more transparent
@@ -41,5 +48,14 @@ public class KeyDoor : MonoBehaviour
         }
 
         gameObject.SetActive(false);
+    }
+
+    private IEnumerator playSounds()
+    {
+        myAudio.clip = unlockSFX; //set sound clip
+        myAudio.Play(); //play sound clip
+        yield return new WaitForSeconds(1); //wait for it to play
+        myAudio.clip = blastdoorSFX; //set sound clip
+        myAudio.Play(); //play sound clip
     }
 }

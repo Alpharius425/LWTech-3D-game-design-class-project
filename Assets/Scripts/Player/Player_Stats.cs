@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player_Stats : MonoBehaviour
 {
-
+    //=========================FIELDS=========================
     public int maxHealth;
     public int curHealth;
     [SerializeField] float maxTimeUntilRegen; // max time until the player can begin getting their health back
@@ -40,6 +40,19 @@ public class Player_Stats : MonoBehaviour
 
     [SerializeField] bool isDead = false;
 
+    //=========================SOUND EFFECTS=========================
+    [Header("Sound Effects")]
+    [SerializeField] AudioSource playerAudio; //the source we will be playing sounds from on this specific object
+    [SerializeField] AudioClip reloadOutSFX; //the audio clip containing the "reload out" SFX
+    [SerializeField] AudioClip reloadInSFX; //the audio clip containing the "reload in" SFX
+    [SerializeField] AudioClip getKeySFX; //the audio clip containing the "get key" SFX
+    [SerializeField] AudioClip hurtSFX; //the audio clip containing the "damage" SFX
+    [SerializeField] AudioClip deathSFX; //the audio clip containing the "death" SFX
+    [SerializeField] AudioClip fireLaunch; //the audio clip containing the "fire pop" SFX
+    [SerializeField] AudioClip fireBang; //the audio clip containing the "fireshot" SFX
+    [SerializeField] AudioClip acidLaunch; //the audio clip containing the "acid launch" SFX
+    //=========================METHODS=========================
+
     private void Awake()
     {
         ammoType2Collider.SetActive(false);
@@ -51,17 +64,17 @@ public class Player_Stats : MonoBehaviour
 
         if(Input.GetButtonDown("Ammo1")) // swaps to ammo 1 if we push this input
         {
-            currentAmmo = AmmoType.ammo1;
+            StartCoroutine(changeAmmo(1));
         }
 
         if (Input.GetButtonDown("Ammo2")) // swaps to ammo 2 if we push this input
         {
-            currentAmmo = AmmoType.ammo2;
+            StartCoroutine(changeAmmo(2));
         }
 
         if (Input.GetButtonDown("Ammo3")) // swaps to ammo 3 if we push this input
         {
-            currentAmmo = AmmoType.ammo3;
+            StartCoroutine(changeAmmo(3));
         }
 
 
@@ -121,10 +134,14 @@ public class Player_Stats : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        playerAudio.clip = hurtSFX; //set sound clip
+        playerAudio.Play(); //play sound clip
         curHealth -= damage; // subtracts from our health
 
         if(curHealth <= 0) // if we have less than 0 health
         {
+            playerAudio.clip = deathSFX;
+            playerAudio.Play();
             isDead = true; // we are ded
         }
     }
@@ -183,6 +200,8 @@ public class Player_Stats : MonoBehaviour
 
     public void PickUpKey()
     {
+        playerAudio.clip = getKeySFX; //set sound clip
+        playerAudio.Play(); //play sound clip
         hasKey = true;
     }
 
@@ -197,6 +216,9 @@ public class Player_Stats : MonoBehaviour
                if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, ammoType1Range))
                {
                     // yes I know this instantiate looks ugly don't judge me ;-;
+                    //you're trying your best Mikey it's okay <3
+                    playerAudio.clip = fireLaunch; //set sound clip
+                    playerAudio.Play(); //play sound clip
                     GameObject trail = Instantiate(gasTrail, firePoint.transform.position, fpsCamera.transform.rotation); // makes our gas trail and spawns it in the right place
                     trail.GetComponentInChildren<Transform>().localScale = new Vector3(1, 1, hit.distance);// edits the scale of the gas trail to only go where we hit
                     trail.GetComponent<Trail_Holder>().duration = gasTimeMax; // gives our gas trail a duration
@@ -205,6 +227,8 @@ public class Player_Stats : MonoBehaviour
                }
                else
                {
+                    playerAudio.clip = fireLaunch; //set sound clip
+                    playerAudio.Play(); //play sound clip
                     GameObject trail = Instantiate(gasTrail, firePoint.transform.position, fpsCamera.transform.rotation); // makes our gas trail and spawns it in the right place
                     trail.transform.localScale = new Vector3(1, 1, ammoType1Range); // edits the scale of the gas trail to only go where we hit
                     trail.GetComponent<Trail_Holder>().duration = gasTimeMax;// gives our gas trail a duration
@@ -214,13 +238,17 @@ public class Player_Stats : MonoBehaviour
                 break;
 
             case AmmoType.ammo2:
+                playerAudio.clip = fireBang; //set sound clip
+                playerAudio.Play(); //play sound clip
                 ammoType2Collider.SetActive(true);
                 break;
 
             case AmmoType.ammo3:
                 if (Physics.Raycast(firePoint.transform.position, fpsCamera.transform.forward, out hit, ammoType3Range))
                 {
-                    if(hit.collider.CompareTag("AcidDoor"))
+                    playerAudio.clip = acidLaunch; //set sound clip
+                    playerAudio.Play(); //play sound clip
+                    if (hit.collider.CompareTag("AcidDoor"))
                     {
                         hit.collider.GetComponent<AcidDoor>().Melt();
                     }
@@ -233,6 +261,37 @@ public class Player_Stats : MonoBehaviour
                 break;
         }
 
+    }
+    //=========================Grant's Stuff=========================
+    private IEnumerator changeAmmo(int type)
+    {
+        if (type == 1) //if changing to ammo type 1...
+        {
+            playerAudio.clip = reloadOutSFX; //change clip to out sfx
+            playerAudio.Play(); //play clip
+            yield return new WaitForSeconds(2); //wait for animation and sfx to finish
+            playerAudio.clip = reloadInSFX; //change clip to in sfxwwwwwwwwwwww
+            playerAudio.Play(); //play clip
+            currentAmmo = AmmoType.ammo1; //set ammo type to 1
+        }
+        else if (type == 2) //if changing to ammo type 2...
+        {
+            playerAudio.clip = reloadOutSFX; //change clip to out sfx
+            playerAudio.Play(); //play clip
+            yield return new WaitForSeconds(2); //wait for animation and sfx to finish
+            playerAudio.clip = reloadInSFX; //change clip to in sfx
+            playerAudio.Play(); //play clip
+            currentAmmo = AmmoType.ammo2; //set ammo type to 2
+        }
+        else if (type == 3) //if changing to ammo type 3...
+        {
+            playerAudio.clip = reloadOutSFX; //change clip to out sfx
+            playerAudio.Play(); //play clip
+            yield return new WaitForSecondsRealtime(2); //wait for animation and sfx to finish
+            playerAudio.clip = reloadInSFX; //change clip to in sfx
+            playerAudio.Play(); //play clip
+            currentAmmo = AmmoType.ammo3; //set ammo type to 3
+        }
     }
 }
 
