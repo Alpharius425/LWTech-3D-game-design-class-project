@@ -51,6 +51,12 @@ public class Player_Stats : MonoBehaviour
     [SerializeField] AudioClip fireLaunch; //the audio clip containing the "fire pop" SFX
     [SerializeField] AudioClip fireBang; //the audio clip containing the "fireshot" SFX
     [SerializeField] AudioClip acidLaunch; //the audio clip containing the "acid launch" SFX
+    //=========================VISUAL EFFECTS=========================
+    [Header("Visual Effects")]
+    [SerializeField] GameObject goldShotFX; //gameobject containing the golddust burst effect
+    [SerializeField] GameObject goldGasFX; //gameobject containing the golddust gas trail effect
+    [SerializeField] GameObject blueFireFX; //gameobject containing the golddust gas trail effect
+    [SerializeField] GameObject acidShotFX; //gameobject containing the golddust gas trail effect
     //=========================METHODS=========================
 
     private void Awake()
@@ -219,6 +225,8 @@ public class Player_Stats : MonoBehaviour
                     //you're trying your best Mikey it's okay <3
                     playerAudio.clip = fireLaunch; //set sound clip
                     playerAudio.Play(); //play sound clip
+                    Instantiate(goldShotFX, firePoint.transform.position, fpsCamera.transform.rotation); //creates the gold dust burst effect
+                    Instantiate(goldGasFX, firePoint.transform.position, fpsCamera.transform.rotation); //creates the gold dust gas trail effect
                     GameObject trail = Instantiate(gasTrail, firePoint.transform.position, fpsCamera.transform.rotation); // makes our gas trail and spawns it in the right place
                     trail.GetComponentInChildren<Transform>().localScale = new Vector3(1, 1, hit.distance);// edits the scale of the gas trail to only go where we hit
                     trail.GetComponent<Trail_Holder>().duration = gasTimeMax; // gives our gas trail a duration
@@ -229,6 +237,8 @@ public class Player_Stats : MonoBehaviour
                {
                     playerAudio.clip = fireLaunch; //set sound clip
                     playerAudio.Play(); //play sound clip
+                    Instantiate(goldShotFX, firePoint.transform.position, fpsCamera.transform.rotation); //creates the gold dust burst effect
+                    Instantiate(goldGasFX, firePoint.transform.position, fpsCamera.transform.rotation); //creates the gold dust gas trail effect
                     GameObject trail = Instantiate(gasTrail, firePoint.transform.position, fpsCamera.transform.rotation); // makes our gas trail and spawns it in the right place
                     trail.transform.localScale = new Vector3(1, 1, ammoType1Range); // edits the scale of the gas trail to only go where we hit
                     trail.GetComponent<Trail_Holder>().duration = gasTimeMax;// gives our gas trail a duration
@@ -240,6 +250,7 @@ public class Player_Stats : MonoBehaviour
             case AmmoType.ammo2:
                 playerAudio.clip = fireBang; //set sound clip
                 playerAudio.Play(); //play sound clip
+                Instantiate(blueFireFX, firePoint.transform.position, fpsCamera.transform.rotation); //creates the blue fire effect
                 ammoType2Collider.SetActive(true);
                 break;
 
@@ -248,6 +259,7 @@ public class Player_Stats : MonoBehaviour
                 {
                     playerAudio.clip = acidLaunch; //set sound clip
                     playerAudio.Play(); //play sound clip
+                    Instantiate(acidShotFX, firePoint.transform.position, fpsCamera.transform.rotation); //creates the acid shot effect
                     if (hit.collider.CompareTag("AcidDoor"))
                     {
                         hit.collider.GetComponent<AcidDoor>().Melt();
