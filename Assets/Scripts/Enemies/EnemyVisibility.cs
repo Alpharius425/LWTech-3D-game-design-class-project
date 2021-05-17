@@ -8,7 +8,7 @@ using UnityEngine.Experimental.GlobalIllumination;
 
 public class EnemyVisibility : MonoBehaviour
 {
-    public Transform target = null;
+    public Transform target;
     // If target is further than this distance then it can't be seen
     public float maxDistance = 10f;
     // Visibility
@@ -20,25 +20,26 @@ public class EnemyVisibility : MonoBehaviour
     public new Renderer renderer;
 
     // Property can be accessed by other classes to determine if target is visible
-    public bool targetIsVisible { get; private set; }
+    public bool TargetIsVisible { get; private set; }
 
     private void Start()
     {
         //Auto set the drone Field Of View light source
         FOVCone = GetComponentInChildren<Light>();
+        target = GetComponent<StateManager>().playerTarget.transform;
     }
     // Check every frame to see if target is visible
     void Update()
     {
-        targetIsVisible = CheckVisibility();
+        TargetIsVisible = CheckVisibility();
         if (visualize)
         {
             //Adjust the light angle to the visibility angle
             FOVCone.spotAngle = angle;
 
             //change the material color, otherwise remain white
-            var color = targetIsVisible ? Color.red : Color.white;
-            var coneColor = targetIsVisible ? Color.red : Color.white;
+            var color = TargetIsVisible ? Color.red : Color.white;
+            var coneColor = TargetIsVisible ? Color.red : Color.white;
             //GetComponent<Renderer>().material.color = color;
             renderer.material.color = color;
             FOVCone.color = coneColor;
