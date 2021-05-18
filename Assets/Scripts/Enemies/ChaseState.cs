@@ -25,6 +25,7 @@ public class ChaseState : State
         }
     }
 
+    //Put the rotate script into a method for ease of use
     void LookAtTarget()
     {
         //get the distance between target and current position
@@ -38,12 +39,14 @@ public class ChaseState : State
     // CHASE TARGET
     void ChaseTarget()
     {
-        Debug.Log("chase");
+        //Debug.Log("chase");
 
         LookAtTarget();
 
+        //Get the distance from self to target
         distanceFromTarget = Vector3.Distance(stateManager.thisEnemy.transform.position, stateManager.playerTarget.transform.position);
         
+        //Move toward the target until minDetectDistance is reached (as not to run into the target)
         if (distanceFromTarget > stateManager.minDetectDistance)
         {
             //move to target

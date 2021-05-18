@@ -8,13 +8,12 @@ using UnityEngine.Experimental.GlobalIllumination;
 
 public class EnemyVisibility : MonoBehaviour
 {
-    public StateManager stateManager;
     public Transform target;
     // If target is further than this distance then it can't be seen
     public float maxDistance = 10f;
     // Visibility
     [Range(0f, 360f)]
-    public float angle = 45f;
+    public float angle = 65f;
     // If true, change material color
     [SerializeField] bool visualize = true;
     public Light FOVCone;
