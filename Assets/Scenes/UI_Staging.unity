@@ -129,7 +129,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-24900
+  m_Name: pb_Mesh-16822
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -374,12 +374,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1771564752}
     - target: {fileID: 310552662, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: healthRegen
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 310552662, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       propertyPath: timeUntilRegen
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 310552662, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       propertyPath: maxTimeUntilRegen
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3719314394518979051, guid: 6bacecc4f3df9584198879c73a6b6c36,
         type: 3}
@@ -908,7 +912,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.6
+  m_Value: 0.33
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

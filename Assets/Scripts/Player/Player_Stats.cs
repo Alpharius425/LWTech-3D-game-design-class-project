@@ -70,6 +70,7 @@ public class Player_Stats : MonoBehaviour
 
     private void Start()
     {
+        timeUntilRegen = maxTimeUntilRegen;
         maxHealth = 100; //initialize max health to 100
         HealthBar.value = CalculateHealth(); //calculate health and set to current
     }
