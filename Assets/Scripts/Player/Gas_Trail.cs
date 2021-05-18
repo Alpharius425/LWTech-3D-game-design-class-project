@@ -5,11 +5,12 @@ using UnityEngine;
 public class Gas_Trail : MonoBehaviour
 {
     public int damage;
+
     private void OnTriggerEnter(Collider col)
     {
-        if(col.CompareTag ("Enemy"))
+        if (col.CompareTag("Mayfly"))
         {
-            Debug.Log(col.transform.name); // placeholder for enemy attack
+            col.GetComponent<EnemyHealth>().DeductHealth(damage);
         }
     }
 }

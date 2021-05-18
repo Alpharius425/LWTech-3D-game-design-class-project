@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player_Stats : MonoBehaviour
 {
     //=========================FIELDS=========================
-    public int maxHealth;
-    public int curHealth;
+    public float maxHealth;
+    public float curHealth;
     [SerializeField] float maxTimeUntilRegen; // max time until the player can begin getting their health back
     [SerializeField] float timeUntilRegen; // how long it takes until we START regening health
     [SerializeField] float healthRegen; // how long it takes to restore 1 health
@@ -40,6 +41,9 @@ public class Player_Stats : MonoBehaviour
 
     [SerializeField] bool isDead = false;
 
+    //=========================UI==================================
+    public Slider HealthBar; //for storing reference to healthbar UI element
+
     //=========================SOUND EFFECTS=========================
     [Header("Sound Effects")]
     [SerializeField] AudioSource playerAudio; //the source we will be playing sounds from on this specific object
@@ -64,9 +68,19 @@ public class Player_Stats : MonoBehaviour
         ammoType2Collider.SetActive(false);
     }
 
+    private void Start()
+    {
+        maxHealth = 100; //initialize max health to 100
+        HealthBar.value = CalculateHealth(); //calculate health and set to current
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetButtonDown("Fire2"))
+        {
+            TakeDamage(10);
+        }
 
         if(Input.GetButtonDown("Ammo1")) // swaps to ammo 1 if we push this input
         {
@@ -143,8 +157,11 @@ public class Player_Stats : MonoBehaviour
         playerAudio.clip = hurtSFX; //set sound clip
         playerAudio.Play(); //play sound clip
         curHealth -= damage; // subtracts from our health
-
-        if(curHealth <= 0) // if we have less than 0 health
+        timeUntilRegen = maxTimeUntilRegen;
+        HealthBar.value = CalculateHealth(); //calculate health and set to current
+        isRegening = false;
+        StopCoroutine("RegenHealth");
+        if (curHealth <= 0) // if we have less than 0 health
         {
             playerAudio.clip = deathSFX;
             playerAudio.Play();
@@ -159,19 +176,22 @@ public class Player_Stats : MonoBehaviour
         while (curHealth < maxHealth) // while our health is less than our max
         {
             yield return new WaitForSeconds(healthRegen); // wait this long
-            HPRegen(1); // then start this function and give it 1 as a heal value
+            HPRegen(1f); // then start this function and give it 1 as a heal value
         }
         isRegening = false; // tells us we aren't regening
     }
 
-    public void HPRegen(int amount) // amount is the amount we are healed by
+    public void HPRegen(float amount) // amount is the amount we are healed by
     {
         curHealth += amount; // increases our health
         //Debug.Log("Our health is now" + curHealth);
         if (curHealth > maxHealth) // makes sure we don't go over our max health
         {
+            isRegening = false;
             curHealth = maxHealth;
+            StopCoroutine("RegenHealth");
         }
+        HealthBar.value = CalculateHealth(); //calculate health and set to current
     }
 
     public void IncreaseAmmo(AmmoType ammo, int value) // ammo determines what ammo type is increased. Value determines how much ammo we get.
@@ -232,7 +252,12 @@ public class Player_Stats : MonoBehaviour
                     trail.GetComponent<Trail_Holder>().duration = gasTimeMax; // gives our gas trail a duration
                     trail.GetComponentInChildren<Gas_Trail>().damage = gasDamage;
                     Debug.Log(hit.transform.name); // placeholder for dealing damage
-               }
+
+                    if (hit.collider.CompareTag("Mayfly"))
+                    {
+                        hit.collider.GetComponent<EnemyHealth>().DeductHealth(ammoType3Damage);
+                    }
+                }
                else
                {
                     playerAudio.clip = fireLaunch; //set sound clip
@@ -243,8 +268,8 @@ public class Player_Stats : MonoBehaviour
                     trail.transform.localScale = new Vector3(1, 1, ammoType1Range); // edits the scale of the gas trail to only go where we hit
                     trail.GetComponent<Trail_Holder>().duration = gasTimeMax;// gives our gas trail a duration
                     trail.GetComponentInChildren<Gas_Trail>().damage = gasDamage;
-                    Debug.Log("Out of range");
-               }
+                    
+                }
                 break;
 
             case AmmoType.ammo2:
@@ -255,7 +280,7 @@ public class Player_Stats : MonoBehaviour
                 break;
 
             case AmmoType.ammo3:
-                if (Physics.Raycast(firePoint.transform.position, fpsCamera.transform.forward, out hit, ammoType3Range))
+                if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, ammoType3Range))
                 {
                     playerAudio.clip = acidLaunch; //set sound clip
                     playerAudio.Play(); //play sound clip
@@ -264,7 +289,11 @@ public class Player_Stats : MonoBehaviour
                     {
                         hit.collider.GetComponent<AcidDoor>().Melt();
                     }
-                    Debug.Log(hit.transform.name); // placeholder for dealing damage
+                    
+                    if(hit.collider.CompareTag("Mayfly"))
+                    {
+                        hit.collider.GetComponent<EnemyHealth>().DeductHealth(ammoType3Damage);
+                    }
                 }
                 else
                 {
@@ -273,6 +302,13 @@ public class Player_Stats : MonoBehaviour
                 break;
         }
 
+      
+
+    }
+
+    float CalculateHealth() //returns the health calculation for updating UI
+    {
+        return curHealth / maxHealth;
     }
     //=========================Grant's Stuff=========================
     private IEnumerator changeAmmo(int type)

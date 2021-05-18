@@ -57,7 +57,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bffa3b7c6a667c5439efff8ffe9392b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 5
 --- !u!1 &5358524114032736450
 GameObject:
   m_ObjectHideFlags: 0
@@ -68,7 +68,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5730903917470168535}
   - component: {fileID: 8260452559196830824}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Trail_Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
