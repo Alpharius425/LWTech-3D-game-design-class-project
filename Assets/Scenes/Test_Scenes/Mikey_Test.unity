@@ -225,7 +225,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-8754
+  m_Name: pb_Mesh-10064
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -383,6 +383,38 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &403444146 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7550263438414015375, guid: 6831cc96dab1a2943aae47e70d8eedb7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1811168570}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &403444150
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403444146}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &403444151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403444146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dde90f595ed3e0428a19860e825fb5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealth: 100
 --- !u!1 &521938523
 GameObject:
   m_ObjectHideFlags: 0
@@ -776,7 +808,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 546920138394758059, guid: 6831cc96dab1a2943aae47e70d8eedb7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6831cc96dab1a2943aae47e70d8eedb7, type: 3}
 --- !u!1 &1974399461
 GameObject:
@@ -880,6 +913,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 310552662, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: gasDamage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 310552662, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: ammoType1Range
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 310552662, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: ammoType3Damage
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 3719314394518979051, guid: 6bacecc4f3df9584198879c73a6b6c36,
         type: 3}
       propertyPath: m_Mesh

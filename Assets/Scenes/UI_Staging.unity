@@ -129,7 +129,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-8946
+  m_Name: pb_Mesh-24900
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -373,6 +373,14 @@ PrefabInstance:
       propertyPath: HealthBar
       value: 
       objectReference: {fileID: 1771564752}
+    - target: {fileID: 310552662, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: timeUntilRegen
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 310552662, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: maxTimeUntilRegen
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3719314394518979051, guid: 6bacecc4f3df9584198879c73a6b6c36,
         type: 3}
       propertyPath: m_Mesh
@@ -432,6 +440,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459864850019384740, guid: 6bacecc4f3df9584198879c73a6b6c36,
+        type: 3}
+      propertyPath: holdToZoom
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4459864850019384750, guid: 6bacecc4f3df9584198879c73a6b6c36,
         type: 3}
@@ -578,7 +591,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &1608848803
 AudioListener:
   m_ObjectHideFlags: 0
@@ -895,7 +908,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.53
+  m_Value: 0.6
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

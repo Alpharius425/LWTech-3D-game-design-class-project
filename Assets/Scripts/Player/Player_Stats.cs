@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class Player_Stats : MonoBehaviour
 {
     //=========================FIELDS=========================
-    public int maxHealth;
-    public int curHealth;
+    public float maxHealth;
+    public float curHealth;
     [SerializeField] float maxTimeUntilRegen; // max time until the player can begin getting their health back
     [SerializeField] float timeUntilRegen; // how long it takes until we START regening health
     [SerializeField] float healthRegen; // how long it takes to restore 1 health
@@ -77,6 +77,10 @@ public class Player_Stats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetButtonDown("Fire2"))
+        {
+            TakeDamage(10);
+        }
 
         if(Input.GetButtonDown("Ammo1")) // swaps to ammo 1 if we push this input
         {
@@ -153,8 +157,11 @@ public class Player_Stats : MonoBehaviour
         playerAudio.clip = hurtSFX; //set sound clip
         playerAudio.Play(); //play sound clip
         curHealth -= damage; // subtracts from our health
-
-        if(curHealth <= 0) // if we have less than 0 health
+        timeUntilRegen = maxTimeUntilRegen;
+        HealthBar.value = CalculateHealth(); //calculate health and set to current
+        isRegening = false;
+        StopCoroutine("RegenHealth");
+        if (curHealth <= 0) // if we have less than 0 health
         {
             playerAudio.clip = deathSFX;
             playerAudio.Play();
@@ -169,19 +176,22 @@ public class Player_Stats : MonoBehaviour
         while (curHealth < maxHealth) // while our health is less than our max
         {
             yield return new WaitForSeconds(healthRegen); // wait this long
-            HPRegen(1); // then start this function and give it 1 as a heal value
+            HPRegen(1f); // then start this function and give it 1 as a heal value
         }
         isRegening = false; // tells us we aren't regening
     }
 
-    public void HPRegen(int amount) // amount is the amount we are healed by
+    public void HPRegen(float amount) // amount is the amount we are healed by
     {
         curHealth += amount; // increases our health
         //Debug.Log("Our health is now" + curHealth);
         if (curHealth > maxHealth) // makes sure we don't go over our max health
         {
+            isRegening = false;
             curHealth = maxHealth;
+            StopCoroutine("RegenHealth");
         }
+        HealthBar.value = CalculateHealth(); //calculate health and set to current
     }
 
     public void IncreaseAmmo(AmmoType ammo, int value) // ammo determines what ammo type is increased. Value determines how much ammo we get.
