@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player_Stats : MonoBehaviour
 {
@@ -40,6 +41,9 @@ public class Player_Stats : MonoBehaviour
 
     [SerializeField] bool isDead = false;
 
+    //=========================UI==================================
+    public Slider HealthBar; //for storing reference to healthbar UI element
+
     //=========================SOUND EFFECTS=========================
     [Header("Sound Effects")]
     [SerializeField] AudioSource playerAudio; //the source we will be playing sounds from on this specific object
@@ -62,6 +66,12 @@ public class Player_Stats : MonoBehaviour
     private void Awake()
     {
         ammoType2Collider.SetActive(false);
+    }
+
+    private void Start()
+    {
+        maxHealth = 100; //initialize max health to 100
+        HealthBar.value = CalculateHealth(); //calculate health and set to current
     }
 
     // Update is called once per frame
@@ -282,6 +292,13 @@ public class Player_Stats : MonoBehaviour
                 break;
         }
 
+      
+
+    }
+
+    float CalculateHealth() //returns the health calculation for updating UI
+    {
+        return curHealth / maxHealth;
     }
     //=========================Grant's Stuff=========================
     private IEnumerator changeAmmo(int type)
