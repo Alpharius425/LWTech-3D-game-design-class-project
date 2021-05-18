@@ -8,9 +8,9 @@ public class Player_Shotgun : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
-        if(col.CompareTag("Enemy")) // did we hit an enemy?
+        if (col.CompareTag("Mayfly"))
         {
-            //deal damage
+            col.GetComponent<EnemyHealth>().DeductHealth(damage);
         }
         gameObject.SetActive(false); // turns this back off
     }

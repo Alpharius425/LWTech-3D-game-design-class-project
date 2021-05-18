@@ -232,7 +232,12 @@ public class Player_Stats : MonoBehaviour
                     trail.GetComponent<Trail_Holder>().duration = gasTimeMax; // gives our gas trail a duration
                     trail.GetComponentInChildren<Gas_Trail>().damage = gasDamage;
                     Debug.Log(hit.transform.name); // placeholder for dealing damage
-               }
+
+                    if (hit.collider.CompareTag("Mayfly"))
+                    {
+                        hit.collider.GetComponent<EnemyHealth>().DeductHealth(ammoType3Damage);
+                    }
+                }
                else
                {
                     playerAudio.clip = fireLaunch; //set sound clip
@@ -243,8 +248,8 @@ public class Player_Stats : MonoBehaviour
                     trail.transform.localScale = new Vector3(1, 1, ammoType1Range); // edits the scale of the gas trail to only go where we hit
                     trail.GetComponent<Trail_Holder>().duration = gasTimeMax;// gives our gas trail a duration
                     trail.GetComponentInChildren<Gas_Trail>().damage = gasDamage;
-                    Debug.Log("Out of range");
-               }
+                    
+                }
                 break;
 
             case AmmoType.ammo2:
@@ -255,7 +260,7 @@ public class Player_Stats : MonoBehaviour
                 break;
 
             case AmmoType.ammo3:
-                if (Physics.Raycast(firePoint.transform.position, fpsCamera.transform.forward, out hit, ammoType3Range))
+                if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, ammoType3Range))
                 {
                     playerAudio.clip = acidLaunch; //set sound clip
                     playerAudio.Play(); //play sound clip
@@ -264,7 +269,11 @@ public class Player_Stats : MonoBehaviour
                     {
                         hit.collider.GetComponent<AcidDoor>().Melt();
                     }
-                    Debug.Log(hit.transform.name); // placeholder for dealing damage
+                    
+                    if(hit.collider.CompareTag("Mayfly"))
+                    {
+                        hit.collider.GetComponent<EnemyHealth>().DeductHealth(ammoType3Damage);
+                    }
                 }
                 else
                 {

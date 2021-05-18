@@ -8,7 +8,7 @@ using UnityEngine.Experimental.GlobalIllumination;
 
 public class EnemyVisibility : MonoBehaviour
 {
-    public StateManager stateManager;
+    //public StateManager stateManager;
     public Transform target;
     // If target is further than this distance then it can't be seen
     public float maxDistance = 10f;

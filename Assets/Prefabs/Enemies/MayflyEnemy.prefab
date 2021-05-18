@@ -184,6 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14cb99999cb678948b64630b05bcc42b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stateManager: {fileID: 0}
   target: {fileID: 0}
   maxDistance: 10
   angle: 45
@@ -246,15 +247,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7550263438599895617}
-  m_LocalRotation: {x: 0.016289202, y: -0.5811471, z: -0.12461618, w: 0.80403584}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7550263438414015372}
   - {fileID: 7550263438124520233}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -6.814, y: -70.955, z: -12.761}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &546920138394758059
 MonoBehaviour:
   m_ObjectHideFlags: 0

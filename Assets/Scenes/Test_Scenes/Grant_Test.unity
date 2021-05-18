@@ -485,26 +485,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 310552662, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
-      propertyPath: goldGasFX
-      value: 
-      objectReference: {fileID: 4044160745101575014, guid: 19491a5c008bd1d47ba95c009f75e9ff,
-        type: 3}
-    - target: {fileID: 310552662, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
-      propertyPath: acidShotFX
-      value: 
-      objectReference: {fileID: 4618599775973570917, guid: 7f014b7aa3af4b24da767d2421e80caa,
-        type: 3}
-    - target: {fileID: 310552662, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
-      propertyPath: blueFireFX
-      value: 
-      objectReference: {fileID: 6119337759062558984, guid: fa9d079393e0f3149b5e30c4b47421bd,
-        type: 3}
-    - target: {fileID: 310552662, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
-      propertyPath: goldShotFX
-      value: 
-      objectReference: {fileID: 2333298657198793064, guid: 9083cb22b95c1ae46870af48e2e8c064,
-        type: 3}
     - target: {fileID: 3719314394518979051, guid: 6bacecc4f3df9584198879c73a6b6c36,
         type: 3}
       propertyPath: m_Mesh
@@ -580,11 +560,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1754402124}
-    - target: {fileID: 7603224825475343935, guid: 6bacecc4f3df9584198879c73a6b6c36,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
 --- !u!1 &576602623
@@ -781,7 +756,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1280
+  m_Name: pb_Mesh-9562
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
