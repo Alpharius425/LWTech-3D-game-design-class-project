@@ -5,8 +5,6 @@ public class SearchState : State
 {
     public StateManager stateManager;
     private bool isRotating;
-    public float rotateSpeed;
-    public float duration;
     private State returnState;
 
 
@@ -34,21 +32,22 @@ public class SearchState : State
         returnState = state;
     }
 
+    // Search for player to the left
     IEnumerator LookLeft()
     {
         Transform transform = this.stateManager.transform;
         Quaternion start = transform.rotation;
         Quaternion end = Quaternion.LookRotation(stateManager.lookLeft.transform.position - stateManager.transform.position);
         float counter = 0f;
-        while (counter < duration)
+        while (counter <stateManager.searchDuration)
         {
-            stateManager.transform.rotation = Quaternion.Slerp(start, end, counter / duration);
+            stateManager.transform.rotation = Quaternion.Slerp(start, end, counter / stateManager.searchDuration);
             yield return null;
             counter += Time.deltaTime;
-            Debug.Log(Time.deltaTime / duration);
+            Debug.Log(Time.deltaTime / stateManager.searchDuration);
             if (stateManager.canSeePlayer)
             {
-                counter = duration + 1;
+                counter = stateManager.searchDuration + 1;
                 changeState(stateManager.chaseState);
                 yield return null;
             }
@@ -58,21 +57,22 @@ public class SearchState : State
         yield return null;
     }
 
+    // Search for player to the right
     IEnumerator LookRight()
     {
         Transform transform = this.stateManager.transform;
         Quaternion start = transform.rotation;
         Quaternion end = Quaternion.LookRotation(stateManager.lookRight.transform.position - stateManager.transform.position);
         float counter = 0f;
-        while (counter < duration)
+        while (counter < stateManager.searchDuration)
         {
-            stateManager.transform.rotation = Quaternion.Slerp(start, end, counter / duration);
+            stateManager.transform.rotation = Quaternion.Slerp(start, end, counter / stateManager.searchDuration);
             yield return null;
             counter += Time.deltaTime;
-            Debug.Log(Time.deltaTime / duration);
+            //Debug.Log(Time.deltaTime / stateManager.searchDuration);
             if (stateManager.canSeePlayer)
             {
-                counter = duration + 1;
+                counter = stateManager.searchDuration + 1;
                 changeState(stateManager.chaseState);
                 yield return null;
             }

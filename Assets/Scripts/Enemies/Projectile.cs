@@ -4,29 +4,41 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public float shootSpeed;
-    public GameObject projectileSpawnPoint;
-    public GameObject projectilePrefab;
+    //public StateManager stateManager;
+    public GameObject player;
+    private Vector3 shootDirection;
+    [HideInInspector] public static float shootSpeed;
+    [HideInInspector] public float playerHealth;
+    [HideInInspector] public static float damageAmount;
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        projectileSpawnPoint = GameObject.Find("BoltSpawn");
-        //projectilePrefab = 
+        //stateManager = enemy.GetComponent<StateManager>();
+        Debug.Log("Projectile shootSpeed: " + shootSpeed);
+    }
+
+    public void Setup(Vector3 shootDirection)
+    {
+        this.shootDirection = shootDirection;
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            //playerHealth -= damageAmount;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        //get the player health from the player script
+        //playerHealth = player.GetComponent<PlayerScript>().playerHealth;
 
-        //Instantiate the bolt
-        GameObject instProjectile = Instantiate(projectilePrefab, projectileSpawnPoint.transform.position, Quaternion.identity) as GameObject;
-        //Shoot the bolt
-        //projectilePrefab.GetComponent<Rigidbody>().AddRelativeForce(new Vector3 (0, 0, shootSpeed));
-
-        Rigidbody instProjectileRigidbody = instProjectile.GetComponent<Rigidbody>();
-        instProjectileRigidbody.AddForce(Vector3.forward * shootSpeed * Time.deltaTime);
-        Destroy(this.gameObject, 1);
+        transform.position += shootDirection * shootSpeed * Time.deltaTime;
     }
 }

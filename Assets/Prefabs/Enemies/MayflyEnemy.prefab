@@ -222,20 +222,7 @@ MonoBehaviour:
   patrolState: {fileID: 7550263438311329840}
   searchState: {fileID: 7550263439833240132}
   chaseState: {fileID: 7550263439320334156}
---- !u!65 &403444150
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7550263438414015375}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &403444151
+--- !u!114 &4334293624083118195
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -539,11 +526,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5975748012346470113, guid: 0c393e6ac24c1134f99df733941b2d05,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5975748012346470114, guid: 0c393e6ac24c1134f99df733941b2d05,
         type: 3}
