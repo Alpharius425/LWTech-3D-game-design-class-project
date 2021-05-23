@@ -1,98 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &190847299
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 190847300}
-  - component: {fileID: 190847301}
-  m_Layer: 0
-  m_Name: FOVCone
-  m_TagString: coneLight
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &190847300
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 190847299}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 200, z: 0}
-  m_LocalScale: {x: 100, y: 12.387, z: 100}
-  m_Children: []
-  m_Father: {fileID: 4286788889600379}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!108 &190847301
-Light:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 190847299}
-  m_Enabled: 1
-  serializedVersion: 10
-  m_Type: 0
-  m_Shape: 0
-  m_Color: {r: 0.7924528, g: 0.3857601, b: 0.39631084, a: 1}
-  m_Intensity: 30
-  m_Range: 15
-  m_SpotAngle: 100
-  m_InnerSpotAngle: 1
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-    m_CullingMatrixOverride:
-      e00: 1
-      e01: 0
-      e02: 0
-      e03: 0
-      e10: 0
-      e11: 1
-      e12: 0
-      e13: 0
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingLayerMask: 1
-  m_Lightmapping: 4
-  m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
-  m_UseBoundingSphereOverride: 0
-  m_UseViewFrustumForShadowCasterCull: 1
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
 --- !u!1 &244101197
 GameObject:
   m_ObjectHideFlags: 0
@@ -121,7 +28,7 @@ Transform:
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 4286788889600379}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1091849174
 GameObject:
@@ -151,7 +58,7 @@ Transform:
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 4286788889600379}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1704689052989773230
 GameObject:
@@ -185,7 +92,7 @@ Transform:
   - {fileID: 2882981184961186959}
   - {fileID: 4222219635852906224}
   m_Father: {fileID: 4286788889600379}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2175764668930982401
 GameObject:
@@ -219,7 +126,7 @@ Transform:
   - {fileID: 6107697295847520433}
   - {fileID: 7725462936972365150}
   m_Father: {fileID: 4286788889600379}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3243429312247205704
 MeshFilter:
@@ -399,6 +306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateManager: {fileID: 8881559585882426834}
+  isRotating: 0
 --- !u!1 &3914862927591183208
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,7 +340,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children:
-  - {fileID: 190847300}
   - {fileID: 8247042677583154506}
   - {fileID: 3966624061031008276}
   - {fileID: 5005062697320095596}
@@ -546,7 +453,6 @@ MonoBehaviour:
   angle: 45
   visualize: 1
   FOVCone: {fileID: 0}
-  renderer: {fileID: 3344121853222922164}
 --- !u!114 &8881559585882426834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -563,30 +469,34 @@ MonoBehaviour:
   thisEnemy: {fileID: 4286788889600379}
   enemyHealth: 0
   FOVCone: {fileID: 0}
+  playerTarget: {fileID: 0}
   patrolSpeed: 1
   patrolIndex: 0
   patrolPoints:
   - {fileID: 0}
   - {fileID: 0}
   distanceFromPatrol: 0
-  playerTarget: {fileID: 0}
   distanceFromTarget: 0
-  minDetectDistance: 0
-  maxDetectDistance: 0
   searchDuration: 0
   lookLeft: {fileID: 0}
   lookRight: {fileID: 0}
+  lookBehind: {fileID: 0}
   chaseSpeed: 2
   rotateSpeed: 5
+  minDetectDistance: 0
+  maxDetectDistance: 0
   projectileSpawnPoint: {fileID: 2175764668930982401}
   projectilePrefab: {fileID: 2060652174082129153, guid: 30bce0ca68b85364f873e626020b1bdd,
     type: 3}
   damageAmount: 0
   chargeTime: 3
   shootSpeed: 50
+  fireAmount: 3
   attackDistance: 0
   terrain: {fileID: 0}
   minDistanceFromGround: 0
+  maxDistanceFromGround: 2
+  distanceFromGround: 0
   canSeePlayer: 0
   isInAttackRange: 0
   isAttacking: 0
@@ -594,6 +504,7 @@ MonoBehaviour:
   patrolState: {fileID: 3597805664109316741}
   searchState: {fileID: 5441310051486980664}
   chaseState: {fileID: 7568163872486536925}
+  animator: {fileID: 0}
 --- !u!1 &4914727247242075093
 GameObject:
   m_ObjectHideFlags: 0
@@ -10394,7 +10305,7 @@ Transform:
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 4286788889600379}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &5005062697320095597
 Light:
@@ -10836,7 +10747,7 @@ Transform:
   - {fileID: 308618590921306475}
   - {fileID: 5406289532455049248}
   m_Father: {fileID: 4286788889600379}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1097773664063369964
 MeshFilter:
@@ -11157,7 +11068,6 @@ MonoBehaviour:
   angle: 45
   visualize: 1
   FOVCone: {fileID: 0}
-  renderer: {fileID: 0}
 --- !u!114 &2939043993438750952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11174,27 +11084,31 @@ MonoBehaviour:
   thisEnemy: {fileID: 0}
   enemyHealth: 0
   FOVCone: {fileID: 0}
+  playerTarget: {fileID: 0}
   patrolSpeed: 1
   patrolIndex: 0
   patrolPoints: []
   distanceFromPatrol: 0
-  playerTarget: {fileID: 0}
   distanceFromTarget: 0
-  minDetectDistance: 0
-  maxDetectDistance: 0
   searchDuration: 0
   lookLeft: {fileID: 0}
   lookRight: {fileID: 0}
+  lookBehind: {fileID: 0}
   chaseSpeed: 2
   rotateSpeed: 5
+  minDetectDistance: 0
+  maxDetectDistance: 0
   projectileSpawnPoint: {fileID: 0}
   projectilePrefab: {fileID: 0}
   damageAmount: 0
   chargeTime: 3
   shootSpeed: 50
+  fireAmount: 3
   attackDistance: 0
   terrain: {fileID: 0}
   minDistanceFromGround: 0
+  maxDistanceFromGround: 2
+  distanceFromGround: 0
   canSeePlayer: 0
   isInAttackRange: 0
   isAttacking: 0
@@ -11202,6 +11116,7 @@ MonoBehaviour:
   patrolState: {fileID: 0}
   searchState: {fileID: 0}
   chaseState: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!114 &1819164894013559950
 MonoBehaviour:
   m_ObjectHideFlags: 0

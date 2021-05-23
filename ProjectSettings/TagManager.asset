@@ -5,10 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - EnemyFOV
-  - projectileSpawn
   - Mayfly
   - coneLight
   - Terrain
+  - SpawnPoint
+  - ProjectileSpawn
+  - Projectile
   layers:
   - Default
   - TransparentFX
@@ -17,7 +19,7 @@ TagManager:
   - Water
   - UI
   - EnemyProjectile
-  - 
+  - FOV
   - 
   - 
   - 

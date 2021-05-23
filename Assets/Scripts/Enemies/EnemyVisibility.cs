@@ -3,21 +3,23 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
+using UnityEngine.UIElements;
 
 // ENEMY AI THAT DETECTS IF THE TARGET IS WITHIN FIELD OF VIEW //
 
 public class EnemyVisibility : MonoBehaviour
 {
+    StateManager stateManager;
     public Transform target;
     // If target is further than this distance then it can't be seen
-    public float maxDistance = 10f;
+    public float maxDistance = 12f;
     // Visibility
     [Range(0f, 360f)]
-    public float angle = 65f;
+    public float angle = 100f;
     // If true, change material color
     [SerializeField] bool visualize = true;
     public Light FOVCone;
-    public new Renderer renderer;
+    //public new Renderer renderer;
 
     // Property can be accessed by other classes to determine if target is visible
     public bool TargetIsVisible { get; private set; }
@@ -25,25 +27,46 @@ public class EnemyVisibility : MonoBehaviour
     private void Start()
     {
         //Auto set the drone Field Of View light source
-        FOVCone = GetComponentInChildren<Light>();
+        stateManager = GetComponentInParent<StateManager>();
+        maxDistance = stateManager.maxDetectDistance;
     }
     // Check every frame to see if target is visible
     void Update()
     {
-        target = GetComponent<StateManager>().playerTarget.transform;
+        FOVCone = stateManager.FOVCone;
+
+        if (target == null)
+        {
+            target = stateManager.playerTarget.transform;
+
+        }
 
         TargetIsVisible = CheckVisibility();
         if (visualize)
         {
-            //Adjust the light angle to the visibility angle
+            //Adjust the light angle & range to match controls
             FOVCone.spotAngle = angle;
+            FOVCone.range = maxDistance;
 
             //change the material color, otherwise remain white
-            var color = TargetIsVisible ? Color.red : Color.white;
-            var coneColor = TargetIsVisible ? Color.red : Color.white;
+            //var color = TargetIsVisible ? Color.red : Color.white; //change color of renderer
+            var attackColor = TargetIsVisible ? Color.red : Color.white; //change color of light
+
+            if (stateManager.canSeePlayer)
+            {
+                FOVCone.color = attackColor;
+            }
+            else if (stateManager.search)
+            {
+                FOVCone.color = Color.yellow;
+            }
+            else
+            {
+                FOVCone.color = Color.white;
+            }
+
             //GetComponent<Renderer>().material.color = color;
-            renderer.material.color = color;
-            FOVCone.color = coneColor;
+            //renderer.material.color = color;
         }
     }
 

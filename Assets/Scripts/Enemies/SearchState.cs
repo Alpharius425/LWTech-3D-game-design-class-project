@@ -4,13 +4,15 @@ using UnityEngine;
 public class SearchState : State
 {
     public StateManager stateManager;
-    private bool isRotating;
+    [SerializeField] private bool isRotating;
     private State returnState;
-
+    public static bool search;
 
     public override State RunCurrentState()
     {
         isRotating = false;
+        search = true;
+
         if (!isRotating)    
         {
             if (stateManager.canSeePlayer)
@@ -21,6 +23,7 @@ public class SearchState : State
             {
                 isRotating = true;
                 StartCoroutine(LookLeft());
+
                 return returnState;
                 //return stateManager.patrolState;
             }
@@ -28,31 +31,39 @@ public class SearchState : State
         return this;
     }
 
-    public void changeState(State state) {
+    public void ChangeState(State state) {
         returnState = state;
     }
 
     // Search for player to the left
     IEnumerator LookLeft()
     {
-        Transform transform = this.stateManager.transform;
-        Quaternion start = transform.rotation;
-        Quaternion end = Quaternion.LookRotation(stateManager.lookLeft.transform.position - stateManager.transform.position);
+        Transform thisTransform = stateManager.transform;
+        Quaternion start = thisTransform.rotation;
+
+        Quaternion end = Quaternion.LookRotation(stateManager.lookLeft.transform.position - thisTransform.position);
+        end.x = 0f;
+        end.z = 0f;
         float counter = 0f;
-        while (counter <stateManager.searchDuration)
+
+        while (counter < stateManager.searchDuration)
         {
-            stateManager.transform.rotation = Quaternion.Slerp(start, end, counter / stateManager.searchDuration);
+            thisTransform.rotation = Quaternion.Lerp(start, end, counter / stateManager.searchDuration);
+
             yield return null;
             counter += Time.deltaTime;
-            Debug.Log(Time.deltaTime / stateManager.searchDuration);
+
+            //Debug.Log(Time.deltaTime / stateManager.searchDuration);
             if (stateManager.canSeePlayer)
             {
+                search = false;
+
                 counter = stateManager.searchDuration + 1;
-                changeState(stateManager.chaseState);
+                ChangeState(stateManager.chaseState);
                 yield return null;
             }
         }
-
+  
         StartCoroutine(LookRight());
         yield return null;
     }
@@ -60,24 +71,36 @@ public class SearchState : State
     // Search for player to the right
     IEnumerator LookRight()
     {
-        Transform transform = this.stateManager.transform;
-        Quaternion start = transform.rotation;
-        Quaternion end = Quaternion.LookRotation(stateManager.lookRight.transform.position - stateManager.transform.position);
-        float counter = 0f;
-        while (counter < stateManager.searchDuration)
+        Transform _thisTransform = stateManager.transform;
+        Quaternion _start = _thisTransform.rotation;
+        Quaternion _end = Quaternion.LookRotation(stateManager.lookRight.transform.position - _thisTransform.position);
+        _end.x = 0f;
+        _end.z = 0f;
+
+        float _counter = 0f;
+
+        while (_counter < stateManager.searchDuration)
         {
-            stateManager.transform.rotation = Quaternion.Slerp(start, end, counter / stateManager.searchDuration);
+
+            _thisTransform.rotation = Quaternion.Lerp(_start, _end, _counter / stateManager.searchDuration);
+
             yield return null;
-            counter += Time.deltaTime;
+            _counter += Time.deltaTime;
             //Debug.Log(Time.deltaTime / stateManager.searchDuration);
             if (stateManager.canSeePlayer)
             {
-                counter = stateManager.searchDuration + 1;
-                changeState(stateManager.chaseState);
+                search = false;
+
+                _counter = stateManager.searchDuration + 1;
+                ChangeState(stateManager.chaseState);
                 yield return null;
             }
         }
-        changeState(stateManager.patrolState);
+
+        //if can't find target return to patrol
+        search = false;
+
+        ChangeState(stateManager.patrolState);
         yield return null;
     }
 }

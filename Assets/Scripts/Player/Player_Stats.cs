@@ -72,7 +72,7 @@ public class Player_Stats : MonoBehaviour
     {
         timeUntilRegen = maxTimeUntilRegen;
         maxHealth = 100; //initialize max health to 100
-        HealthBar.value = CalculateHealth(); //calculate health and set to current
+        //HealthBar.value = CalculateHealth(); //calculate health and set to current
     }
 
     // Update is called once per frame
@@ -159,7 +159,7 @@ public class Player_Stats : MonoBehaviour
         playerAudio.Play(); //play sound clip
         curHealth -= damage; // subtracts from our health
         timeUntilRegen = maxTimeUntilRegen;
-        HealthBar.value = CalculateHealth(); //calculate health and set to current
+        //HealthBar.value = CalculateHealth(); //calculate health and set to current
         isRegening = false;
         StopCoroutine("RegenHealth");
         if (curHealth <= 0) // if we have less than 0 health
@@ -192,7 +192,7 @@ public class Player_Stats : MonoBehaviour
             curHealth = maxHealth;
             StopCoroutine("RegenHealth");
         }
-        HealthBar.value = CalculateHealth(); //calculate health and set to current
+        //HealthBar.value = CalculateHealth(); //calculate health and set to current
     }
 
     public void IncreaseAmmo(AmmoType ammo, int value) // ammo determines what ammo type is increased. Value determines how much ammo we get.
