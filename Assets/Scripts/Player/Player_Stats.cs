@@ -256,7 +256,7 @@ public class Player_Stats : MonoBehaviour
 
                     if (hit.collider.CompareTag("Mayfly"))
                     {
-                        hit.collider.GetComponent<EnemyHealth>().DeductHealth(ammoType3Damage);
+                        hit.collider.GetComponent<EnemyHealth>().DeductHealth(ammoType1Damage);
                     }
                 }
                else

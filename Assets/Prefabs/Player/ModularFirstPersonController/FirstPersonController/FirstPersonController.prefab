@@ -227,6 +227,7 @@ MonoBehaviour:
   hasKey: 0
   currentAmmo: 0
   isDead: 0
+  HealthBar: {fileID: 0}
   playerAudio: {fileID: 5754085504584722820}
   reloadOutSFX: {fileID: 8300000, guid: 40ed7956ba71e4d459dc72b29ecb1ea8, type: 3}
   reloadInSFX: {fileID: 8300000, guid: 00028222c1a52ef41922029c1addf373, type: 3}
@@ -827,6 +828,7 @@ GameObject:
   - component: {fileID: 316007040281237358}
   - component: {fileID: 5222721280234342376}
   - component: {fileID: 6646089891237612613}
+  - component: {fileID: 4625513797369833107}
   m_Layer: 0
   m_Name: Shotgun_Cone
   m_TagString: Untagged
@@ -1265,6 +1267,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &4625513797369833107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4929650549517060357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0b99228f90781428d64f345953170b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &6093675588824002424
 GameObject:
   m_ObjectHideFlags: 0
