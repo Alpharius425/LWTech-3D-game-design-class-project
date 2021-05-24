@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player_Stats : MonoBehaviour
 {
@@ -33,13 +34,16 @@ public class Player_Stats : MonoBehaviour
     [SerializeField] Camera fpsCamera; // where we fire from (in this case the camera)
     [SerializeField] GameObject firePoint;
 
-    public Renderer gun;
-
     public bool hasKey = false;
 
     [SerializeField] AmmoType currentAmmo = AmmoType.ammo1; // determines what kind of ammo we are currently using. by default set to ammo type 1
 
     [SerializeField] bool isDead = false;
+
+    [SerializeField] GameObject gun;
+    [SerializeField] Animator myAnim;
+    [SerializeField] FirstPersonController myController;
+    [SerializeField] Image fadeRenderer;
 
     //=========================UI==================================
     public Slider HealthBar; //for storing reference to healthbar UI element
@@ -72,7 +76,11 @@ public class Player_Stats : MonoBehaviour
     {
         timeUntilRegen = maxTimeUntilRegen;
         maxHealth = 100; //initialize max health to 100
+        myAnim = GetComponentInChildren<Animator>();
+        myController = GetComponent<FirstPersonController>();
         //HealthBar.value = CalculateHealth(); //calculate health and set to current
+
+        StartCoroutine("BlackFadeOut");
     }
 
     // Update is called once per frame
@@ -83,23 +91,23 @@ public class Player_Stats : MonoBehaviour
             TakeDamage(10);
         }
 
-        if(Input.GetButtonDown("Ammo1")) // swaps to ammo 1 if we push this input
+        if(Input.GetButtonDown("Ammo1") && myAnim.GetBool("Reloading") == false) // swaps to ammo 1 if we push this input
         {
             StartCoroutine(changeAmmo(1));
         }
 
-        if (Input.GetButtonDown("Ammo2")) // swaps to ammo 2 if we push this input
+        if (Input.GetButtonDown("Ammo2") && myAnim.GetBool("Reloading") == false) // swaps to ammo 2 if we push this input
         {
             StartCoroutine(changeAmmo(2));
         }
 
-        if (Input.GetButtonDown("Ammo3")) // swaps to ammo 3 if we push this input
+        if (Input.GetButtonDown("Ammo3") && myAnim.GetBool("Reloading") == false) // swaps to ammo 3 if we push this input
         {
             StartCoroutine(changeAmmo(3));
         }
 
 
-        if (Input.GetButtonDown("Fire1")) // if we left click
+        if (Input.GetButtonDown("Fire1") && myAnim.GetBool("Reloading") == false) // if we left click
         {
             switch(currentAmmo) // looks at what ammo type we are currently using
             {
@@ -151,10 +159,27 @@ public class Player_Stats : MonoBehaviour
             //Debug.Log("Starting regen");
             StartCoroutine("RegenHealth");
         }
+
+
+
+        // improvising the animations and crouch scale cause we're using the player controller
+
+        myAnim.SetBool("Moving", myController.isWalking);
+        myAnim.SetBool("Sprinting", myController.isSprinting);
+
+        if(Input.GetKey(KeyCode.LeftControl)) // will hopefully fix our gun scaling issue when we crouch
+        {
+            gun.transform.localScale = new Vector3(1, 1.3f, 1);
+        }
+        else
+        {
+            gun.transform.localScale = new Vector3(1, 1, 1);
+        }
     }
 
     public void TakeDamage(int damage)
     {
+        myAnim.SetTrigger("Hurt");
         playerAudio.clip = hurtSFX; //set sound clip
         playerAudio.Play(); //play sound clip
         curHealth -= damage; // subtracts from our health
@@ -167,7 +192,48 @@ public class Player_Stats : MonoBehaviour
             playerAudio.clip = deathSFX;
             playerAudio.Play();
             isDead = true; // we are ded
+            fadeRenderer.gameObject.SetActive(true); // turns the fade gameobject on
+            StartCoroutine("BlackFadeIn");
         }
+    }
+
+    IEnumerator BlackFadeIn()
+    {
+
+        for (float fade = 0f; fade <= 1f; fade += 0.1f) // runs a loop that makes the fade slowly become solid
+        {
+            Color newColor = fadeRenderer.color; // sets the color to same as our base color
+            newColor.a = fade; // sets the alpha of the new color to be less transparent
+            fadeRenderer.color = newColor; // resets the color of the sprite to be transparent
+
+            if (fade <= 0.9f)
+            {
+                yield return new WaitForSeconds(0.1f);
+            }
+        }
+        fadeRenderer.gameObject.SetActive(false); // turns the fade gameobject off
+        SceneManager.LoadScene(0);
+        StopCoroutine("BlackFadeIn");
+    }
+
+    IEnumerator BlackFadeOut()
+    {
+
+        for (float fade = 1f; fade >= 0f; fade -= 0.1f) // runs a loop that makes the fade slowly become transparent
+        {
+            Color newColor = fadeRenderer.color; // sets the color to same as our base color
+            newColor.a = fade; // sets the alpha of the new color to be more transparent
+            fadeRenderer.color = newColor; // resets the color of the sprite to be transparent
+
+            if (fade >= 0.1f)
+            {
+                yield return new WaitForSeconds(0.1f);
+            }
+        }
+
+        fadeRenderer.gameObject.SetActive(false); // turns the fade gameobject off
+        
+        StopCoroutine("BlackFadeInOut");
     }
 
     IEnumerator RegenHealth()
@@ -234,7 +300,7 @@ public class Player_Stats : MonoBehaviour
 
     void Shoot(AmmoType ammo) // ask what type of ammo we are using and then takes it from the pool
     {
-
+        myAnim.SetTrigger("Attack");
         RaycastHit hit;
 
         switch(ammo)
@@ -302,9 +368,6 @@ public class Player_Stats : MonoBehaviour
                 }
                 break;
         }
-
-      
-
     }
 
     float CalculateHealth() //returns the health calculation for updating UI
@@ -314,12 +377,14 @@ public class Player_Stats : MonoBehaviour
     //=========================Grant's Stuff=========================
     private IEnumerator changeAmmo(int type)
     {
+        myAnim.SetBool("Reloading", true);
+
         if (type == 1) //if changing to ammo type 1...
         {
             playerAudio.clip = reloadOutSFX; //change clip to out sfx
             playerAudio.Play(); //play clip
             yield return new WaitForSeconds(2); //wait for animation and sfx to finish
-            playerAudio.clip = reloadInSFX; //change clip to in sfxwwwwwwwwwwww
+            playerAudio.clip = reloadInSFX; //change clip to in sfx
             playerAudio.Play(); //play clip
             currentAmmo = AmmoType.ammo1; //set ammo type to 1
         }
@@ -341,6 +406,8 @@ public class Player_Stats : MonoBehaviour
             playerAudio.Play(); //play clip
             currentAmmo = AmmoType.ammo3; //set ammo type to 3
         }
+
+        myAnim.SetBool("Reloading", false);
     }
 }
 
