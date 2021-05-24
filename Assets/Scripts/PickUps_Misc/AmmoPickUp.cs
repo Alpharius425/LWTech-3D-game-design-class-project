@@ -15,7 +15,7 @@ public class AmmoPickUp : MonoBehaviour
     [SerializeField] float requiredDistanceFromPlayer; // how far away the player needs to be
     [SerializeField] float distFromPlayer; // the actual distance from the player
 
-    Renderer myRender; // allows us to reference the renderer easily
+    [SerializeField] GameObject myChild;
 
     [SerializeField] bool respawns = true;
     //=========================SOUND EFFECTS=========================
@@ -32,7 +32,7 @@ public class AmmoPickUp : MonoBehaviour
             col.GetComponent<Player_Stats>().IncreaseAmmo(ammoType, value); // gives the player ammo
             curTimeToRespawn = respawnTime; // resets the spawn timer
             active = false; // turns off the pickup
-            myRender.enabled = false; // turns off the renderer so it looks like it disappeared
+            myChild.SetActive(false); // turns off the nested game object so it looks like it disappeared
         }
     }
 
@@ -51,12 +51,11 @@ public class AmmoPickUp : MonoBehaviour
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player"); // saves the player
-        myRender = gameObject.GetComponent<MeshRenderer>(); // saves our renderer
     }
 
     void Reactivate() // turns the pickup back on and the renderer is reactivated
     {
         active = true;
-        myRender.enabled = true;
+        myChild.SetActive(true);
     }
 }
