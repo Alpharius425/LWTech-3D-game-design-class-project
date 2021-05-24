@@ -14,6 +14,7 @@ public class Player_Stats : MonoBehaviour
     [SerializeField] float healthRegen; // how long it takes to restore 1 health
     [SerializeField] bool isRegening = false; // are we currently healing
 
+    [SerializeField] bool reloading = false;
     public int maxAmmoType1; // max amount of this ammo we can have
     public int curAmmoType1; // how much of this ammo we currently have
     [SerializeField] float ammoType1Range; // how far this can shoot
@@ -91,23 +92,23 @@ public class Player_Stats : MonoBehaviour
             TakeDamage(10);
         }
 
-        if(Input.GetButtonDown("Ammo1") && myAnim.GetBool("Reloading") == false) // swaps to ammo 1 if we push this input
+        if(Input.GetButtonDown("Ammo1")) // swaps to ammo 1 if we push this input
         {
             StartCoroutine(changeAmmo(1));
         }
 
-        if (Input.GetButtonDown("Ammo2") && myAnim.GetBool("Reloading") == false) // swaps to ammo 2 if we push this input
+        if (Input.GetButtonDown("Ammo2")) // swaps to ammo 2 if we push this input
         {
             StartCoroutine(changeAmmo(2));
         }
 
-        if (Input.GetButtonDown("Ammo3") && myAnim.GetBool("Reloading") == false) // swaps to ammo 3 if we push this input
+        if (Input.GetButtonDown("Ammo3")) // swaps to ammo 3 if we push this input
         {
             StartCoroutine(changeAmmo(3));
         }
 
 
-        if (Input.GetButtonDown("Fire1") && myAnim.GetBool("Reloading") == false) // if we left click
+        if (Input.GetButtonDown("Fire1") && reloading == false) // if we left click
         {
             switch(currentAmmo) // looks at what ammo type we are currently using
             {
@@ -377,7 +378,9 @@ public class Player_Stats : MonoBehaviour
     //=========================Grant's Stuff=========================
     private IEnumerator changeAmmo(int type)
     {
-        myAnim.SetBool("Reloading", true);
+        //myAnim.SetBool("Reloading", true);
+        myAnim.SetTrigger("Reloading");
+        reloading = true;
 
         if (type == 1) //if changing to ammo type 1...
         {
@@ -407,7 +410,8 @@ public class Player_Stats : MonoBehaviour
             currentAmmo = AmmoType.ammo3; //set ammo type to 3
         }
 
-        myAnim.SetBool("Reloading", false);
+        reloading = false;
+        //myAnim.SetBool("Reloading", false);
     }
 }
 
