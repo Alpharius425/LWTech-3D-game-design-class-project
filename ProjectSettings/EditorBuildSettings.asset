@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Test_Scenes/World_v1.unity
+    guid: b0663dbe9713a20488387da2ac8376ef
+  - enabled: 1
     path: Assets/Scenes/Test_Scenes/EnemyAiTesting.unity
     guid: bcd148585abedf440bc694fb5ae2c11a
   - enabled: 1
