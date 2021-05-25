@@ -182,6 +182,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -44
       objectReference: {fileID: 0}
+    - target: {fileID: 2118602833, guid: 6717b8137c577b548b8fbb4fdf9ebdd4, type: 3}
+      propertyPath: myAnim
+      value: 
+      objectReference: {fileID: 5531348482308059139}
     - target: {fileID: 2118602834, guid: 6717b8137c577b548b8fbb4fdf9ebdd4, type: 3}
       propertyPath: fireRate
       value: 2
@@ -389,6 +393,12 @@ GameObject:
 --- !u!4 &700864916491388001 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7011133349524483114, guid: 6717b8137c577b548b8fbb4fdf9ebdd4,
+    type: 3}
+  m_PrefabInstance: {fileID: 7563079032364722251}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5531348482308059139 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2609335072571250760, guid: 6717b8137c577b548b8fbb4fdf9ebdd4,
     type: 3}
   m_PrefabInstance: {fileID: 7563079032364722251}
   m_PrefabAsset: {fileID: 0}

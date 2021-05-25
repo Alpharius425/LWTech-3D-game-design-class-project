@@ -3254,6 +3254,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 310552662, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: curHealth
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 310552662, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: ammoType1Damage
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 310552662, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: ammoType3Damage
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 3719314394518979051, guid: 6bacecc4f3df9584198879c73a6b6c36,
         type: 3}
       propertyPath: m_Mesh
@@ -3338,6 +3350,11 @@ PrefabInstance:
         type: 3}
       propertyPath: field of view
       value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 4625513797369833107, guid: 6bacecc4f3df9584198879c73a6b6c36,
+        type: 3}
+      propertyPath: damage
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5222721280234342376, guid: 6bacecc4f3df9584198879c73a6b6c36,
         type: 3}
@@ -3739,7 +3756,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2444
+  m_Name: pb_Mesh-1634
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

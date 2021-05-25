@@ -5,6 +5,12 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     public float enemyHealth = 100f;
+    [SerializeField] Animator myAnim;
+
+    //void Awake()
+    //{
+    //    myAnim = gameObject.GetComponent<StateManager>().animator;
+    //}
 
     public void DeductHealth(float damage)
     {
@@ -19,7 +25,8 @@ public class EnemyHealth : MonoBehaviour
 
     void EnemyDead()
     {
-        Destroy(gameObject, 1f);
+        myAnim.SetBool("dead", true);
+        Destroy(gameObject, 2f);
     }
                 
 }

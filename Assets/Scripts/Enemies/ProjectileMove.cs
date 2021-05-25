@@ -11,6 +11,8 @@ public class ProjectileMove : MonoBehaviour
     public static GameObject spawnPoint;
     Vector3 aimAt;
 
+    public int damage;
+
     private void Start()
     {
         aimAt = AttackState.targetLastPos.position;
@@ -31,6 +33,11 @@ public class ProjectileMove : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+
+        if(collision.collider.CompareTag("Player"))
+        {
+            collision.collider.GetComponent<Player_Stats>().TakeDamage(damage);
+        }
         Destroy(gameObject);
     }
 

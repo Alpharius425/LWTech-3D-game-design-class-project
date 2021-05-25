@@ -82,14 +82,16 @@ public class AttackState : State
             Debug.Log("FIRING");
             yield return new WaitForSeconds(stateManager.chargeTime);
 
-            Instantiate(magicAttack, stateManager.spawnPoint.transform.position, stateManager.spawnPoint.transform.rotation);
+            GameObject projectile;
+            projectile = Instantiate(magicAttack, stateManager.spawnPoint.transform.position, stateManager.spawnPoint.transform.rotation);
 
-            player.GetComponent<Player_Stats>().TakeDamage(damageAmount);
-            Debug.Log("Enemy did damage for " + damageAmount);
+            projectile.GetComponent<ProjectileMove>().damage = damageAmount;
+            //player.GetComponent<Player_Stats>().TakeDamage(damageAmount);
+            //Debug.Log("Enemy did damage for " + damageAmount);
             Debug.Log(hit.transform.name);
             if (hit.collider.CompareTag("Player"))
             {
-                hit.collider.GetComponent<Player_Stats>().TakeDamage(stateManager.damageAmount);
+                //hit.collider.GetComponent<Player_Stats>().TakeDamage(stateManager.damageAmount);
                 yield return null;
 
             }

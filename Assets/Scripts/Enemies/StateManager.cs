@@ -67,7 +67,7 @@ public class StateManager : MonoBehaviour
     public ChaseState chaseState;
 
     [Header ("ANIMATION")]
-    [SerializeField] Animator animator;
+    public Animator animator;
 
 
     private void Start()
