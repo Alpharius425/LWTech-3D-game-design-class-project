@@ -9,6 +9,9 @@ using UnityEngine.UIElements;
 
 public class EnemyVisibility : MonoBehaviour
 {
+
+    [SerializeField] LayerMask playerMask; // mask containing the player layer. added so we only look for that layer
+
     StateManager stateManager;
     public Transform target;
     // If target is further than this distance then it can't be seen
@@ -139,8 +142,9 @@ public class EnemyVisibility : MonoBehaviour
         //records info about whether target is in range and not blocked
         var canSee = false;
 
+
         //fire raycast. Did it hit anything?
-        if (Physics.Raycast(ray, out hit, rayDistance))
+        if (Physics.Raycast(ray, out hit, rayDistance, playerMask))
         {
             //did ray hit target?
             if (hit.collider.transform == target)

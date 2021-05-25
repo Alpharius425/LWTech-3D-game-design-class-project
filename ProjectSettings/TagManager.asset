@@ -11,6 +11,7 @@ TagManager:
   - SpawnPoint
   - ProjectileSpawn
   - Projectile
+  - AcidDoor
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - UI
   - EnemyProjectile
   - FOV
-  - 
+  - Player
   - 
   - 
   - 

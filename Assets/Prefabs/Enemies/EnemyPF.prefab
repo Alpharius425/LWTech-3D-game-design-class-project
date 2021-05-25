@@ -288,6 +288,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Drone_Enemy_zeroed
       objectReference: {fileID: 0}
+    - target: {fileID: 6501853512226936962, guid: 6717b8137c577b548b8fbb4fdf9ebdd4,
+        type: 3}
+      propertyPath: playerMask.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 6978104120797954162, guid: 6717b8137c577b548b8fbb4fdf9ebdd4,
         type: 3}
       propertyPath: m_Layer
