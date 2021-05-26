@@ -39,7 +39,7 @@ public class PatrolState : State
         //move toward patrol point
         stateManager.transform.Translate(Vector3.forward * stateManager.patrolSpeed * Time.deltaTime);
         //once at the patrol point increase the index, check that the value is within bounds, otherwise reset to 0
-        if (stateManager.distanceFromPatrol < 0.5f)
+        if (stateManager.distanceFromPatrol < 0.8f)
         {
             stateManager.patrolIndex++;
             if (stateManager.patrolIndex >= stateManager.patrolPoints.Length)

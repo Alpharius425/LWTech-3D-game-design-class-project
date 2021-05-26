@@ -9,9 +9,6 @@ using UnityEngine.UIElements;
 
 public class EnemyVisibility : MonoBehaviour
 {
-
-    [SerializeField] LayerMask playerMask; // mask containing the player layer. added so we only look for that layer
-
     StateManager stateManager;
     public Transform target;
     // If target is further than this distance then it can't be seen
@@ -22,8 +19,8 @@ public class EnemyVisibility : MonoBehaviour
     // If true, change material color
     [SerializeField] bool visualize = true;
     public Light FOVCone;
-    //public new Renderer renderer;
-
+    [SerializeField] LayerMask mask;
+    
     // Property can be accessed by other classes to determine if target is visible
     public bool TargetIsVisible { get; private set; }
 
@@ -53,11 +50,11 @@ public class EnemyVisibility : MonoBehaviour
 
             //change the material color, otherwise remain white
             //var color = TargetIsVisible ? Color.red : Color.white; //change color of renderer
-            var attackColor = TargetIsVisible ? Color.red : Color.white; //change color of light
+            //var attackColor = TargetIsVisible ? Color.red : Color.white; //change color of light
 
             if (stateManager.canSeePlayer)
             {
-                FOVCone.color = attackColor;
+                FOVCone.color = Color.red;
             }
             else if (stateManager.search)
             {
@@ -142,9 +139,8 @@ public class EnemyVisibility : MonoBehaviour
         //records info about whether target is in range and not blocked
         var canSee = false;
 
-
         //fire raycast. Did it hit anything?
-        if (Physics.Raycast(ray, out hit, rayDistance, playerMask))
+        if (Physics.Raycast(ray, out hit, rayDistance, mask))
         {
             //did ray hit target?
             if (hit.collider.transform == target)

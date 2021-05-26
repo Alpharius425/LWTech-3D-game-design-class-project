@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Prefabs/Bunker_Pack/Gully.prefab.meta
 guid: 60dd6b094a33f6a4083db60d44dde7e5
 PrefabImporter:
+=======
+guid: aabf21bbd578c524881a259c57f6e39a
+DefaultImporter:
+>>>>>>> origin/Enemy-new:Assets/Scenes/Test_Scenes/EnemyAiTesting 1.unity.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

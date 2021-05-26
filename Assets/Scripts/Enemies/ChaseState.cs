@@ -15,10 +15,10 @@ public class ChaseState : State
         {
             return stateManager.attackState;
         }
-        else if (stateManager.canSeePlayer)
-        {
-            return this;
-        }
+        //else if (stateManager.canSeePlayer)
+        //{
+        //    return this;
+        //}
         else
         {
             return stateManager.searchState;

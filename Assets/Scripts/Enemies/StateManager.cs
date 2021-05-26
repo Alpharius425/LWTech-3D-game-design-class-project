@@ -12,6 +12,7 @@ public class StateManager : MonoBehaviour
 
     [Header("ENEMY")]
     //public Transform thisEnemy;
+    public static GameObject enemyPrefab;
     public float enemyHealth;
     public Light FOVCone; //light source that shows enemy FOV
 
@@ -34,9 +35,9 @@ public class StateManager : MonoBehaviour
 
     [Header("CHASE STATE")]
     public float chaseSpeed = 2f; // speed while chasing the target
-    public float rotateSpeed = 5f; // speed when rotating
-    public float stoppingDistance = 4f; // minimum distance from player before stopping (to not run into player)
-    public float maxDetectDistance; //max distance for visibility
+    public float rotateSpeed = 3f; // speed when rotating
+    public float stoppingDistance = 6f; // minimum distance from player before stopping (to not run into player)
+    public float maxDetectDistance = 10f; //max distance for visibility
 
     [Header("ATTACK STATE")]
     public GameObject spawnPoint;
@@ -44,15 +45,18 @@ public class StateManager : MonoBehaviour
     public GameObject magicAttack; //weapon effect
     public int damageAmount; //amount of damage enemy does to player
     public float chargeTime = 3f;
-    public float shootSpeed = 50f;
+    public float shootSpeed = 8f;
+    public float rateOfFireMin = 3f;
+    public float rateOfFireMax = 3f;
     //public float startAttackDistance; //distance when enemy begins attack
-    public float shootDistance; //how far the attack can reach the player
+    //public float shootDistance; //how far the attack can reach the player
 
+    //Keeps the enemy at a certain height. Make both min and max the same to keep enemy even - and make sure patrol points are at the same height.
     [Header("GROUND")]
     public GameObject terrain;
-    public float minDistanceFromGround = 2f;
-    public float maxDistanceFromGround = 2f;
-    public float distanceFromGround; // keep drone from lowering
+    public float minDistanceFromGround = 4f;
+    public float maxDistanceFromGround = 4f;
+    public float distanceFromGround; //checks the distance above the terrain
 
     [Header("CONTROL BOOLS")]
     public bool canSeePlayer;
@@ -60,6 +64,7 @@ public class StateManager : MonoBehaviour
     public bool isAttacking;
     public bool search, patrol;
 
+    //Inherits from State - each controls the individual state change of the enemy
     [Header("STATE SCRIPTS")]
     public AttackState attackState;
     public PatrolState patrolState;
@@ -67,7 +72,9 @@ public class StateManager : MonoBehaviour
     public ChaseState chaseState;
 
     [Header ("ANIMATION")]
-    public Animator animator;
+    public static Animator animator;
+
+    public static Rigidbody rb;
 
 
     private void Start()
@@ -76,16 +83,19 @@ public class StateManager : MonoBehaviour
         isAttacking = false;
         patrol = false;
 
-        ProjectileMove.speed = shootSpeed;
-        ProjectileMove.chargeTime = chargeTime;
+        //Allows the static variables of ProjectileMove to be changed by StateManager.
+        ProjectileMove.speed = this.shootSpeed;
+        ProjectileMove.chargeTime = this.chargeTime;
         ProjectileMove.weapon = this.magicAttack;
         ProjectileMove.spawnPoint = this.spawnPoint;
+        SearchState.canSeePlayer = this.canSeePlayer;
 
+        //Find and set these objects at the start.
+        rb = GetComponent<Rigidbody>();
+        enemyPrefab = GameObject.FindGameObjectWithTag("Enemy1");
         playerTarget = GameObject.FindGameObjectWithTag("Player");
         FOVCone = GetComponentInChildren<Light>();
-        spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
-        //projectileprefab = gameobject.findgameobjectwithtag("projectile");
-        //projectilePrefab = GameObject.FindGameObjectWithTag("projectile");
+        //spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint"); //if more than one enemy this may grab the wrong SpawnPoint
         terrain = GameObject.FindGameObjectWithTag("Terrain");
     }
 
@@ -96,13 +106,15 @@ public class StateManager : MonoBehaviour
         animator = GetComponent<Animator>();
         lookLeft = GameObject.Find("LookLeft");
         lookRight = GameObject.Find("LookRight");
-        search = SearchState.search;
+        //search = SearchState.search;
 
         canSeePlayer = GetComponentInChildren<EnemyVisibility>().TargetIsVisible;
         enemyHealth = GetComponent<EnemyHealth>().enemyHealth;
         distanceFromTarget = Vector3.Distance(transform.position, playerTarget.transform.position);
-        distanceFromGround = Terrain.activeTerrain.SampleHeight(transform.position);
-        //isInAttackRange = (distanceFromTarget <= startAttackDistance);
+        //distanceFromGround = Terrain.activeTerrain.SampleHeight(transform.position);
+
+        //If there is no Terrain
+        distanceFromGround = Vector3.Distance(transform.position, terrain.transform.position);
 
         //ANIMATION BOOLS
         if (canSeePlayer)
@@ -110,37 +122,37 @@ public class StateManager : MonoBehaviour
             animator.SetBool("chasing", true);
             animator.SetBool("dead", false);
             animator.SetBool("patrol", false);
-            patrol = false;
         }
         else if (currentState == patrolState)
         {
             animator.SetBool("patrol", true);
             animator.SetBool("dead", false);
             animator.SetBool("chasing", false);
-            patrol = true;
         }
         else if (enemyHealth <= 0)
         {
             animator.SetBool("dead", true);
             animator.SetBool("chasing", false);
             animator.SetBool("patrol", true);
-            patrol = false;
         }
         else
         {
             animator.SetBool("dead", false);
             animator.SetBool("patrol", false);
             animator.SetBool("chasing", false);
-            patrol = false;
         }
-            RunStateMachine();
+
+        RunStateMachine();
     }
+
+
 
     private void FixedUpdate()
     {
         HeightCheck();
     }
 
+    //Keeps enemy at the min and max height. Keep both variables the same if no change in height is wanted.
     void HeightCheck()
     {
         //Keep a certain distance above ground.
@@ -148,16 +160,14 @@ public class StateManager : MonoBehaviour
         {
             Vector3 pos = transform.position;
             pos.y = minDistanceFromGround;
-            //pos.y = Terrain.activeTerrain.SampleHeight(transform.position);
-            //Debug.Log("pos.y " + pos.y);
+
             transform.position = pos;
         }
         else if (distanceFromGround > maxDistanceFromGround)
         {
             Vector3 pos = transform.position;
             pos.y = maxDistanceFromGround;
-            //pos.y = Terrain.activeTerrain.SampleHeight(transform.position) - 1.5f;
-            //Debug.Log("pos.y " + pos.y);
+
             transform.position = pos;
         }
     }
@@ -181,6 +191,4 @@ public class StateManager : MonoBehaviour
     {
         currentState = nextState;
     }
-
-
 }

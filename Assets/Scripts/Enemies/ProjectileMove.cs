@@ -9,64 +9,27 @@ public class ProjectileMove : MonoBehaviour
     public static float chargeTime;
     public static GameObject weapon;
     public static GameObject spawnPoint;
-    Vector3 aimAt;
 
-    public int damage;
-
-    private void Start()
+    public void Update()
     {
-        aimAt = AttackState.targetLastPos.position;
-    }
-
-    void Update()
-    {
-        //StartCoroutine(ChargeFire());
         AddVelocity();
     }
 
     public void AddVelocity()
     {
         Debug.Log("Speed " + speed);
-        transform.position = Vector3.MoveTowards(transform.position, aimAt, (speed * Time.deltaTime));
+        transform.position = Vector3.MoveTowards(transform.position, AttackState.targetLastPos.position, (speed * Time.deltaTime));
     }
 
-
-    private void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter(Collision collision)
     {
-
-        if(collision.collider.CompareTag("Player"))
+        if (collision.gameObject.tag == "Player")
         {
-            collision.collider.GetComponent<Player_Stats>().TakeDamage(damage);
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
+        else if(collision.gameObject.tag == "Terrain" || collision.gameObject.tag == "Walls")
+        { 
+            Destroy(gameObject, 1f);  
+        }
     }
-
-    //IEnumerator ChargeFire()
-    //{
-    //    yield return new WaitForSeconds(chargeTime);
-
-    //    //Instantiate(weapon, spawnPoint.transform.position, spawnPoint.transform.rotation);
-    //    //transform.position += transform.forward * (speed * Time.deltaTime);
-    //    ShootMagic();
-    //    yield return null;
-    //}
-
-    //void ShootMagic()
-    //{
-    //    if (speed != 0)
-    //    {
-
-    //        if (chargeTime < timer)
-    //        {
-
-    //            transform.position += transform.forward * (speed * Time.deltaTime);
-    //            timer = 0;
-    //        }
-    //        else
-    //        {
-    //            timer += 1;
-
-    //        }
-    //    }
-    //}
 }

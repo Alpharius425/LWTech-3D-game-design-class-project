@@ -96,6 +96,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: chasing
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: patrol
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 693507538813213934}
   m_Solo: 0

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Prefabs/Bunker_Pack/Door.prefab.meta
+guid: 3161a6e958bd14d41be0aa05ff00d5bf
+=======
 guid: be34236d02e34c741aec0c4ca0797e01
+>>>>>>> origin/Enemy-new:Assets/Prefabs/Effects/vfx_enemyCharge.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 

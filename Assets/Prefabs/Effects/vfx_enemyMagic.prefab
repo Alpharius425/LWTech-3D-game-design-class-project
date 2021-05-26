@@ -9656,7 +9656,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   disableInstead: 1
-  deleteTime: 2
+  deleteTime: 5
 --- !u!114 &-2290209332841109878
 MonoBehaviour:
   m_ObjectHideFlags: 0

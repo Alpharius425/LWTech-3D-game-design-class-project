@@ -6,32 +6,39 @@ public class SearchState : State
     public StateManager stateManager;
     [SerializeField] private bool isRotating;
     private State returnState;
-    public static bool search;
+    public static bool canSeePlayer;
 
     public override State RunCurrentState()
     {
         isRotating = false;
-        search = true;
+        stateManager.search = true;
 
-        if (!isRotating)    
+        if (!isRotating)
         {
             if (stateManager.canSeePlayer)
             {
+                stateManager.search = false;
                 return stateManager.chaseState;
             }
             else if (!stateManager.canSeePlayer)
             {
+                stateManager.search = true;
                 isRotating = true;
                 StartCoroutine(LookLeft());
 
                 return returnState;
                 //return stateManager.patrolState;
             }
+            else
+            {
+                return this;
+            }
         }
         return this;
     }
 
-    public void ChangeState(State state) {
+    public void ChangeState(State state)
+    {
         returnState = state;
     }
 
@@ -42,6 +49,7 @@ public class SearchState : State
         Quaternion start = thisTransform.rotation;
 
         Quaternion end = Quaternion.LookRotation(stateManager.lookLeft.transform.position - thisTransform.position);
+        //Trying to correct the rotation of the drone.
         end.x = 0f;
         end.z = 0f;
         float counter = 0f;
@@ -56,14 +64,14 @@ public class SearchState : State
             //Debug.Log(Time.deltaTime / stateManager.searchDuration);
             if (stateManager.canSeePlayer)
             {
-                search = false;
+                stateManager.search = false;
 
                 counter = stateManager.searchDuration + 1;
                 ChangeState(stateManager.chaseState);
                 yield return null;
             }
         }
-  
+
         StartCoroutine(LookRight());
         yield return null;
     }
@@ -89,16 +97,14 @@ public class SearchState : State
             //Debug.Log(Time.deltaTime / stateManager.searchDuration);
             if (stateManager.canSeePlayer)
             {
-                search = false;
+                stateManager.search = false;
 
                 _counter = stateManager.searchDuration + 1;
                 ChangeState(stateManager.chaseState);
                 yield return null;
             }
         }
-
-        //if can't find target return to patrol
-        search = false;
+        stateManager.search = false;
 
         ChangeState(stateManager.patrolState);
         yield return null;

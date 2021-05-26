@@ -11,20 +11,26 @@ TagManager:
   - SpawnPoint
   - ProjectileSpawn
   - Projectile
-  - AcidDoor
+  - PatrolState
+  - ChaseState
+  - AttackState
+  - SearchState
+  - Enemy1
+  - Walls
+  - PlayerProjectile
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - EnemyProjectile
   - FOV
-  - Player
-  - 
-  - 
-  - 
+  - Environment
+  - HideThisInCulling
+  - Enemy
+  - Projectile
   - 
   - 
   - 
