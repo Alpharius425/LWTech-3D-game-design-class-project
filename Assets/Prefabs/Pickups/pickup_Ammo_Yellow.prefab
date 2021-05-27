@@ -150,7 +150,7 @@ MonoBehaviour:
   requiredDistanceFromPlayer: 20
   distFromPlayer: 0
   myChild: {fileID: 5061048913440650745}
-  respawns: 1
+  respawns: 0
   myAudio: {fileID: 4360891380652805203}
   pickupSFX: {fileID: 8300000, guid: 0dcc6d1d2c7e09249b72776841ea7292, type: 3}
 --- !u!135 &4360891380652805202
@@ -164,7 +164,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.75
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &4360891380652805203
 AudioSource:
