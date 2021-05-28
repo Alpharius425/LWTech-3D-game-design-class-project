@@ -17,7 +17,7 @@ public class ProjectileMove : MonoBehaviour
 
     public void AddVelocity()
     {
-        Debug.Log("Speed " + speed);
+        //Debug.Log("Speed " + speed);
         transform.position = Vector3.MoveTowards(transform.position, AttackState.targetLastPos.position, (speed * Time.deltaTime));
     }
 

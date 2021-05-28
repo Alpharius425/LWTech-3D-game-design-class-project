@@ -20,26 +20,26 @@ public class EnemyVisibilityEditor : Editor
         //in front of the object, we we'll take the forward direction and rotate it by half the angle.
         var forwardPointMinusHalfAngle =
             //rotate around the y-axis by half the angle
-            Quaternion.Euler(0, -visibility.angle / 2, 0)
+            Quaternion.Euler(0, -visibility.stateManager.visibilityAngle / 2, 0)
                         //rotate the forward direction by this
                         * visibility.transform.forward;
         //Draw the arc to visualize the visibiity arc
-        Vector3 arcStart = forwardPointMinusHalfAngle * visibility.maxDistance;
+        Vector3 arcStart = forwardPointMinusHalfAngle * visibility.stateManager.maxDetectDistance;
         Handles.DrawSolidArc(
             visibility.transform.position,        //center of the arc
             Vector3.up,                           //up direction of the arc
             arcStart,                              //point where it begins
-            visibility.angle,                     //angle of the arc
-            visibility.maxDistance               //radius of the arc
+            visibility.stateManager.visibilityAngle,                     //angle of the arc
+            visibility.stateManager.maxDetectDistance               //radius of the arc
             );
         //Draw a scale handle at the edge of the arc; if the user drags it, update the arc size.
         //Reset handle color to full opacity.
         Handles.color = Color.white;
         //Compute the position of the handle, based on the object's position, the direction it's facing, and the distance
-        Vector3 handlePosition = visibility.transform.position + visibility.transform.forward * visibility.maxDistance;
+        Vector3 handlePosition = visibility.transform.position + visibility.transform.forward * visibility.stateManager.maxDetectDistance;
         //Draw the handle and store the result
-        visibility.maxDistance = Handles.ScaleValueHandle(
-            visibility.maxDistance,            //current value
+        visibility.stateManager.maxDetectDistance = Handles.ScaleValueHandle(
+            visibility.stateManager.maxDetectDistance,            //current value
             handlePosition,                  //handle position
             visibility.transform.rotation,   //orientation
             1,                                  //size

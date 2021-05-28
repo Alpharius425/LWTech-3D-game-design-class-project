@@ -1,9 +1,9 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/Prefabs/Bunker_Pack/Electrics.prefab.meta
-guid: 5311881f439f92844a8b8392c6a7ccc5
+<<<<<<< HEAD:Assets/Prefabs/Bunker_Pack/Wall_Corner.prefab.meta
+guid: 9dfe084cf1157f947835851a6526df4d
 =======
 guid: 6717b8137c577b548b8fbb4fdf9ebdd4
->>>>>>> origin/Enemy-new:Assets/Prefabs/Enemies/Drone_Enemy_zeroed.prefab.meta
+>>>>>>> origin/State-NoMono:Assets/Prefabs/Enemies/Drone_Enemy_zeroed.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 

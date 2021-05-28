@@ -6,104 +6,44 @@ using UnityEngine;
 
 public class AttackState : State
 {
-    public StateManager stateManager;
+    public AttackState(StateManager manager) : base(manager)
+    {
+
+    }
+
     public GameObject player;
-    public static GameObject charge;
     public static Transform targetLastPos;
     private int damageAmount;
-    private State returnState;
     [HideInInspector] public static GameObject magicAttack;
     [HideInInspector] public static GameObject spawnPoint;
-    [HideInInspector] public static GameObject chargeUpAttack;
 
-    private void Start()
-    {
-        magicAttack = stateManager.magicAttack;
-        spawnPoint = stateManager.spawnPoint;
-        chargeUpAttack = stateManager.chargeUpAttack;
-        stateManager.isAttacking = false;
-    }
+    //For timer
+    [SerializeField] private float seconds; // How long the timer lasts in seconds
+    private float chargeProgress; // Progress through the timer from 0 - 1
 
-    private void Update()
+    public override void OnStateEnter()
     {
-        //initialize player & player health from the player script
         player = stateManager.playerTarget;
         damageAmount = stateManager.damageAmount;
+        magicAttack = stateManager.magicAttack;
+        spawnPoint = stateManager.spawnPoint;
+        stateManager.FOVCone.color = Color.red;
+    }
+
+    public override void RunCurrentState()
+    {
         targetLastPos = stateManager.playerTarget.transform;
+        ShootMagic();
+        stateManager.ChangeState(stateManager.chargeUpAttackState);
     }
 
-    public override State RunCurrentState()
+    private void ShootMagic()
     {
-        if (!stateManager.isAttacking)
-        {
-            stateManager.isAttacking = true;
-            StartCoroutine(ChargeUpAttack());
+        GameObject.Instantiate(magicAttack, stateManager.spawnPoint.transform.position, Quaternion.identity);
 
-        }
-        //Debug.Log("Enemy attacked!");
-        return stateManager.chaseState;
-    }
+        //TODO: Only damage player if player collides with magic attack collider
+        player.GetComponent<Player_Stats>().TakeDamage(damageAmount);
 
-    //Enemy charging attack
-   IEnumerator ChargeUpAttack()
-    {
-        //Debug.Log("attack state1");
-
-        //Stop coroutine if enemy can't see player.
-        if (!stateManager.canSeePlayer)
-        {
-            stateManager.isAttacking = false;
-            StopCoroutine(ChargeUpAttack());
-            ChangeState(stateManager.chaseState);
-        }
-
-        //#1 Charge up attack
-        //instantiate the charge fx
-        yield return new WaitForSeconds(Random.Range(stateManager.rateOfFireMin, stateManager.rateOfFireMax));
-        charge = Instantiate(chargeUpAttack, stateManager.spawnPoint.transform.position, Quaternion.identity);
-        charge.transform.parent = stateManager.spawnPoint.transform; //attach the prefab as a child so it will follow
-
-        Destroy(charge, stateManager.chargeTime);
-
-        //Shoot
-        StartCoroutine(ShootMagic());
-    }
-
-    //Enemy shoot magic bolt
-    IEnumerator ShootMagic()
-    {
-        //Debug.Log("attack state2");
-
-        //Stop coroutine if enemy can't see player.
-        if (!stateManager.canSeePlayer)
-        {
-            stateManager.isAttacking = false;
-            //StopCoroutine(ShootMagic());
-            StopAllCoroutines();
-            ChangeState(stateManager.chaseState);
-        }
-        else
-        {
-            //#2 Fire the charged bolt
-            //RaycastHit hit;
-            Instantiate(magicAttack, stateManager.spawnPoint.transform.position, Quaternion.identity);
-
-            player.GetComponent<Player_Stats>().TakeDamage(damageAmount);
-            //Debug.Log("Enemy did damage for " + damageAmount);
-            //Debug.Log(hit.transform.name);
-            if (CompareTag("Player"))
-            {
-                GetComponent<Player_Stats>().TakeDamage(stateManager.damageAmount);
-                yield return null;
-            }
-        }
-
-        stateManager.isAttacking = false;
-        yield return null;
-    }
-
-    public void ChangeState(State state)
-    {
-        returnState = state;
+        //Debug.Log("I have fired at the player!");
     }
 }

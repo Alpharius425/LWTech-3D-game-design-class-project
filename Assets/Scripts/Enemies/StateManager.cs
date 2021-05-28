@@ -12,18 +12,25 @@ public class StateManager : MonoBehaviour
 
     [Header("ENEMY")]
     //public Transform thisEnemy;
-    public static GameObject enemyPrefab;
     public float enemyHealth;
-    public Light FOVCone; //light source that shows enemy FOV
 
     [Header("TARGET/PLAYER")]
     public GameObject playerTarget;
     //public float playerHealth;
 
+    [Header("VISIBILITY CHECK")]
+    [SerializeField] bool visualizeVisabilityCone = true;
+    public LayerMask visibilityMask;
+    [Range(0f, 360f)]
+    public float visibilityAngle = 100f;
+    public Light FOVCone; //light source that shows enemy FOV
+    public float maxDetectDistance = 10f; //max distance for visibility
+
     [Header("PATROL STATE")]
     public float patrolSpeed = 1f; // speed while moving between patrol points
     public int patrolIndex; // index number of the patrol array
-    public GameObject[] patrolPoints; // holds multiple patrol points
+    [SerializeField] private Transform patrolRoute; // holds multiple patrol points
+    [HideInInspector] public Transform[] patrolPoints; // holds multiple patrol points
     public float distanceFromPatrol; // distance from the patrol point
 
     [Header("DISTANCE FROM TARGET")]
@@ -31,13 +38,11 @@ public class StateManager : MonoBehaviour
 
     [Header("SEARCH STATE")]
     public float searchDuration; //speed(time) searching left&right
-    public GameObject lookLeft, lookRight;
 
     [Header("CHASE STATE")]
     public float chaseSpeed = 2f; // speed while chasing the target
     public float rotateSpeed = 3f; // speed when rotating
     public float stoppingDistance = 6f; // minimum distance from player before stopping (to not run into player)
-    public float maxDetectDistance = 10f; //max distance for visibility
 
     [Header("ATTACK STATE")]
     public GameObject spawnPoint;
@@ -48,8 +53,6 @@ public class StateManager : MonoBehaviour
     public float shootSpeed = 8f;
     public float rateOfFireMin = 3f;
     public float rateOfFireMax = 3f;
-    //public float startAttackDistance; //distance when enemy begins attack
-    //public float shootDistance; //how far the attack can reach the player
 
     //Keeps the enemy at a certain height. Make both min and max the same to keep enemy even - and make sure patrol points are at the same height.
     [Header("GROUND")]
@@ -58,57 +61,68 @@ public class StateManager : MonoBehaviour
     public float maxDistanceFromGround = 4f;
     public float distanceFromGround; //checks the distance above the terrain
 
-    [Header("CONTROL BOOLS")]
-    public bool canSeePlayer;
-    //public bool isInAttackRange;
-    public bool isAttacking;
-    public bool search, patrol;
-
     //Inherits from State - each controls the individual state change of the enemy
-    [Header("STATE SCRIPTS")]
-    public AttackState attackState;
-    public PatrolState patrolState;
-    public SearchState searchState;
-    public ChaseState chaseState;
+    [HideInInspector] public ChargeUpAttackState chargeUpAttackState;
+    [HideInInspector] public AttackState attackState;
+    [HideInInspector] public PatrolState patrolState;
+    [HideInInspector] public SearchState searchState;
+    [HideInInspector] public ChaseState chaseState;
 
     [Header ("ANIMATION")]
-    public static Animator animator;
+    public Animator animator;
 
-    public static Rigidbody rb;
+    public Rigidbody rb;
 
+    public void OnValidate()
+    {
+        if (FOVCone != null)
+        {
+            //TODO: Make this run in editor
+            FOVCone.spotAngle = visibilityAngle;
+            FOVCone.range = maxDetectDistance;
+        }
+    }
 
     private void Start()
     {
-        //initialize
-        isAttacking = false;
-        patrol = false;
+        chargeUpAttackState = new ChargeUpAttackState(this);
+        attackState = new AttackState(this);
+        patrolState = new PatrolState(this);
+        searchState = new SearchState(this);
+        chaseState = new ChaseState(this);               
 
+        //initialize
+        currentState = patrolState;
         //Allows the static variables of ProjectileMove to be changed by StateManager.
         ProjectileMove.speed = this.shootSpeed;
         ProjectileMove.chargeTime = this.chargeTime;
         ProjectileMove.weapon = this.magicAttack;
         ProjectileMove.spawnPoint = this.spawnPoint;
-        SearchState.canSeePlayer = this.canSeePlayer;
 
         //Find and set these objects at the start.
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
-        enemyPrefab = GameObject.FindGameObjectWithTag("Enemy1");
         playerTarget = GameObject.FindGameObjectWithTag("Player");
         FOVCone = GetComponentInChildren<Light>();
         //spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint"); //if more than one enemy this may grab the wrong SpawnPoint
         terrain = GameObject.FindGameObjectWithTag("Terrain");
+
+        List<Transform> points = new List<Transform>();
+
+        foreach (Transform potentialPatrolPoint in patrolRoute)
+        {
+            if (potentialPatrolPoint.GetComponent<PatrolPoint>())
+            {
+                points.Add(potentialPatrolPoint);
+            }
+        }
+
+        patrolPoints = points.ToArray();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //update variables
-        animator = GetComponent<Animator>();
-        lookLeft = GameObject.Find("LookLeft");
-        lookRight = GameObject.Find("LookRight");
-        //search = SearchState.search;
-
-        canSeePlayer = GetComponentInChildren<EnemyVisibility>().TargetIsVisible;
         enemyHealth = GetComponent<EnemyHealth>().enemyHealth;
         distanceFromTarget = Vector3.Distance(transform.position, playerTarget.transform.position);
         //distanceFromGround = Terrain.activeTerrain.SampleHeight(transform.position);
@@ -117,35 +131,24 @@ public class StateManager : MonoBehaviour
         distanceFromGround = Vector3.Distance(transform.position, terrain.transform.position);
 
         //ANIMATION BOOLS
-        if (canSeePlayer)
-        {
-            animator.SetBool("chasing", true);
-            animator.SetBool("dead", false);
-            animator.SetBool("patrol", false);
-        }
-        else if (currentState == patrolState)
-        {
-            animator.SetBool("patrol", true);
-            animator.SetBool("dead", false);
-            animator.SetBool("chasing", false);
-        }
-        else if (enemyHealth <= 0)
-        {
-            animator.SetBool("dead", true);
-            animator.SetBool("chasing", false);
-            animator.SetBool("patrol", true);
-        }
-        else
-        {
-            animator.SetBool("dead", false);
-            animator.SetBool("patrol", false);
-            animator.SetBool("chasing", false);
-        }
 
-        RunStateMachine();
+        //TODO: create Death state
+    
+        //else if (enemyHealth <= 0)
+        //{
+        //    animator.SetBool("dead", true);
+        //    animator.SetBool("chasing", false);
+        //    animator.SetBool("patrol", true);
+        //}
+        //else
+        //{
+        //    animator.SetBool("dead", false);
+        //    animator.SetBool("patrol", false);
+        //    animator.SetBool("chasing", false);
+        //}
+
+        currentState.RunCurrentState();
     }
-
-
 
     private void FixedUpdate()
     {
@@ -172,23 +175,10 @@ public class StateManager : MonoBehaviour
         }
     }
 
-    private void RunStateMachine()
+    public virtual void ChangeState(State nextState)
     {
-        State nextState = currentState?.RunCurrentState();
-
-        if (nextState != null)
-        {
-            //Switch to the next state
-            SwitchToNextState(nextState);
-        }
-        else
-        {
-            SwitchToNextState(patrolState);
-        }
-    }
-
-    private void SwitchToNextState(State nextState)
-    {
+        currentState.OnStateExit();
         currentState = nextState;
+        currentState.OnStateEnter();
     }
 }
