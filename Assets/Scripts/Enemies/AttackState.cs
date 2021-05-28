@@ -42,7 +42,7 @@ public class AttackState : State
         GameObject.Instantiate(magicAttack, stateManager.spawnPoint.transform.position, Quaternion.identity);
 
         //TODO: Only damage player if player collides with magic attack collider
-        player.GetComponent<Player_Stats>().TakeDamage(damageAmount);
+        //player.GetComponent<Player_Stats>().TakeDamage(damageAmount);
 
         //Debug.Log("I have fired at the player!");
     }

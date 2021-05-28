@@ -9,6 +9,7 @@ public class ProjectileMove : MonoBehaviour
     public static float chargeTime;
     public static GameObject weapon;
     public static GameObject spawnPoint;
+    public int damage;
 
     public void Update()
     {
@@ -25,6 +26,7 @@ public class ProjectileMove : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            collision.gameObject.GetComponent<Player_Stats>().TakeDamage(damage);
             Destroy(gameObject);
         }
         else if(collision.gameObject.tag == "Terrain" || collision.gameObject.tag == "Walls")
