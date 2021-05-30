@@ -1056,7 +1056,7 @@ GameObject:
   - component: {fileID: 5222721280234342376}
   - component: {fileID: 6646089891237612613}
   - component: {fileID: 4625513797369833107}
-  m_Layer: 8
+  m_Layer: 2
   m_Name: Shotgun_Cone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
