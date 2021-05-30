@@ -1,5 +1,88 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1926690037973165700
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5709945504773910563}
+  - component: {fileID: 7489959986809125904}
+  - component: {fileID: 743174194429232063}
+  m_Layer: 8
+  m_Name: Potion_Blue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &5709945504773910563
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926690037973165700}
+  m_LocalRotation: {x: -0.0232622, y: 0.05471945, z: -0.080989435, w: 0.99493986}
+  m_LocalPosition: {x: 0.04662598, y: 0.15718621, z: -0.21146989}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7375290985101510996}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &7489959986809125904
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926690037973165700}
+  m_Mesh: {fileID: 4376173816424490508, guid: 262229566958a3e428e61bdb3cff654b, type: 3}
+--- !u!23 &743174194429232063
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926690037973165700}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: c78d8149f22ff174fac65f012130b482, type: 2}
+  - {fileID: 2100000, guid: 53d4210f824e42644af294c56066e846, type: 2}
+  - {fileID: 2100000, guid: a7c8bbe69f498784cbe0ca586478d3bd, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!95 &8521058277875395716
 Animator:
   serializedVersion: 3
@@ -19,6 +102,89 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &3181028755272477478
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5378657119421205940}
+  - component: {fileID: 2152515180759143713}
+  - component: {fileID: 7971719557699947390}
+  m_Layer: 8
+  m_Name: Potion_Yellow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5378657119421205940
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3181028755272477478}
+  m_LocalRotation: {x: -0.0232622, y: 0.05471945, z: -0.080989435, w: 0.99493986}
+  m_LocalPosition: {x: 0.04662598, y: 0.15718621, z: -0.21146989}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7375290985101510996}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &2152515180759143713
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3181028755272477478}
+  m_Mesh: {fileID: 4376173816424490508, guid: 262229566958a3e428e61bdb3cff654b, type: 3}
+--- !u!23 &7971719557699947390
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3181028755272477478}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: c78d8149f22ff174fac65f012130b482, type: 2}
+  - {fileID: 2100000, guid: e8d4a2acc5f3302409f8f855c07887f9, type: 2}
+  - {fileID: 2100000, guid: a7c8bbe69f498784cbe0ca586478d3bd, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &4401702041957603075
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,6 +449,9 @@ MonoBehaviour:
   myAnim: {fileID: 0}
   myController: {fileID: 0}
   fadeRenderer: {fileID: 5272545121218650763}
+  yellowPotion: {fileID: 3181028755272477478}
+  redPotion: {fileID: 5761692464656233001}
+  bluePotion: {fileID: 1926690037973165700}
   HealthBar: {fileID: 0}
   playerAudio: {fileID: 5754085504584722820}
   reloadOutSFX: {fileID: 8300000, guid: 40ed7956ba71e4d459dc72b29ecb1ea8, type: 3}
@@ -1337,6 +1506,89 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+--- !u!1 &5761692464656233001
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 720581593790637116}
+  - component: {fileID: 3108101974274293104}
+  - component: {fileID: 4353916207167702669}
+  m_Layer: 8
+  m_Name: Potion_Red
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &720581593790637116
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5761692464656233001}
+  m_LocalRotation: {x: -0.0232622, y: 0.05471945, z: -0.080989435, w: 0.99493986}
+  m_LocalPosition: {x: 0.04662598, y: 0.15718621, z: -0.21146989}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7375290985101510996}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &3108101974274293104
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5761692464656233001}
+  m_Mesh: {fileID: 4376173816424490508, guid: 262229566958a3e428e61bdb3cff654b, type: 3}
+--- !u!23 &4353916207167702669
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5761692464656233001}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: c78d8149f22ff174fac65f012130b482, type: 2}
+  - {fileID: 2100000, guid: f9f9c783442c4f64992259cfeece3e1d, type: 2}
+  - {fileID: 2100000, guid: a7c8bbe69f498784cbe0ca586478d3bd, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &7070535536489871551
 GameObject:
   m_ObjectHideFlags: 0
@@ -1911,8 +2163,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8517634535113012298, guid: 262229566958a3e428e61bdb3cff654b,
         type: 3}
+      propertyPath: m_Name
+      value: Potion_Blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 8517634535113012298, guid: 262229566958a3e428e61bdb3cff654b,
+        type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8517634535113012298, guid: 262229566958a3e428e61bdb3cff654b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8551496542879988157, guid: 262229566958a3e428e61bdb3cff654b,
         type: 3}
@@ -1946,9 +2208,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 262229566958a3e428e61bdb3cff654b, type: 3}
---- !u!4 &7375290985101510996 stripped
+--- !u!4 &1554104370107639590 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -5282245804078037656, guid: 262229566958a3e428e61bdb3cff654b,
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 262229566958a3e428e61bdb3cff654b,
     type: 3}
   m_PrefabInstance: {fileID: 5831032861473131580}
   m_PrefabAsset: {fileID: 0}
@@ -1958,9 +2220,9 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5831032861473131580}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1554104370107639590 stripped
+--- !u!4 &7375290985101510996 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 262229566958a3e428e61bdb3cff654b,
+  m_CorrespondingSourceObject: {fileID: -5282245804078037656, guid: 262229566958a3e428e61bdb3cff654b,
     type: 3}
   m_PrefabInstance: {fileID: 5831032861473131580}
   m_PrefabAsset: {fileID: 0}

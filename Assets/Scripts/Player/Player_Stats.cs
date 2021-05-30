@@ -26,6 +26,7 @@ public class Player_Stats : MonoBehaviour
     public int maxAmmoType2; // max amount of this ammo we can have
     public int curAmmoType2; // how much of this ammo we currently have
     [SerializeField] GameObject ammoType2Collider; // the collider for our shotgun style weapon (Attached to a child of the gun, damage dealt is also on the child)
+    [SerializeField] Player_Shotgun shotGun;
 
     public int maxAmmoType3; // max amount of this ammo we can have
     public int curAmmoType3; // how much of this ammo we currently have
@@ -45,6 +46,12 @@ public class Player_Stats : MonoBehaviour
     [SerializeField] Animator myAnim;
     [SerializeField] FirstPersonController myController;
     [SerializeField] Image fadeRenderer;
+
+
+    // Improvising the Potion change!!! This can probably be done better!!!
+    [SerializeField] GameObject yellowPotion;
+    [SerializeField] GameObject redPotion;
+    [SerializeField] GameObject bluePotion;
 
     //=========================UI==================================
     public Slider HealthBar; //for storing reference to healthbar UI element
@@ -70,7 +77,7 @@ public class Player_Stats : MonoBehaviour
 
     private void Awake()
     {
-        ammoType2Collider.SetActive(false);
+        //ammoType2Collider.SetActive(false);
     }
 
     private void Start()
@@ -325,6 +332,10 @@ public class Player_Stats : MonoBehaviour
                     {
                         hit.collider.GetComponent<EnemyHealth>().DeductHealth(ammoType1Damage);
                     }
+                    if (hit.collider.CompareTag("Destructable"))
+                    {
+                        hit.collider.GetComponent<Destructable_Object>().DestroyObject();
+                    }
                 }
                else
                {
@@ -344,7 +355,8 @@ public class Player_Stats : MonoBehaviour
                 playerAudio.clip = fireBang; //set sound clip
                 playerAudio.Play(); //play sound clip
                 Instantiate(blueFireFX, firePoint.transform.position, fpsCamera.transform.rotation); //creates the blue fire effect
-                ammoType2Collider.SetActive(true);
+                shotGun.Fire();
+                //ammoType2Collider.SetActive(true);
                 break;
 
             case AmmoType.ammo3:
@@ -361,6 +373,10 @@ public class Player_Stats : MonoBehaviour
                     if(hit.collider.CompareTag("Mayfly"))
                     {
                         hit.collider.GetComponent<EnemyHealth>().DeductHealth(ammoType3Damage);
+                    }
+                    if (hit.collider.CompareTag("Destructable"))
+                    {
+                        hit.collider.GetComponent<Destructable_Object>().DestroyObject();
                     }
                 }
                 else
@@ -387,6 +403,12 @@ public class Player_Stats : MonoBehaviour
             playerAudio.clip = reloadOutSFX; //change clip to out sfx
             playerAudio.Play(); //play clip
             yield return new WaitForSeconds(2); //wait for animation and sfx to finish
+
+            //changes the color of the bottle by swapping them out with the other models
+            yellowPotion.SetActive(true);
+            redPotion.SetActive(false);
+            bluePotion.SetActive(false);
+
             playerAudio.clip = reloadInSFX; //change clip to in sfx
             playerAudio.Play(); //play clip
             currentAmmo = AmmoType.ammo1; //set ammo type to 1
@@ -396,6 +418,12 @@ public class Player_Stats : MonoBehaviour
             playerAudio.clip = reloadOutSFX; //change clip to out sfx
             playerAudio.Play(); //play clip
             yield return new WaitForSeconds(2); //wait for animation and sfx to finish
+
+            //changes the color of the bottle by swapping them out with the other models
+            yellowPotion.SetActive(false);
+            redPotion.SetActive(false);
+            bluePotion.SetActive(true);
+
             playerAudio.clip = reloadInSFX; //change clip to in sfx
             playerAudio.Play(); //play clip
             currentAmmo = AmmoType.ammo2; //set ammo type to 2
@@ -405,6 +433,12 @@ public class Player_Stats : MonoBehaviour
             playerAudio.clip = reloadOutSFX; //change clip to out sfx
             playerAudio.Play(); //play clip
             yield return new WaitForSecondsRealtime(2); //wait for animation and sfx to finish
+
+            //changes the color of the bottle by swapping them out with the other models
+            yellowPotion.SetActive(false);
+            redPotion.SetActive(true);
+            bluePotion.SetActive(false);
+
             playerAudio.clip = reloadInSFX; //change clip to in sfx
             playerAudio.Play(); //play clip
             currentAmmo = AmmoType.ammo3; //set ammo type to 3

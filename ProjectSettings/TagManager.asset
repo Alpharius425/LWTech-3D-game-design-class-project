@@ -18,6 +18,8 @@ TagManager:
   - Enemy1
   - Walls
   - PlayerProjectile
+  - AcidDoor
+  - Destructable
   layers:
   - Default
   - TransparentFX
