@@ -1,9 +1,9 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/Prefabs/Bunker_Pack/Pipe.prefab.meta
-guid: 4a6e30fba7270314dbd14d39a7b14472
+<<<<<<< HEAD:Assets/Prefabs/Bunker_Pack/Door.prefab.meta
+guid: e87863f07d9ee1b4db17aab62657a6b0
 =======
 guid: be34236d02e34c741aec0c4ca0797e01
->>>>>>> origin/State-NoMono:Assets/Prefabs/Effects/vfx_enemyCharge.prefab.meta
+>>>>>>> origin/Enemy-new:Assets/Prefabs/Effects/vfx_enemyCharge.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 
