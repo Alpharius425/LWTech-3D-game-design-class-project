@@ -84,7 +84,7 @@ public class Player_Stats : MonoBehaviour
     {
         timeUntilRegen = maxTimeUntilRegen;
         maxHealth = 100; //initialize max health to 100
-        myAnim = GetComponentInChildren<Animator>();
+        //myAnim = GetComponentInChildren<Animator>();
         myController = GetComponent<FirstPersonController>();
         //HealthBar.value = CalculateHealth(); //calculate health and set to current
 
