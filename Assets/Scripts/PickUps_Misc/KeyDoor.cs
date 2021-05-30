@@ -28,6 +28,7 @@ public class KeyDoor : MonoBehaviour
                 StartCoroutine("FadeOut"); // starts the fade away
                 StartCoroutine("playSounds"); //plays SFX for unlocking and opening door
                 Debug.Log("turning off");
+                col.gameObject.GetComponent<Player_Stats>().hasKey = false;
             }
         }
     }

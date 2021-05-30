@@ -6,10 +6,9 @@ public class KeyPickUp : MonoBehaviour
 {
     private void OnTriggerEnter(Collider col)
     {
-        if(col.CompareTag("Player"))
+        if(col.CompareTag("Player") && col.gameObject.GetComponent<Player_Stats>().hasKey == false)
         {
             col.GetComponent<Player_Stats>().PickUpKey();
-            Debug.Log("Grabbed key");
             gameObject.SetActive(false);
         }
     }
