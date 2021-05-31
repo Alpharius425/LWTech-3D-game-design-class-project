@@ -50,7 +50,7 @@ public class Player_Stats : MonoBehaviour
     [SerializeField] FirstPersonController myController;
     [SerializeField] Image fadeRenderer;
 
-
+    [SerializeField] Pause_Menu pauseMenu;
     // Improvising the Potion change!!! This can probably be done better!!!
     [SerializeField] GameObject yellowPotion;
     [SerializeField] GameObject redPotion;
@@ -104,6 +104,7 @@ public class Player_Stats : MonoBehaviour
         yellowSelection.gameObject.SetActive(true); //display the selection on the proper ammo type
         blueSelection.gameObject.SetActive(false); //turn off selection on this ammo type
         redSelection.gameObject.SetActive(false); //turn off selection on this ammo type
+        Cursor.lockState = CursorLockMode.Locked; // locks the cursor
 
         StartCoroutine("BlackFadeOut");
     }
@@ -116,23 +117,39 @@ public class Player_Stats : MonoBehaviour
             //TakeDamage(10);
         //}
 
-        if(Input.GetButtonDown("Ammo1")) // swaps to ammo 1 if we push this input
+        if(Input.GetButtonDown("Ammo1") && pauseMenu.pause == false) // swaps to ammo 1 if we push this input
         {
             StartCoroutine(changeAmmo(1));
         }
 
-        if (Input.GetButtonDown("Ammo2")) // swaps to ammo 2 if we push this input
+        if (Input.GetButtonDown("Ammo2") && pauseMenu.pause == false) // swaps to ammo 2 if we push this input
         {
             StartCoroutine(changeAmmo(2));
         }
 
-        if (Input.GetButtonDown("Ammo3")) // swaps to ammo 3 if we push this input
+        if (Input.GetButtonDown("Ammo3") && pauseMenu.pause == false) // swaps to ammo 3 if we push this input
         {
             StartCoroutine(changeAmmo(3));
         }
 
+        if(Input.GetButtonDown("Cancel"))
+        {
+            if(pauseMenu.pause == true)
+            {
+                Cursor.lockState = CursorLockMode.Locked; // locks the cursor
+                myController.cameraCanMove = true;
+                pauseMenu.Resume();
+            }
+            else
+            {
+                myController.cameraCanMove = false;
+                Cursor.lockState = CursorLockMode.Confined; // unlocks the cursor
+                pauseMenu.Pause();
+            }
+        }
 
-        if (Input.GetButtonDown("Fire1") && reloading == false) // if we left click
+
+        if (Input.GetButtonDown("Fire1") && reloading == false && pauseMenu.pause == false) // if we left click
         {
             switch(currentAmmo) // looks at what ammo type we are currently using
             {
@@ -182,7 +199,7 @@ public class Player_Stats : MonoBehaviour
             timeUntilRegen -= Time.deltaTime; // ticks the timer down until we can heal again
         }
 
-        if(isRegening == false && timeUntilRegen <= 0 && curHealth < maxHealth) // starts the coroutine that heals the player
+        if(isRegening == false && timeUntilRegen <= 0 && curHealth < maxHealth && pauseMenu.pause == false) // starts the coroutine that heals the player
         {
             //Debug.Log("Starting regen");
             StartCoroutine("RegenHealth");
@@ -240,7 +257,7 @@ public class Player_Stats : MonoBehaviour
             }
         }
         fadeRenderer.gameObject.SetActive(false); // turns the fade gameobject off
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
         StopCoroutine("BlackFadeIn");
     }
 
