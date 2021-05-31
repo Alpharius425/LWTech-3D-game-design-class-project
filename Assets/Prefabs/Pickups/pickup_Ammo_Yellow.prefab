@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2853344442799826484}
   - component: {fileID: 1752719915126372597}
   - component: {fileID: 1497544803374206890}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 4360891380652805205}
   - component: {fileID: 4360891380652805202}
   - component: {fileID: 4360891380652805203}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: pickup_Ammo_Yellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammoType: 0
-  value: 5
+  value: 10
   active: 1
   respawnTime: 5
   curTimeToRespawn: 0
@@ -271,7 +271,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5582112234709053251}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: potionPickup_Yellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -310,7 +310,7 @@ GameObject:
   - component: {fileID: 3680509866011471222}
   - component: {fileID: 3616723150447364669}
   - component: {fileID: 2142931672342844894}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: top_ring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -391,7 +391,7 @@ GameObject:
   - component: {fileID: 1671767858391106797}
   - component: {fileID: 5953663533409285643}
   - component: {fileID: 2225317758708493536}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: base_ring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -472,7 +472,7 @@ GameObject:
   - component: {fileID: 3590269564053659302}
   - component: {fileID: 9185055366126846498}
   - component: {fileID: 5179764712013562095}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: tube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -553,7 +553,7 @@ GameObject:
   - component: {fileID: 4930075748560834805}
   - component: {fileID: 8889488914505037003}
   - component: {fileID: 1160509210983104014}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: pin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -634,7 +634,7 @@ GameObject:
   - component: {fileID: 6613697714544206508}
   - component: {fileID: 7729885029722626443}
   - component: {fileID: 7484414418490377171}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: liquid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -800,6 +800,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: vfx_shiny
+      objectReference: {fileID: 0}
+    - target: {fileID: 3285134967918015075, guid: 0789a12bb323d634096884d87a25273e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0789a12bb323d634096884d87a25273e, type: 3}

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4360891380652805205}
   - component: {fileID: 4360891380652805202}
   - component: {fileID: 4360891380652805203}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: pickup_Ammo_Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammoType: 1
-  value: 5
+  value: 10
   active: 1
   respawnTime: 5
   curTimeToRespawn: 0
@@ -248,6 +248,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: potionPickup_Blue
       objectReference: {fileID: 0}
+    - target: {fileID: 1479613710298153767, guid: 69e8dc6c40c3f384398513f7d9eb95d3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1479613710397030816, guid: 69e8dc6c40c3f384398513f7d9eb95d3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1479613710459751596, guid: 69e8dc6c40c3f384398513f7d9eb95d3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1479613710901145129, guid: 69e8dc6c40c3f384398513f7d9eb95d3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1479613710912894643, guid: 69e8dc6c40c3f384398513f7d9eb95d3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1479613711162323740, guid: 69e8dc6c40c3f384398513f7d9eb95d3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1479613711869273579, guid: 69e8dc6c40c3f384398513f7d9eb95d3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69e8dc6c40c3f384398513f7d9eb95d3, type: 3}
 --- !u!1 &5134774211750204493 stripped
@@ -353,6 +388,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: vfx_shiny
+      objectReference: {fileID: 0}
+    - target: {fileID: 3285134967918015075, guid: 0789a12bb323d634096884d87a25273e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0789a12bb323d634096884d87a25273e, type: 3}

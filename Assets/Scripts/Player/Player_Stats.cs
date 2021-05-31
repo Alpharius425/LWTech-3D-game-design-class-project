@@ -17,6 +17,7 @@ public class Player_Stats : MonoBehaviour
     [SerializeField] bool reloading = false;
     public int maxAmmoType1; // max amount of this ammo we can have
     public int curAmmoType1; // how much of this ammo we currently have
+    [SerializeField] int type1AmmoConsumption; //amount of ammo each shot consumes
     [SerializeField] float ammoType1Range; // how far this can shoot
     [SerializeField] int ammoType1Damage; // how much damage this does
     [SerializeField] float gasTimeMax; // how long the gas effect stays for our attack
@@ -25,11 +26,13 @@ public class Player_Stats : MonoBehaviour
 
     public int maxAmmoType2; // max amount of this ammo we can have
     public int curAmmoType2; // how much of this ammo we currently have
+    [SerializeField] int type2AmmoConsumption; //amount of ammo each shot consumes
     [SerializeField] GameObject ammoType2Collider; // the collider for our shotgun style weapon (Attached to a child of the gun, damage dealt is also on the child)
     [SerializeField] Player_Shotgun shotGun;
 
     public int maxAmmoType3; // max amount of this ammo we can have
     public int curAmmoType3; // how much of this ammo we currently have
+    [SerializeField] int type3AmmoConsumption; //amount of ammo each shot consumes
     [SerializeField] float ammoType3Range; // how far this can shoot
     [SerializeField] int ammoType3Damage; // how much damage this does
 
@@ -53,8 +56,8 @@ public class Player_Stats : MonoBehaviour
     [SerializeField] GameObject redPotion;
     [SerializeField] GameObject bluePotion;
 
-    //=========================UI==================================
-    public Slider HealthBar; //for storing reference to healthbar UI element
+    //=========================DEBUG UI==================================
+    //public Slider HealthBar; //for storing reference to healthbar UI element
 
     //=========================SOUND EFFECTS=========================
     [Header("Sound Effects")]
@@ -73,6 +76,14 @@ public class Player_Stats : MonoBehaviour
     [SerializeField] GameObject goldGasFX; //gameobject containing the golddust gas trail effect
     [SerializeField] GameObject blueFireFX; //gameobject containing the golddust gas trail effect
     [SerializeField] GameObject acidShotFX; //gameobject containing the golddust gas trail effect
+    //=========================UI ELEMENTS=========================
+    [Header("UI Elements")]
+    [SerializeField] Slider yellowSlider; //Slider used to show amount of yellow ammo available
+    [SerializeField] Slider blueSlider; //Slider used to show amount of blue ammo available
+    [SerializeField] Slider redSlider; //Slider used to show amount of red ammo available
+    [SerializeField] GameObject yellowSelection; //an object used to highlight the yellow ammo when in use
+    [SerializeField] GameObject blueSelection; //an object used to highlight the blue ammo when in use
+    [SerializeField] GameObject redSelection; //an object used to highlight the red ammo when in use
     //=========================METHODS=========================
 
     private void Awake()
@@ -87,6 +98,12 @@ public class Player_Stats : MonoBehaviour
         //myAnim = GetComponentInChildren<Animator>();
         myController = GetComponent<FirstPersonController>();
         //HealthBar.value = CalculateHealth(); //calculate health and set to current
+        yellowSlider.value = curAmmoType1; //set the ammo sliders to the proper amounts
+        blueSlider.value = curAmmoType2;
+        redSlider.value = curAmmoType3;
+        yellowSelection.gameObject.SetActive(true); //display the selection on the proper ammo type
+        blueSelection.gameObject.SetActive(false); //turn off selection on this ammo type
+        redSelection.gameObject.SetActive(false); //turn off selection on this ammo type
 
         StartCoroutine("BlackFadeOut");
     }
@@ -94,10 +111,10 @@ public class Player_Stats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("Fire2"))
-        {
-            TakeDamage(10);
-        }
+        //if(Input.GetButtonDown("Fire2"))
+        //{
+            //TakeDamage(10);
+        //}
 
         if(Input.GetButtonDown("Ammo1")) // swaps to ammo 1 if we push this input
         {
@@ -123,7 +140,8 @@ public class Player_Stats : MonoBehaviour
                     if(curAmmoType1 > 0) // checks if we have ammo
                     {
                         Shoot(AmmoType.ammo1); // fires using this ammo
-                        curAmmoType1 -= 1; // subtracts that ammo from our counter
+                        curAmmoType1 -= type1AmmoConsumption; // subtracts that ammo from our counter
+                        yellowSlider.value = curAmmoType1; //set the ammo slider to the proper amount
                     }
                     else
                     {
@@ -135,7 +153,8 @@ public class Player_Stats : MonoBehaviour
                     if (curAmmoType2 > 0) // checks if we have ammo
                     {
                         Shoot(AmmoType.ammo2); // fires using this ammo
-                        curAmmoType2 -= 1; // subtracts that ammo from our counter
+                        curAmmoType2 -= type2AmmoConsumption; // subtracts that ammo from our counter
+                        blueSlider.value = curAmmoType2; //set the ammo slider to the proper amount
                     }
                     else
                     {
@@ -147,7 +166,8 @@ public class Player_Stats : MonoBehaviour
                     if (curAmmoType3 > 0) // checks if we have ammo
                     {
                         Shoot(AmmoType.ammo3); // fires using this ammo
-                        curAmmoType3 -= 1; // subtracts that ammo from our counter
+                        curAmmoType3 -= type3AmmoConsumption; // subtracts that ammo from our counter
+                        redSlider.value = curAmmoType3; //set the ammo slider to the proper amount
                     }
                     else
                     {
@@ -177,7 +197,7 @@ public class Player_Stats : MonoBehaviour
 
         if(Input.GetKey(KeyCode.LeftControl)) // will hopefully fix our gun scaling issue when we crouch
         {
-            gun.transform.localScale = new Vector3(1, 1.3f, 1);
+            gun.transform.localScale = new Vector3(1, 2f, 1);
         }
         else
         {
@@ -275,7 +295,8 @@ public class Player_Stats : MonoBehaviour
         {
             case AmmoType.ammo1:
                 curAmmoType1 += value; // increases our current ammo
-                if(curAmmoType1 > maxAmmoType1) // stops us from going over the max
+                yellowSlider.value = curAmmoType1; //set the ammo slider to the proper amount
+                if (curAmmoType1 > maxAmmoType1) // stops us from going over the max
                 {
                     curAmmoType1 = maxAmmoType1;
                 }
@@ -283,6 +304,7 @@ public class Player_Stats : MonoBehaviour
 
             case AmmoType.ammo2:
                 curAmmoType2 += value; // increases our current ammo
+                blueSlider.value = curAmmoType2; //set the ammo slider to the proper amount
                 if (curAmmoType2 > maxAmmoType2) // stops us from going over the max
                 {
                     curAmmoType2 = maxAmmoType2;
@@ -291,6 +313,7 @@ public class Player_Stats : MonoBehaviour
 
             case AmmoType.ammo3:
                 curAmmoType3 += value; // increases our current ammo
+                redSlider.value = curAmmoType3; //set the ammo slider to the proper amount
                 if (curAmmoType3 > maxAmmoType3) // stops us from going over the max
                 {
                     curAmmoType3 = maxAmmoType3;
@@ -408,6 +431,9 @@ public class Player_Stats : MonoBehaviour
             yellowPotion.SetActive(true);
             redPotion.SetActive(false);
             bluePotion.SetActive(false);
+            yellowSelection.gameObject.SetActive(true); //display the selection on the proper ammo type
+            blueSelection.gameObject.SetActive(false); //turn off selection on this ammo type
+            redSelection.gameObject.SetActive(false); //turn off selection on this ammo type
 
             playerAudio.clip = reloadInSFX; //change clip to in sfx
             playerAudio.Play(); //play clip
@@ -423,6 +449,9 @@ public class Player_Stats : MonoBehaviour
             yellowPotion.SetActive(false);
             redPotion.SetActive(false);
             bluePotion.SetActive(true);
+            yellowSelection.gameObject.SetActive(false);  //turn off selection on this ammo type
+            blueSelection.gameObject.SetActive(true); //display the selection on the proper ammo type
+            redSelection.gameObject.SetActive(false); //turn off selection on this ammo type
 
             playerAudio.clip = reloadInSFX; //change clip to in sfx
             playerAudio.Play(); //play clip
@@ -438,6 +467,9 @@ public class Player_Stats : MonoBehaviour
             yellowPotion.SetActive(false);
             redPotion.SetActive(true);
             bluePotion.SetActive(false);
+            yellowSelection.gameObject.SetActive(false); //turn off selection on this ammo type
+            blueSelection.gameObject.SetActive(false); //turn off selection on this ammo type
+            redSelection.gameObject.SetActive(true); //display the selection on the proper ammo type
 
             playerAudio.clip = reloadInSFX; //change clip to in sfx
             playerAudio.Play(); //play clip

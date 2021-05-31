@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4360891380652805205}
   - component: {fileID: 4360891380652805202}
   - component: {fileID: 4360891380652805203}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: pickup_Ammo_Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ MonoBehaviour:
   requiredDistanceFromPlayer: 20
   distFromPlayer: 0
   myChild: {fileID: 5733857894787844102}
-  respawns: 1
+  respawns: 0
   myAudio: {fileID: 4360891380652805203}
   pickupSFX: {fileID: 8300000, guid: 0dcc6d1d2c7e09249b72776841ea7292, type: 3}
 --- !u!135 &4360891380652805202
@@ -273,6 +273,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: vfx_shiny
       objectReference: {fileID: 0}
+    - target: {fileID: 3285134967918015075, guid: 0789a12bb323d634096884d87a25273e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0789a12bb323d634096884d87a25273e, type: 3}
 --- !u!1001 &3238722881993091459
@@ -282,10 +287,45 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4360891380652805200}
     m_Modifications:
+    - target: {fileID: 1656103873350123890, guid: 633a4040f9b25814fb930a7c7150670f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2440220474025252306, guid: 633a4040f9b25814fb930a7c7150670f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681946472612609685, guid: 633a4040f9b25814fb930a7c7150670f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071528112935573440, guid: 633a4040f9b25814fb930a7c7150670f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7160864340298867077, guid: 633a4040f9b25814fb930a7c7150670f,
         type: 3}
       propertyPath: m_Name
       value: potionPickup_Red
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160864340298867077, guid: 633a4040f9b25814fb930a7c7150670f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7367127826014121746, guid: 633a4040f9b25814fb930a7c7150670f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060422333865997409, guid: 633a4040f9b25814fb930a7c7150670f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8249987729427714463, guid: 633a4040f9b25814fb930a7c7150670f,
         type: 3}
