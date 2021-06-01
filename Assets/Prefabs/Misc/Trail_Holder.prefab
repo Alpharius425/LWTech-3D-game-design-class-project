@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2514350232728831051}
   - component: {fileID: 8166998565983049563}
   - component: {fileID: 6115138617369032216}
-  m_Layer: 2
+  m_Layer: 12
   m_Name: Gas_Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5730903917470168535}
   - component: {fileID: 8260452559196830824}
-  m_Layer: 2
+  m_Layer: 12
   m_Name: Trail_Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}

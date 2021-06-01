@@ -636,7 +636,7 @@ GameObject:
   - component: {fileID: 7796424854682521775}
   - component: {fileID: 7796424855013484819}
   - component: {fileID: 6039562586696112896}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy_Drone
   m_TagString: Mayfly
   m_Icon: {fileID: 0}

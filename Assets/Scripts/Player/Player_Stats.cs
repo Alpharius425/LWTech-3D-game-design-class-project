@@ -38,6 +38,8 @@ public class Player_Stats : MonoBehaviour
     [SerializeField] float ammoType3Range; // how far this can shoot
     [SerializeField] int ammoType3Damage; // how much damage this does
 
+    [SerializeField] LayerMask attackMask; // holds the layers that the attacks should be affecting
+
     [SerializeField] Camera fpsCamera; // where we fire from (in this case the camera)
     [SerializeField] GameObject firePoint;
 
@@ -357,7 +359,7 @@ public class Player_Stats : MonoBehaviour
         switch(ammo)
         {
             case AmmoType.ammo1:
-               if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, ammoType1Range))
+               if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, ammoType1Range, attackMask))
                {
                     // yes I know this instantiate looks ugly don't judge me ;-;
                     //you're trying your best Mikey it's okay <3
@@ -403,7 +405,7 @@ public class Player_Stats : MonoBehaviour
                 break;
 
             case AmmoType.ammo3:
-                if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, ammoType3Range))
+                if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, ammoType3Range, attackMask))
                 {
                     playerAudio.clip = acidLaunch; //set sound clip
                     playerAudio.Play(); //play sound clip
