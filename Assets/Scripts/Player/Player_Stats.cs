@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class Player_Stats : MonoBehaviour
 {
     //=========================FIELDS=========================
+
+    public LayerMask groundedLayer;
     public float maxHealth;
     public float curHealth;
     [SerializeField] float maxTimeUntilRegen; // max time until the player can begin getting their health back
@@ -49,6 +51,7 @@ public class Player_Stats : MonoBehaviour
     [SerializeField] Animator myAnim;
     [SerializeField] FirstPersonController myController;
     [SerializeField] Image fadeRenderer;
+
 
     [SerializeField] Pause_Menu pauseMenu;
     // Improvising the Potion change!!! This can probably be done better!!!
@@ -212,14 +215,14 @@ public class Player_Stats : MonoBehaviour
         myAnim.SetBool("Moving", myController.isWalking);
         myAnim.SetBool("Sprinting", myController.isSprinting);
 
-        if(Input.GetKey(KeyCode.LeftControl)) // will hopefully fix our gun scaling issue when we crouch
-        {
-            gun.transform.localScale = new Vector3(1, 2f, 1);
-        }
-        else
-        {
-            gun.transform.localScale = new Vector3(1, 1, 1);
-        }
+        //if(Input.GetKey(KeyCode.LeftControl)) // will hopefully fix our gun scaling issue when we crouch
+        //{
+        //    gun.transform.localScale = new Vector3(1, 2f, 1);
+        //}
+        //else
+        //{
+        //    gun.transform.localScale = new Vector3(1, 1, 1);
+        //}
     }
 
     public void TakeDamage(int damage)

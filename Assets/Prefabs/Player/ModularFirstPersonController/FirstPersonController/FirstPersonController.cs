@@ -16,6 +16,8 @@ using UnityEngine.UI;
 
 public class FirstPersonController : MonoBehaviour
 {
+    public LayerMask groundedLayers;
+
     private Rigidbody rb;
 
     #region Camera Movement Variables
@@ -110,6 +112,16 @@ public class FirstPersonController : MonoBehaviour
     public KeyCode crouchKey = KeyCode.LeftControl;
     public float crouchHeight = .75f;
     public float speedReduction = .5f;
+    private CapsuleCollider[] myColliders;
+    
+    public struct playerHeight
+    {
+        public float jointPos;
+        public float capsuleHeight;
+        public float capsuleCenter;
+    }
+    public playerHeight standingHeight;
+    public playerHeight crouchingHeight;
 
     // Internal Variables
     public bool isCrouched = false;
@@ -133,6 +145,15 @@ public class FirstPersonController : MonoBehaviour
 
     private void Awake()
     {
+        groundedLayers = GetComponent<Player_Stats>().groundedLayer; // TODO fix this hack make grounded layers local in the custom inspector :^)
+        myColliders = GetComponents<CapsuleCollider>();
+        standingHeight.jointPos = 0.75f;
+        standingHeight.capsuleHeight = 2f;
+        standingHeight.capsuleCenter = 0f;
+
+        crouchingHeight.jointPos = 0.5f;
+        crouchingHeight.capsuleHeight = 1.5f;
+        standingHeight.capsuleCenter = -0.25f;
         rb = GetComponent<Rigidbody>();
 
         crosshairObject = GetComponentInChildren<Image>();
@@ -337,20 +358,26 @@ public class FirstPersonController : MonoBehaviour
 
         if (enableCrouch)
         {
-            if(Input.GetKeyDown(crouchKey) && !holdToCrouch)
+            if (holdToCrouch)
             {
-                Crouch();
+                if (Input.GetKey(crouchKey))
+                {
+                    isCrouched = true;
+                    Crouch();
+                }
+                else
+                {
+                    isCrouched = false;
+                    Crouch();
+                }
             }
-            
-            if(Input.GetKeyDown(crouchKey) && holdToCrouch)
+            else
             {
-                isCrouched = false;
-                Crouch();
-            }
-            else if(Input.GetKeyUp(crouchKey) && holdToCrouch)
-            {
-                isCrouched = true;
-                Crouch();
+                if (Input.GetKeyDown(crouchKey))
+                {
+                    isCrouched = !isCrouched;
+                    Crouch();
+                }
             }
         }
 
@@ -402,10 +429,10 @@ public class FirstPersonController : MonoBehaviour
                 {
                     isSprinting = true;
 
-                    if (isCrouched)
-                    {
-                        Crouch();
-                    }
+                    //if (isCrouched)
+                    //{
+                    //    Crouch();
+                    //}
 
                     if (hideBarWhenFull && !unlimitedSprint)
                     {
@@ -444,13 +471,12 @@ public class FirstPersonController : MonoBehaviour
     // Sets isGrounded based on a raycast sent straigth down from the player object
     private void CheckGround()
     {
-        Vector3 origin = new Vector3(transform.position.x, transform.position.y - (transform.localScale.y * .5f), transform.position.z);
-        Vector3 direction = transform.TransformDirection(Vector3.down);
-        float distance = .75f;
+        float sphereRadius = .5f;
+        float groundedBuffer = 0.01f;
+        Vector3 origin = new Vector3(transform.position.x, transform.position.y - (standingHeight.capsuleHeight * .5f) - groundedBuffer, transform.position.z);
 
-        if (Physics.Raycast(origin, direction, out RaycastHit hit, distance))
+        if (Physics.CheckSphere(origin, sphereRadius, groundedLayers))
         {
-            Debug.DrawRay(origin, direction * distance, Color.red);
             isGrounded = true;
         }
         else
@@ -469,31 +495,37 @@ public class FirstPersonController : MonoBehaviour
         }
 
         // When crouched and using toggle system, will uncrouch for a jump
-        if(isCrouched && !holdToCrouch)
+        //if(isCrouched && !holdToCrouch)
+        //{
+        //    Crouch();
+        //}
+    }
+
+    private void SetPlayerHeight(playerHeight newHeight)
+    {
+        joint.localPosition = new Vector3(0, newHeight.jointPos, 0);
+        for (int i = 0; i < myColliders.Length; i++)
         {
-            Crouch();
+            myColliders[i].height = newHeight.capsuleHeight;
+            myColliders[i].center = new Vector3(0, newHeight.capsuleCenter, 0);
         }
     }
 
     private void Crouch()
     {
-        // Stands player up to full height
-        // Brings walkSpeed back up to original speed
-        if(isCrouched)
+        //Stands player up to full height
+         //Brings walkSpeed back up to original speed
+        if (isCrouched)
         {
-            transform.localScale = new Vector3(originalScale.x, originalScale.y, originalScale.z);
+            SetPlayerHeight(crouchingHeight);
             walkSpeed /= speedReduction;
-
-            isCrouched = false;
         }
-        // Crouches player down to set height
+        //Crouches player down to set height
         // Reduces walkSpeed
         else
         {
-            transform.localScale = new Vector3(originalScale.x, crouchHeight, originalScale.z);
+            SetPlayerHeight(standingHeight);
             walkSpeed *= speedReduction;
-
-            isCrouched = true;
         }
     }
 
@@ -697,6 +729,7 @@ public class FirstPersonController : MonoBehaviour
 
         GUILayout.Label("Crouch", new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleLeft, fontStyle = FontStyle.Bold, fontSize = 13 }, GUILayout.ExpandWidth(true));
 
+        //fpc.groundedLayers = EditorGUILayout.MaskField("GroundedLayer", fpc.groundedLayers, options);
         fpc.enableCrouch = EditorGUILayout.ToggleLeft(new GUIContent("Enable Crouch", "Determines if the player is allowed to crouch."), fpc.enableCrouch);
 
         GUI.enabled = fpc.enableCrouch;
