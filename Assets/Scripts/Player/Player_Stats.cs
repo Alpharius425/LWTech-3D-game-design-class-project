@@ -141,14 +141,12 @@ public class Player_Stats : MonoBehaviour
         {
             if(pauseMenu.pause == true)
             {
-                Cursor.lockState = CursorLockMode.Locked; // locks the cursor
                 myController.cameraCanMove = true;
                 pauseMenu.Resume();
             }
             else
             {
                 myController.cameraCanMove = false;
-                Cursor.lockState = CursorLockMode.Confined; // unlocks the cursor
                 pauseMenu.Pause();
             }
         }

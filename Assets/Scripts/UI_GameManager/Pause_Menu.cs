@@ -23,6 +23,7 @@ public class Pause_Menu : MonoBehaviour
         Time.timeScale = 1;
         tutorialText.SetActive(false);
         pausePanel.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked; // locks the cursor
         pause = false;
     }
 
@@ -30,6 +31,7 @@ public class Pause_Menu : MonoBehaviour
     {
         Time.timeScale = 0;
         pausePanel.SetActive(true);
+        Cursor.lockState = CursorLockMode.Confined; // unlocks the cursor
         pause = true;
     }
 
