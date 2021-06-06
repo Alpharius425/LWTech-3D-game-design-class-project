@@ -13,7 +13,7 @@ public class MainMenu_Manager : MonoBehaviour
     //=========================FUNCTIONS=========================
     public void startGame()
     {
-        SceneManager.LoadScene(1); //starts the gameplay scene
+        SceneManager.LoadScene(0); //starts the gameplay scene
     }
 
     public void endGame()

@@ -31,9 +31,6 @@ public class PatrolState : State
     {
         Vector3 currentDronePos = stateManager.transform.position;
         Vector3 currentPatrolPoint = stateManager.patrolPoints[stateManager.patrolIndex].position;
-        
-        //Debug.Log(currentPatrolPoint);
-        //Debug.Log(stateManager.patrolIndex);
 
         //checking distance to patrol point
         stateManager.distanceFromPatrol = Vector3.Distance(currentDronePos, currentPatrolPoint);

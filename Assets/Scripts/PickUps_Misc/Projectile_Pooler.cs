@@ -79,7 +79,7 @@ public class Projectile_Pooler : MonoBehaviour
     {
         switch (ammo)
         {
-            case AmmoType.ammo1: // if we're using ammo 1
+            case AmmoType.gas: // if we're using ammo 1
                 for (int i = 0; i < playerBulletsAmmo1.Count; i++) // runs through the ammo 1 pool
                 {
                     if (!playerBulletsAmmo1[i].activeInHierarchy) // if one is inactive
@@ -96,7 +96,7 @@ public class Projectile_Pooler : MonoBehaviour
                 }
                 break;
 
-            case AmmoType.ammo2: // if we're using ammo 2
+            case AmmoType.shotgun: // if we're using ammo 2
                 for (int i = 0; i < playerBulletsAmmo2.Count; i++) // runs through the ammo 2 pool
                 {
                     if (!playerBulletsAmmo2[i].activeInHierarchy) // if one is inactive
@@ -113,7 +113,7 @@ public class Projectile_Pooler : MonoBehaviour
                 }
                 break;
 
-            case AmmoType.ammo3: // if we're using ammo 2
+            case AmmoType.acid: // if we're using ammo 2
                 for (int i = 0; i < playerBulletsAmmo3.Count; i++) // runs through the ammo 2 pool
                 {
                     if (!playerBulletsAmmo3[i].activeInHierarchy) // if one is inactive

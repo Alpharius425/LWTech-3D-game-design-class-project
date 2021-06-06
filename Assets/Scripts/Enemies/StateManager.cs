@@ -19,7 +19,7 @@ public class StateManager : MonoBehaviour
     //public float playerHealth;
 
     [Header("VISIBILITY CHECK")]
-    [SerializeField] bool visualizeVisabilityCone = true;
+    //[SerializeField] bool visualizeVisabilityCone = true;
     public LayerMask visibilityMask;
     [Range(0f, 360f)]
     public float visibilityAngle = 100f;
@@ -49,7 +49,8 @@ public class StateManager : MonoBehaviour
     public GameObject chargeUpAttack;
     public GameObject magicAttack; //weapon effect
     public int damageAmount; //amount of damage enemy does to player
-    public float chargeTime = 3f;
+    public float reloadTime = 3f;
+    public float chargeTime = 2f;
     public float shootSpeed = 8f;
     public float rateOfFireMin = 3f;
     public float rateOfFireMax = 3f;
@@ -67,17 +68,35 @@ public class StateManager : MonoBehaviour
     [HideInInspector] public PatrolState patrolState;
     [HideInInspector] public SearchState searchState;
     [HideInInspector] public ChaseState chaseState;
+    [HideInInspector] public DeathState deathState;
 
     [Header ("ANIMATION")]
     public Animator animator;
 
     public Rigidbody rb;
 
+    //-------------------------GRANT'S STUFF-------------------------
+    [Header("SOUND EFFECTS")]
+    public AudioSource droneAudio; //reference to the part going beep-boop-beep
+    public AudioSource propellerAudio; //reference to the part going whoosh-whoosh
+    public AudioSource gunAudio; //reference to the part going wawawawa-boom
+    //-----
+    public AudioClip mutteringIdle; //the sound clip for the neutral-sounding blips
+    public AudioClip mutteringHostile; //the sound clip for the angry-sounding blips
+    public AudioClip mutteringBroken; //the sound clip for the broken-sounding blips upon death
+    public AudioClip helicopterNormal; //the sound clip for the constant helicopter noise
+    public AudioClip helicopterCrash; //the sound clip for the broken helicopter noise upon death
+    public AudioClip chargeSound; //the sound clip for the sound of the enemy charging a magic shot
+    public AudioClip fireSound; //the sound clip for the sound of the enemy firing
+    [Header("VISUAL EFFECTS")]
+    public GameObject deathExplosion;
+    public GameObject hurtParticles;
+    //-------------------------BACK TO JES' STUFF-------------------------
+
     public void OnValidate()
     {
         if (FOVCone != null)
         {
-            //TODO: Make this run in editor
             FOVCone.spotAngle = visibilityAngle;
             FOVCone.range = maxDetectDistance;
         }
@@ -89,10 +108,12 @@ public class StateManager : MonoBehaviour
         attackState = new AttackState(this);
         patrolState = new PatrolState(this);
         searchState = new SearchState(this);
-        chaseState = new ChaseState(this);               
+        chaseState = new ChaseState(this);
+        deathState = new DeathState(this);
 
-        //initialize
+        //Start in Patrol State.
         currentState = patrolState;
+
         //Allows the static variables of ProjectileMove to be changed by StateManager.
         ProjectileMove.speed = this.shootSpeed;
         ProjectileMove.chargeTime = this.chargeTime;
@@ -104,9 +125,9 @@ public class StateManager : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         playerTarget = GameObject.FindGameObjectWithTag("Player");
         FOVCone = GetComponentInChildren<Light>();
-        //spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint"); //if more than one enemy this may grab the wrong SpawnPoint
         terrain = GameObject.FindGameObjectWithTag("Terrain");
 
+        //Put the patrol points into a list.
         List<Transform> points = new List<Transform>();
 
         foreach (Transform potentialPatrolPoint in patrolRoute)
@@ -123,29 +144,12 @@ public class StateManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        enemyHealth = GetComponent<EnemyHealth>().enemyHealth;
+        enemyHealth = GetComponent<EnemyHealth>().curHealth;
         distanceFromTarget = Vector3.Distance(transform.position, playerTarget.transform.position);
-        //distanceFromGround = Terrain.activeTerrain.SampleHeight(transform.position);
+        distanceFromGround = Terrain.activeTerrain.SampleHeight(transform.position);
 
-        //If there is no Terrain
-        distanceFromGround = Vector3.Distance(transform.position, terrain.transform.position);
-
-        //ANIMATION BOOLS
-
-        //TODO: create Death state
-    
-        //else if (enemyHealth <= 0)
-        //{
-        //    animator.SetBool("dead", true);
-        //    animator.SetBool("chasing", false);
-        //    animator.SetBool("patrol", true);
-        //}
-        //else
-        //{
-        //    animator.SetBool("dead", false);
-        //    animator.SetBool("patrol", false);
-        //    animator.SetBool("chasing", false);
-        //}
+        // * If there is no Terrain object (like a plane instead):
+        //distanceFromGround = Vector3.Distance(transform.position, terrain.transform.position);
 
         currentState.RunCurrentState();
     }
@@ -175,10 +179,16 @@ public class StateManager : MonoBehaviour
         }
     }
 
+    //Called during state changes.
     public virtual void ChangeState(State nextState)
     {
         currentState.OnStateExit();
         currentState = nextState;
         currentState.OnStateEnter();
+    }
+
+    public void Died()
+    {
+        ChangeState(deathState);
     }
 }

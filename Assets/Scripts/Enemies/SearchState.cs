@@ -17,6 +17,8 @@ public class SearchState : State
     {
         cachedRotation = stateManager.transform.rotation;
         stateManager.FOVCone.color = Color.yellow;
+        stateManager.droneAudio.clip = stateManager.mutteringIdle;
+        stateManager.droneAudio.Play();
     }
 
     public override void RunCurrentState()
@@ -24,7 +26,7 @@ public class SearchState : State
         if (CheckVisibility())
         {
             stateManager.ChangeState(stateManager.chaseState);
-        }     
+        }
 
         LookRightLeft();
     }

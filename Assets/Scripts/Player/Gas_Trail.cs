@@ -8,9 +8,11 @@ public class Gas_Trail : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
-        if (col.CompareTag("Mayfly"))
+        EnemyHealth curEnemy = col.GetComponent<EnemyHealth>();
+
+        if (curEnemy != null)
         {
-            col.GetComponent<EnemyHealth>().DeductHealth(damage);
+            curEnemy.DeductHealth(damage, AmmoType.gas);
         }
     }
 }

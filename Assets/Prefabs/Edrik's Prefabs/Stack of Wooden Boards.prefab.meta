@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Post-Processing/URP.meta
+guid: 9eb2cfd71841a664e9c9240385072b63
+folderAsset: yes
+DefaultImporter:
+=======
 guid: 388003306f9c90f4ea26ac2e7687204e
 PrefabImporter:
+>>>>>>> a08e212 (getting art assets from the art pass branch):Assets/Prefabs/Edrik's Prefabs/Stack of Wooden Boards.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
