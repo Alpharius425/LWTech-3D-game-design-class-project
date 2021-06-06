@@ -141,13 +141,11 @@ public class Player_Stats : MonoBehaviour
         {
             if(pauseMenu.pause == true)
             {
-                myController.cameraCanMove = true;
-                pauseMenu.Resume();
+                myController.cameraCanMove = false; //lock camera movement
             }
             else
             {
-                myController.cameraCanMove = false;
-                pauseMenu.Pause();
+                myController.cameraCanMove = true; //unlock camera movement
             }
         }
 
@@ -498,6 +496,11 @@ public class Player_Stats : MonoBehaviour
 
         reloading = false;
         //myAnim.SetBool("Reloading", false);
+    }
+
+    public void ResumeCameraControl() //needed for pause functionality to work properly
+    {
+        myController.cameraCanMove = true; //unlock camera movement
     }
 }
 
