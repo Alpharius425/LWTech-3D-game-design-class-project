@@ -17,20 +17,20 @@ public class EnemyHealth : MonoBehaviour
       
         enemyHealth -= damage;
 
-        if(enemyHealth <= 0)
-        {
-            stateManager.animator.SetBool("dead", true);
-            //Turn gravity on so the enemy appears to fall when dying.
-            stateManager.rb.useGravity = true;
+        //if(enemyHealth <= 0)
+        //{
+        //    stateManager.animator.SetBool("dead", true);
+        //    //Turn gravity on so the enemy appears to fall when dying.
+        //    stateManager.rb.useGravity = true;
             
-            EnemyDead();
-        }
+        //    EnemyDead();
+        //}
     }
 
-    void EnemyDead()
-    {
-        //Destroy the enemy including the parent.
-        Destroy(stateManager.gameObject, 4f);
-    }
+    //void EnemyDead()
+    //{
+    //    //Destroy the enemy including the parent.
+    //    Destroy(stateManager.gameObject, 4f);
+    //}
                 
 }

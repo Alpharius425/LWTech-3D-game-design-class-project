@@ -102,4 +102,5 @@ public abstract class State {
             stateManager.transform.position = Vector3.MoveTowards(stateManager.transform.position, stateManager.playerTarget.transform.position, stateManager.chaseSpeed * Time.deltaTime);
         }
     }
+
 }

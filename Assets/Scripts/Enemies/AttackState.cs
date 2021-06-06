@@ -32,6 +32,11 @@ public class AttackState : State
 
     public override void RunCurrentState()
     {
+        if (stateManager.enemyHealth <= 0)
+        {
+            stateManager.ChangeState(stateManager.deathState);
+        }
+
         targetLastPos = stateManager.playerTarget.transform;
         ShootMagic();
         stateManager.ChangeState(stateManager.chargeUpAttackState);

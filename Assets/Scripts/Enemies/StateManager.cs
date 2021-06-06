@@ -19,7 +19,7 @@ public class StateManager : MonoBehaviour
     //public float playerHealth;
 
     [Header("VISIBILITY CHECK")]
-    [SerializeField] bool visualizeVisabilityCone = true;
+    //[SerializeField] bool visualizeVisabilityCone = true;
     public LayerMask visibilityMask;
     [Range(0f, 360f)]
     public float visibilityAngle = 100f;
@@ -67,6 +67,7 @@ public class StateManager : MonoBehaviour
     [HideInInspector] public PatrolState patrolState;
     [HideInInspector] public SearchState searchState;
     [HideInInspector] public ChaseState chaseState;
+    [HideInInspector] public DeathState deathState;
 
     [Header ("ANIMATION")]
     public Animator animator;
@@ -89,10 +90,12 @@ public class StateManager : MonoBehaviour
         attackState = new AttackState(this);
         patrolState = new PatrolState(this);
         searchState = new SearchState(this);
-        chaseState = new ChaseState(this);               
+        chaseState = new ChaseState(this);
+        deathState = new DeathState(this);
 
-        //initialize
+        //Start in Patrol State.
         currentState = patrolState;
+
         //Allows the static variables of ProjectileMove to be changed by StateManager.
         ProjectileMove.speed = this.shootSpeed;
         ProjectileMove.chargeTime = this.chargeTime;
@@ -104,9 +107,9 @@ public class StateManager : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         playerTarget = GameObject.FindGameObjectWithTag("Player");
         FOVCone = GetComponentInChildren<Light>();
-        //spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint"); //if more than one enemy this may grab the wrong SpawnPoint
         terrain = GameObject.FindGameObjectWithTag("Terrain");
 
+        //Put the patrol points into a list.
         List<Transform> points = new List<Transform>();
 
         foreach (Transform potentialPatrolPoint in patrolRoute)
@@ -125,27 +128,10 @@ public class StateManager : MonoBehaviour
     {
         enemyHealth = GetComponent<EnemyHealth>().enemyHealth;
         distanceFromTarget = Vector3.Distance(transform.position, playerTarget.transform.position);
-        //distanceFromGround = Terrain.activeTerrain.SampleHeight(transform.position);
+        distanceFromGround = Terrain.activeTerrain.SampleHeight(transform.position);
 
-        //If there is no Terrain
-        distanceFromGround = Vector3.Distance(transform.position, terrain.transform.position);
-
-        //ANIMATION BOOLS
-
-        //TODO: create Death state
-    
-        //else if (enemyHealth <= 0)
-        //{
-        //    animator.SetBool("dead", true);
-        //    animator.SetBool("chasing", false);
-        //    animator.SetBool("patrol", true);
-        //}
-        //else
-        //{
-        //    animator.SetBool("dead", false);
-        //    animator.SetBool("patrol", false);
-        //    animator.SetBool("chasing", false);
-        //}
+        //If there is no Terrain object (plane instead):
+        //distanceFromGround = Vector3.Distance(transform.position, terrain.transform.position);
 
         currentState.RunCurrentState();
     }
@@ -175,6 +161,7 @@ public class StateManager : MonoBehaviour
         }
     }
 
+    //Called during state changes.
     public virtual void ChangeState(State nextState)
     {
         currentState.OnStateExit();

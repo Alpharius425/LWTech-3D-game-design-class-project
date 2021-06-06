@@ -21,10 +21,15 @@ public class SearchState : State
 
     public override void RunCurrentState()
     {
+        if (stateManager.enemyHealth <= 0)
+        {
+            stateManager.ChangeState(stateManager.deathState);
+        }
+
         if (CheckVisibility())
         {
             stateManager.ChangeState(stateManager.chaseState);
-        }     
+        }
 
         LookRightLeft();
     }

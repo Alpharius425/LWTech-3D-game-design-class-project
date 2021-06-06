@@ -38,6 +38,12 @@ public class ChargeUpAttackState : State
 
     public override void RunCurrentState()
     {
+
+        if (stateManager.enemyHealth <= 0)
+        {
+            stateManager.ChangeState(stateManager.deathState);
+        }
+
         ChaseTarget();
         targetLastPos = stateManager.playerTarget.transform;
 
