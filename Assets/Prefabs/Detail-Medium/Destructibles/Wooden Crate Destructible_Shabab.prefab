@@ -1955,6 +1955,7 @@ GameObject:
   - component: {fileID: 8263772723695772567}
   - component: {fileID: 2987682045947678331}
   - component: {fileID: 2078748923866733709}
+  - component: {fileID: -2056412196347983862}
   m_Layer: 0
   m_Name: Wooden Crate Destructible_Shabab
   m_TagString: Destructable
@@ -2028,6 +2029,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyedObject: {fileID: 8783427949073447213, guid: 9f08a4439fefd9342bb43fdb01caa3bf,
     type: 3}
+--- !u!54 &-2056412196347983862
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8783427949073447213}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &9158344880561186822
 GameObject:
   m_ObjectHideFlags: 0

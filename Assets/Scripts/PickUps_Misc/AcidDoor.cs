@@ -4,37 +4,37 @@ using UnityEngine;
 
 public class AcidDoor : MonoBehaviour
 {
-    Renderer myRenderer;
+    /**
+     * This script handles the effects of metal doors melting when hit with an acid shot.
+     * -Grant Hargraves and Mikey Petersen
+     */
+    //=========================FIELDS=========================
+    [Header("Fields")]
+    [SerializeField] GameObject meltFX; //the acid steam effect that will be set active when the door is melted
     //=========================SOUND EFFECTS=========================
     [Header("Sound Effects")]
     [SerializeField] AudioSource myAudio; //the source we will be playing sounds from on this specific object
     [SerializeField] AudioClip meltSFX; //the audio clip containing the "acid hiss" SFX
     //=========================METHODS=========================
-    private void Start()
-    {
-        myRenderer = GetComponent<Renderer>();
-    }
     public void Melt()
     {
-        StartCoroutine("FadeOut"); // starts the fade away
+        StartCoroutine("Meltdown"); // starts the melt coroutine
     }
 
-    IEnumerator FadeOut()
+    IEnumerator Meltdown()
     {
         myAudio.clip = meltSFX; //set sound clip
         myAudio.Play(); //play sound clip
-        for (float fade = 1f; fade >= -0.1f; fade -= 0.1f) // runs a loop that makes the door slowly become transparent
+        meltFX.gameObject.SetActive(true);
+        for (float fade = 80f; fade >= -0.1f; fade -= 0.1f) // runs a loop that makes the door slowly move down
         {
-            Color newColor = myRenderer.material.color; // sets the color to same as our base color
-            newColor.a = fade; // sets the alpha of the new color to be more transparent
-            myRenderer.material.color = newColor; // resets the color of the sprite to be transparent
-
+            gameObject.transform.position += new Vector3(0, -5f * Time.deltaTime, 0);
             if(fade >= 0.1f)
             {
-                yield return new WaitForSeconds(0.1f);
+                yield return new WaitForSeconds(0.01f);
             }
         }
-
-        gameObject.SetActive(false);
+        meltFX.gameObject.SetActive(false); //turn off acid steam effect
+        gameObject.SetActive(false); //turn off this game object
     }
 }
