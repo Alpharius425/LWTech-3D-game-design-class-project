@@ -795,6 +795,7 @@ GameObject:
   - component: {fileID: 4459864851310106429}
   - component: {fileID: 4459864851310106426}
   - component: {fileID: 4459864851310106427}
+  - component: {fileID: 7896825118459456030}
   m_Layer: 3
   m_Name: PlayerCamera
   m_TagString: MainCamera
@@ -869,6 +870,23 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4459864851310106424}
   m_Enabled: 1
+--- !u!114 &7896825118459456030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4459864851310106424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGlobal: 1
+  priority: 1
+  blendDistance: 0
+  weight: 0.848
+  sharedProfile: {fileID: 11400000, guid: 50090e29097e1984eb6d528c8933b57b, type: 2}
 --- !u!1 &4459864851397454630
 GameObject:
   m_ObjectHideFlags: 0
@@ -1713,6 +1731,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 538904a4d1d9f5c49a243745ce374ed6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resumeButton: {fileID: 0}
+  controlsButton: {fileID: 0}
+  mainMenuButton: {fileID: 0}
+  quitButton: {fileID: 0}
   pausePanel: {fileID: 0}
   controlPanel: {fileID: 0}
   pause: 0
