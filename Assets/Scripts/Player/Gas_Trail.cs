@@ -12,5 +12,9 @@ public class Gas_Trail : MonoBehaviour
         {
             col.GetComponent<EnemyHealth>().DeductHealth(damage);
         }
+        if (col.CompareTag("Juggernaut"))
+        {
+            col.GetComponent<JuggernautAI>().TakeDamage(damage, false);
+        }
     }
 }

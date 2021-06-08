@@ -19,7 +19,7 @@ public class JuggernautAI : MonoBehaviour
     [Space(15)]
     [SerializeField] Transform guardPost;
     [SerializeField] Transform destination;
-    [HideInInspector] public bool hasArmor;
+    [HideInInspector] bool hasArmor;
 
     [Header("PLAYER")]
     [SerializeField] GameObject player;
@@ -92,24 +92,34 @@ public class JuggernautAI : MonoBehaviour
             Debug.LogError("The NavMesh agent is missing for " + gameObject.name);
         }
    
-        Debug.Log("Destination: " + destination);
+        //Debug.Log("Destination: " + destination);
 
     }
 
-    public void TakeDamage (int amount)
+    public void TakeDamage (int amount, bool acid)
     {
-        //Take no damage if projectile is non acid and has armor.
-        
-        //If hit by acid - make armor disappear
-        hasArmor = false;
-
-        //Take damage by any projectile
-        enemyHealth -= amount;
-
-        if (enemyHealth <= 0)
+        if(acid == true)
         {
-            animator.SetBool("death", true);
-            Destroy(gameObject, 3f);
+            //If hit by acid - make armor disappear
+            hasArmor = false;
+            Debug.Log("Armor destroyed");
+        }
+
+        //Take no damage if projectile is non acid and has armor.
+        if(hasArmor == false)
+        {
+            //Take damage by any projectile
+            enemyHealth -= amount;
+            Debug.Log("Armor is gone so attack got through");
+            if (enemyHealth <= 0)
+            {
+                animator.SetBool("death", true);
+                Destroy(gameObject, 3f);
+            }
+        }
+        else
+        {
+            Debug.Log("Armor resisted the attack");
         }
     }
         

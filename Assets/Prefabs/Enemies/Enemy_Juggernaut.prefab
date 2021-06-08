@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7693234205013129480}
   - component: {fileID: 4416518782092050116}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:MagicCircle02_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3872286673025377958}
   - component: {fileID: 128661883197508863}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:MagicCircle01_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -273,7 +273,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2940647521950711714}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Eye_NULL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -303,7 +303,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2656149739058765290}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston06_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -335,7 +335,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2796030965668489541}
   - component: {fileID: 8535390881467397590}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:MagicCircle02_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -467,7 +467,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8011099024554691519}
   - component: {fileID: 6402984913112401158}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:LegPiston08_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -598,7 +598,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4752890223112261085}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston08_B_NULL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -628,7 +628,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1484002811064316304}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston05_B_NULL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -659,7 +659,7 @@ GameObject:
   m_Component:
   - component: {fileID: 234523866816809537}
   - component: {fileID: 3504285461057485460}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:LegPiston06_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -791,7 +791,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3257509368214628456}
   - component: {fileID: 1018510050987300507}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:Foot_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -925,7 +925,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7916286178202177030}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston05_R_NULL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -955,7 +955,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6020640477056273652}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston04_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -986,7 +986,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3509603329935243944}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1017,7 +1017,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5084388361593745516}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Foot_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1057,7 +1057,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1829386995239414788}
   - component: {fileID: 703050656105290383}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:LegPiston07_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1188,7 +1188,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5820324518493747144}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1222,7 +1222,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4943553271765320283}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston07_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1254,7 +1254,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9009486566672942359}
   - component: {fileID: 7854436038971545364}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:LegPiston02_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1391,9 +1391,9 @@ GameObject:
   - component: {fileID: 515129670724157139}
   - component: {fileID: 515129670724157138}
   - component: {fileID: 6268438570984913039}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy_Juggernaut
-  m_TagString: Untagged
+  m_TagString: Juggernaut
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1474,7 +1474,6 @@ MonoBehaviour:
   enemyHealth: 100
   guardPost: {fileID: 0}
   destination: {fileID: 0}
-  hasArmor: 0
   player: {fileID: 0}
   playerHealth: 100
   distanceFromPlayer: 0
@@ -1533,7 +1532,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2439095403562846363}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Leg_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1566,7 +1565,7 @@ GameObject:
   - component: {fileID: 1464997391006593276}
   - component: {fileID: 6120949935685411506}
   - component: {fileID: 1015675753}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:ForeArm_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1711,7 +1710,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9018397825327403897}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Exhaust_NULL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1741,7 +1740,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1082720219838867352}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Engine_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1772,7 +1771,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8314708202523533760}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston06_L_NULL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1802,7 +1801,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 760670798969268051}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston05_L_NULL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1832,7 +1831,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1414393783584041976}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston01_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1864,7 +1863,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7882062270283181055}
   - component: {fileID: 5211383309767919972}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:LegPiston08_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1996,7 +1995,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6779876271848899689}
   - component: {fileID: 8940537357448525673}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:ForeArm_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2130,7 +2129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3982307593136199853}
   - component: {fileID: 2848233481150170729}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:LegPiston08_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2261,7 +2260,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6954187792271204615}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mask_NULL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2291,7 +2290,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1861142822856058568}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston08_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2322,7 +2321,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2767920887909101196}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Engine_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2353,7 +2352,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 865198342580925752}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston08_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2385,7 +2384,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8636750084276778784}
   - component: {fileID: 322045856438954281}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:Armor_ForeArm_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2516,7 +2515,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6048846192191953153}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston07_L_NULL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2547,7 +2546,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4342810206424058411}
   - component: {fileID: 4993176496385659382}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:LegPiston02_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2679,7 +2678,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8352254998451531610}
   - component: {fileID: 4303640389882721962}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:MagicCircle01_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2810,7 +2809,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3978365349409349497}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston03_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2841,7 +2840,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8000284541760228707}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston07_R_NULL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2872,7 +2871,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4466187071839779601}
   - component: {fileID: 816172109986129268}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:LegPiston01_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3003,7 +3002,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8432590815110223525}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:LegPistons_B_G
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3042,7 +3041,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8150485886941915678}
   - component: {fileID: 537558342031834649}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:LegPiston05_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3173,7 +3172,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9078475476913775472}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:MagicCircle_B_G
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3206,7 +3205,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2656278222688144180}
   - component: {fileID: 8060633082241348908}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:Clavical_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3338,7 +3337,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7459917746177844865}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston01_R_NULL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3368,7 +3367,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6700901792976969058}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston05_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3400,7 +3399,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6933603472134993088}
   - component: {fileID: 5291471683230001747}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:MagicCircle01_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3531,7 +3530,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3295855228783715205}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston02_L_NULL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3562,7 +3561,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5686817822952472088}
   - component: {fileID: 5618364029316357566}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:Foot_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3697,7 +3696,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6293081667896360054}
   - component: {fileID: 1025276607597281327}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:LegPiston03_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3829,7 +3828,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2424604433463587610}
   - component: {fileID: 3021075077803643495}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:LegPiston03_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3961,7 +3960,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1850662001522046963}
   - component: {fileID: 8841603168269688709}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:Shoulder_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4095,7 +4094,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 195445895080328762}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston07_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4127,7 +4126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9078125259830437831}
   - component: {fileID: 793325821116077234}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:Shoulder_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4262,7 +4261,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7920013684000924620}
   - component: {fileID: 8976948178859698627}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:LegPiston04_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4393,7 +4392,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8811086632793450430}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston03_R_NULL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4424,7 +4423,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3698290953994078227}
   - component: {fileID: 1912388864833549930}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:MagicCircle02_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4556,7 +4555,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6263245926816576449}
   - component: {fileID: 8511292903651858189}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:Armor_Mask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4688,7 +4687,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3742730814324869419}
   - component: {fileID: 1556901689434090909}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:Clavical_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4821,7 +4820,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8555305727374259771}
   - component: {fileID: 5199267366774912604}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:LegPiston04_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4952,7 +4951,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6551664287185053060}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston05_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4984,7 +4983,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6805084588354103133}
   - component: {fileID: 7948978565105470576}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:Neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5117,7 +5116,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7200513891658245840}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston06_B_NULL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5147,7 +5146,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7046947073044659486}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston02_B_NULL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5177,7 +5176,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9116218721402597837}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:LegPistons_L_G
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5215,7 +5214,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8229255328545229902}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Foot_R_NULL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5246,7 +5245,7 @@ GameObject:
   m_Component:
   - component: {fileID: 29262322266406607}
   - component: {fileID: 7819824788995271561}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:LegPiston01_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5377,7 +5376,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7347069025353340239}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston02_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5408,7 +5407,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6439564445207531991}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:LegPistons_R_G
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5447,7 +5446,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8048143546257709666}
   - component: {fileID: 3838400024504173030}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:Leg_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5580,7 +5579,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3571511766399988207}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Shoulder_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5612,7 +5611,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3908898105927053695}
   - component: {fileID: 1490695492123940682}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:Armor_UpperArm_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5743,7 +5742,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 852676167228613607}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston04_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5774,7 +5773,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3983032544074672977}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Armor01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5805,7 +5804,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7293989784555219641}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston08_R_NULL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5836,7 +5835,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1029022054579068078}
   - component: {fileID: 2154601074204899950}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:LegPiston07_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5967,7 +5966,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6919127349838707386}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston02_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5999,7 +5998,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1883700115043467606}
   - component: {fileID: 4695887269414860554}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:Armor_UpperArm_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6130,7 +6129,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5410297488997342445}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston02_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6161,7 +6160,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4442826170475943803}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston01_B_NULL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6192,7 +6191,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2069161855327606963}
   - component: {fileID: 4547800533952879436}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:Foot_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6326,7 +6325,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7499274493914701865}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston01_L_NULL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6356,7 +6355,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2500896068609651697}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston04_B_NULL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6387,7 +6386,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2319318317031076043}
   - component: {fileID: 7421478986845012667}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:Armor_Chest01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6520,7 +6519,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1677529554432890454}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Clavical_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6551,7 +6550,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5742862461992397665}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:Enemy02_UVMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6583,7 +6582,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4087240425053676441}
   - component: {fileID: 7038309420118757305}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:LegPiston05_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6715,7 +6714,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5995212429556040051}
   - component: {fileID: 6096999476182716599}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:LegPiston03_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6846,7 +6845,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6020776516555799491}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston04_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6877,7 +6876,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 444008116901313661}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston07_B_NULL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6907,7 +6906,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4110994116092684436}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Engine_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6938,7 +6937,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5768147403508458205}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston03_L_NULL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6968,7 +6967,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 412820887713208025}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston03_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7001,7 +7000,7 @@ GameObject:
   - component: {fileID: 3374573158814187877}
   - component: {fileID: 1704678153}
   - component: {fileID: 1704678154}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Elbow_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7060,7 +7059,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1863013335023322110}
   - component: {fileID: 282161333631645128}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:Armor_Chest03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7191,7 +7190,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5782385444614802183}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Foot_B_NULL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7222,7 +7221,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3700210662949826689}
   - component: {fileID: 4003804068368164289}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:LegPiston06_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7353,7 +7352,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9212144326147835590}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston06_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7384,7 +7383,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1937290779477528100}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston05_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7415,7 +7414,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8956664534204068475}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston03_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7446,7 +7445,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7472462930323160421}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_Joints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7477,7 +7476,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5197486167139830370}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Elbow_R_NULL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7507,7 +7506,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3864795465581395627}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston07_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7538,7 +7537,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8313245236177649156}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Foot_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7578,7 +7577,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3085226639848886811}
   - component: {fileID: 6729734773894172760}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:LegPiston06_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7709,7 +7708,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2458378276528109156}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston02_R_NULL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7741,7 +7740,7 @@ GameObject:
   - component: {fileID: 8074514743216051513}
   - component: {fileID: 1329427468}
   - component: {fileID: 1329427467}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Elbow_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7799,7 +7798,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8752903793883065042}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:MagicCircle_R_G
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7831,7 +7830,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6399061416550776583}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston04_R_NULL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7861,7 +7860,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3346664878986231140}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Armor03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7893,7 +7892,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1360426156858520886}
   - component: {fileID: 2942275791990280520}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:Exhaust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8025,7 +8024,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3710823435367878965}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston06_R_NULL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8056,7 +8055,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8476994840669268265}
   - component: {fileID: 1985963259224265202}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:LegPiston04_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8187,7 +8186,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5846921870430667062}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Shoulder_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8219,7 +8218,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3981076725285008487}
   - component: {fileID: 6094642216182482861}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:LegPiston02_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8350,7 +8349,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4253084804610580372}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Head_NULL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8380,7 +8379,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2095883313879492462}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston06_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8411,7 +8410,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6876389814136289141}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Elbow_L_NULL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8441,7 +8440,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5457940848136866414}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Exhaust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8472,7 +8471,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4623804034668664736}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Clavical_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8504,7 +8503,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3064608538262041447}
   - component: {fileID: 1154048158834644963}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8646,7 +8645,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4061939438562277856}
   - component: {fileID: 8570392389216877877}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8777,7 +8776,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6205788183458561636}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Leg_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8808,7 +8807,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 893824062616784485}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston03_B_NULL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8838,7 +8837,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6961651676151151668}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Armor_NULL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8868,7 +8867,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 456409320539911889}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston08_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8899,7 +8898,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2424470401644309729}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Foot_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8939,7 +8938,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5686165428540952390}
   - component: {fileID: 8041720442904959376}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:Armor_Helmet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9072,7 +9071,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7521148589642942794}
   - component: {fileID: 1695316832165027001}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:LegPiston07_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9204,7 +9203,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4054769600499501577}
   - component: {fileID: 1062869015164641571}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:LegPiston05_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9336,7 +9335,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3157193210560357474}
   - component: {fileID: 8410892656339478590}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:Armor_Chest02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9468,7 +9467,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4997186486986966480}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Armor02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9499,7 +9498,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1160406296658601669}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston04_L_NULL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9529,7 +9528,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4774200370835790172}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9564,7 +9563,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4451362668718664692}
   - component: {fileID: 8868140596219026526}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:Leg_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9697,7 +9696,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7458387763730341941}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Foot_L_NULL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9727,7 +9726,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7195036540566054665}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:MagicCircle_L_G
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9759,7 +9758,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5735336791877360351}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Leg_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9791,7 +9790,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8071845001520622501}
   - component: {fileID: 1807500887412860835}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:Leg_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9925,7 +9924,7 @@ GameObject:
   m_Component:
   - component: {fileID: 681236520268967853}
   - component: {fileID: 1991042368167930735}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:LegPiston01_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10057,7 +10056,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8278531778925997499}
   - component: {fileID: 1202668641102116278}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:Armor_ForeArm_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10188,7 +10187,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 674388281550563784}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10223,7 +10222,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3465131369058226292}
   - component: {fileID: 7734204079095432665}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy02_UVs:Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10359,7 +10358,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2808765281182772711}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston01_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10390,7 +10389,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6442758068637294529}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10421,7 +10420,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3726035447042144539}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston08_L_NULL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10451,7 +10450,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3914904365691919290}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10482,7 +10481,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7650193104331751587}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Piston01_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}

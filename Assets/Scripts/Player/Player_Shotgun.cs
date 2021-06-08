@@ -12,9 +12,11 @@ public class Player_Shotgun : MonoBehaviour
     private void OnTriggerEnter(Collider col)
     {
         EnemyHealth enemyThatEntered = col.GetComponent<EnemyHealth>();
+        JuggernautAI juggernautThatEntered = col.GetComponent<JuggernautAI>();
         Destructable_Object destructableThatEntered = col.GetComponent<Destructable_Object>();
 
         if (enemyThatEntered != null) enemiesInRange.Add(enemyThatEntered.gameObject);
+        if (enemyThatEntered != null) enemiesInRange.Add(juggernautThatEntered.gameObject);
         if (destructableThatEntered != null) destructablesInRange.Add(destructableThatEntered.gameObject);
     }
 
@@ -31,10 +33,21 @@ public class Player_Shotgun : MonoBehaviour
 
         foreach (GameObject enemy in enemies)
         {
-            EnemyHealth curEnemy = enemy.GetComponent<EnemyHealth>();
-            curEnemy.DeductHealth(damage);
+            if(enemy.CompareTag("Mayfly"))
+            {
+                EnemyHealth curMayFly = enemy.GetComponent<EnemyHealth>();
+                curMayFly.DeductHealth(damage);
 
-            if (curEnemy.enemyHealth == 0) enemiesInRange.Remove(enemy);
+                if (curMayFly.enemyHealth == 0) enemiesInRange.Remove(enemy);
+            }
+
+            if (enemy.CompareTag("Juggernaut"))
+            {
+                JuggernautAI curJuggernaut = enemy.GetComponent<JuggernautAI>();
+                curJuggernaut.TakeDamage(damage, false);
+
+                if (curJuggernaut.enemyHealth == 0) enemiesInRange.Remove(enemy);
+            }
         }
         foreach (GameObject destructable in destructables)
         {

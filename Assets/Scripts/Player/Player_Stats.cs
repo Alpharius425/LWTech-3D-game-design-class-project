@@ -373,6 +373,10 @@ public class Player_Stats : MonoBehaviour
                     {
                         hit.collider.GetComponent<EnemyHealth>().DeductHealth(ammoType1Damage);
                     }
+                    if (hit.collider.CompareTag("Juggernaut"))
+                    {
+                        hit.collider.GetComponent<JuggernautAI>().TakeDamage(ammoType1Damage, false);
+                    }
                     if (hit.collider.CompareTag("Destructable"))
                     {
                         hit.collider.GetComponent<Destructable_Object>().DestroyObject();
@@ -414,6 +418,10 @@ public class Player_Stats : MonoBehaviour
                     if(hit.collider.CompareTag("Mayfly"))
                     {
                         hit.collider.GetComponent<EnemyHealth>().DeductHealth(ammoType3Damage);
+                    }
+                    if (hit.collider.CompareTag("Juggernaut"))
+                    {
+                        hit.collider.GetComponent<JuggernautAI>().TakeDamage(ammoType3Damage, transform);
                     }
                     if (hit.collider.CompareTag("Destructable"))
                     {
