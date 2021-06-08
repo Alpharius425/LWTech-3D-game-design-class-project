@@ -9654,4 +9654,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   disableInstead: 1
-  deleteTime: 5
+  deleteTime: 2

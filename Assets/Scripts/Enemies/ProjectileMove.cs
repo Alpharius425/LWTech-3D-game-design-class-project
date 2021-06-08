@@ -10,6 +10,12 @@ public class ProjectileMove : MonoBehaviour
     public static GameObject weapon;
     public static GameObject spawnPoint;
     public int damage;
+    Vector3 aimAt;
+
+    private void Start()
+    {
+        aimAt = AttackState.targetLastPos.position;
+    }
 
     public void Update()
     {
@@ -19,7 +25,7 @@ public class ProjectileMove : MonoBehaviour
     public void AddVelocity()
     {
         //Debug.Log("Speed " + speed);
-        transform.position = Vector3.MoveTowards(transform.position, AttackState.targetLastPos.position, (speed * Time.deltaTime));
+        transform.position = Vector3.MoveTowards(transform.position, aimAt, (speed * Time.deltaTime));
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -31,7 +37,11 @@ public class ProjectileMove : MonoBehaviour
         }
         else if(collision.gameObject.tag == "Terrain" || collision.gameObject.tag == "Walls")
         { 
-            Destroy(gameObject, 1f);  
+            Destroy(gameObject);  
+        }
+        else
+        {
+            Destroy(gameObject, 1f);
         }
     }
 }

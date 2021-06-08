@@ -78,7 +78,6 @@ public class StateManager : MonoBehaviour
     {
         if (FOVCone != null)
         {
-            //TODO: Make this run in editor
             FOVCone.spotAngle = visibilityAngle;
             FOVCone.range = maxDetectDistance;
         }
@@ -130,7 +129,7 @@ public class StateManager : MonoBehaviour
         distanceFromTarget = Vector3.Distance(transform.position, playerTarget.transform.position);
         distanceFromGround = Terrain.activeTerrain.SampleHeight(transform.position);
 
-        //If there is no Terrain object (plane instead):
+        // * If there is no Terrain object (like a plane instead):
         //distanceFromGround = Vector3.Distance(transform.position, terrain.transform.position);
 
         currentState.RunCurrentState();

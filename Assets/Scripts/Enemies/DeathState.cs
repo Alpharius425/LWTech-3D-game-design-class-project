@@ -25,7 +25,7 @@ public class DeathState : State
         stateManager.rb.useGravity = true;
         //Physics.gravity = new Vector3(0, 10f, 0);
 
-        GameObject.Destroy(stateManager.gameObject, 3.0f);
+        GameObject.Destroy(stateManager.gameObject, 1.5f);
 
     }
 

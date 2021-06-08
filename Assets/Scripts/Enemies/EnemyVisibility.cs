@@ -9,6 +9,6 @@ using UnityEngine.UIElements;
 
 public class EnemyVisibility : MonoBehaviour
 {
-    public StateManager JuggernautAI;
+    public StateManager stateManager;
    
 }

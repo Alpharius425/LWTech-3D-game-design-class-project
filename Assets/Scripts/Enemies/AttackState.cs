@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEditor;
+using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.Windows;
 
 public class AttackState : State
 {
@@ -11,8 +13,9 @@ public class AttackState : State
 
     }
 
-    public GameObject player;
+    public static GameObject projectile;
     public static Transform targetLastPos;
+    public static Vector3 shootDirection;
     private int damageAmount;
     [HideInInspector] public static GameObject magicAttack;
     [HideInInspector] public static GameObject spawnPoint;
@@ -23,7 +26,6 @@ public class AttackState : State
 
     public override void OnStateEnter()
     {
-        player = stateManager.playerTarget;
         damageAmount = stateManager.damageAmount;
         magicAttack = stateManager.magicAttack;
         spawnPoint = stateManager.spawnPoint;
@@ -38,16 +40,14 @@ public class AttackState : State
         }
 
         targetLastPos = stateManager.playerTarget.transform;
+
         ShootMagic();
         stateManager.ChangeState(stateManager.chargeUpAttackState);
     }
 
     private void ShootMagic()
     {
-        GameObject.Instantiate(magicAttack, stateManager.spawnPoint.transform.position, Quaternion.identity);
-
-        //TODO: Only damage player if player collides with magic attack collider
-        //player.GetComponent<Player_Stats>().TakeDamage(damageAmount);
+        projectile = GameObject.Instantiate(magicAttack, stateManager.spawnPoint.transform.position, Quaternion.identity);
 
         //Debug.Log("I have fired at the player!");
     }

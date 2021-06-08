@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 344247566382910399}
   - component: {fileID: 344247566382910396}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FOVCone
   m_TagString: EnemyFOV
   m_Icon: {fileID: 0}
@@ -44,8 +44,8 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 30
-  m_Range: 15
-  m_SpotAngle: 80
+  m_Range: 10
+  m_SpotAngle: 117
   m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 1727082789695472933}
   - component: {fileID: 7690079361687321219}
   - component: {fileID: 4616020431508884040}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Axle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 5321251496232075402}
   - component: {fileID: 9138186402344640656}
   - component: {fileID: 161217490565239273}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LeftPropeller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 6857232756803052323}
   - component: {fileID: 1524649597781907790}
   - component: {fileID: 1953378249731337413}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RightPropeller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -351,7 +351,7 @@ GameObject:
   - component: {fileID: 3550617096447799518}
   - component: {fileID: 4390385976148437620}
   - component: {fileID: 8857484738516484625}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -434,7 +434,7 @@ GameObject:
   - component: {fileID: 7047249144932202756}
   - component: {fileID: 7058718669795659535}
   - component: {fileID: 2104215706802317276}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LeftEngine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -517,7 +517,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8512647060887247597}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ProjectileSpawnPoint
   m_TagString: SpawnPoint
   m_Icon: {fileID: 0}
@@ -549,7 +549,7 @@ GameObject:
   - component: {fileID: 1059171265258374449}
   - component: {fileID: 8645375295561033190}
   - component: {fileID: 2501119287510202411}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Exhaust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -650,9 +650,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6039562586696112903}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.75, y: 3.07, z: -21.58}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_LocalScale: {x: 0.010000001, y: 0.01, z: 0.010000001}
   m_Children:
   - {fileID: 8512647060887247597}
   - {fileID: 344247566382910399}
@@ -691,8 +691,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dde90f595ed3e0428a19860e825fb5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 100
-  stateManager: {fileID: 0}
+  enemyHealth: 1
+  stateManager: {fileID: 344247566035998060}
 --- !u!114 &344247566035998060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -705,15 +705,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba116be276382a84f929f9c53a35f2f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 0
+  enemyHealth: 1
   playerTarget: {fileID: 0}
-  visualizeVisabilityCone: 1
   visibilityMask:
     serializedVersion: 2
     m_Bits: 1983
   visibilityAngle: 117
-  FOVCone: {fileID: 0}
-  maxDetectDistance: 19.496628
+  FOVCone: {fileID: 344247566382910396}
+  maxDetectDistance: 10
   patrolSpeed: 2
   patrolIndex: 0
   patrolRoute: {fileID: 0}
@@ -728,21 +727,21 @@ MonoBehaviour:
   rotateSpeed: 3
   stoppingDistance: 6.5
   spawnPoint: {fileID: 2314136998383538074}
-  chargeUpAttack: {fileID: 8625836589822148755, guid: be34236d02e34c741aec0c4ca0797e01,
+  chargeUpAttack: {fileID: 8625836589822148755, guid: e87863f07d9ee1b4db17aab62657a6b0,
     type: 3}
   magicAttack: {fileID: 8625836589822148755, guid: 1134b6c9a1471f142ae8e0b64e0f8370,
     type: 3}
   damageAmount: 5
-  chargeTime: 2.5
+  chargeTime: 2
   shootSpeed: 5
   rateOfFireMin: 3
   rateOfFireMax: 6
   terrain: {fileID: 0}
-  minDistanceFromGround: 2
+  minDistanceFromGround: 4
   maxDistanceFromGround: 4
   distanceFromGround: 0
-  animator: {fileID: 0}
-  rb: {fileID: 0}
+  animator: {fileID: 2373743600682589558}
+  rb: {fileID: 7796424854682521775}
 --- !u!54 &7796424854682521775
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -795,7 +794,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7315170959777902087}
   - component: {fileID: 7315170959777902086}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LeftEngineLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -889,7 +888,7 @@ GameObject:
   - component: {fileID: 7315170960758358319}
   - component: {fileID: 7315170960758358304}
   - component: {fileID: 7315170960758358305}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SmokeParticleLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5705,7 +5704,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7315170960845735873}
   - component: {fileID: 7315170960845735872}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: AlchemyTankLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5799,7 +5798,7 @@ GameObject:
   - component: {fileID: 7315170961178578857}
   - component: {fileID: 7315170961178578871}
   - component: {fileID: 7315170961178578856}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SmokeParticleRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10615,7 +10614,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7315170961733601204}
   - component: {fileID: 7315170961733601203}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RightEngineLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10709,7 +10708,7 @@ GameObject:
   - component: {fileID: 904241391395332051}
   - component: {fileID: 7849505510165119986}
   - component: {fileID: 6152992647445960668}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Drone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10799,7 +10798,7 @@ GameObject:
   - component: {fileID: 3351323075777695823}
   - component: {fileID: 1270999195742118435}
   - component: {fileID: 3606499293832271921}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RightEngine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10884,7 +10883,7 @@ GameObject:
   - component: {fileID: 5947270120151482491}
   - component: {fileID: 5225949067778737959}
   - component: {fileID: 763750408877351293}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cannon3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
