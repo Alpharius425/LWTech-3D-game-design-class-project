@@ -11,6 +11,15 @@ public class Weapon_Shotgun : Weapon
         List<GameObject> enemies = new List<GameObject>(shotGunCone.enemiesInRange);
         List<GameObject> destructables = new List<GameObject>(shotGunCone.destructablesInRange);
 
+        for (int i = enemies.Count-1; i > -1 ; i--)
+        {
+            if (enemies[i] == null)
+            {
+                enemies.RemoveAt(i);
+                shotGunCone.enemiesInRange.RemoveAt(i);
+            }
+        }
+
         foreach (GameObject enemy in enemies)
         {
             if(enemy.CompareTag("Mayfly"))

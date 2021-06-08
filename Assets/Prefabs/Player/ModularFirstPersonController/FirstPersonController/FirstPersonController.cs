@@ -118,6 +118,7 @@ public class FirstPersonController : MonoBehaviour
         public float jointPos;
         public float capsuleHeight;
         public float capsuleCenter;
+        public float playerSpeed;
     }
     public playerHeight standingHeight;
     public playerHeight crouchingHeight;
@@ -149,10 +150,12 @@ public class FirstPersonController : MonoBehaviour
         standingHeight.jointPos = 0.75f;
         standingHeight.capsuleHeight = 2f;
         standingHeight.capsuleCenter = 0f;
+        standingHeight.playerSpeed = 5f;
 
         crouchingHeight.jointPos = 0.5f;
         crouchingHeight.capsuleHeight = 1.5f;
-        standingHeight.capsuleCenter = -0.25f;
+        crouchingHeight.capsuleCenter = -0.25f;
+        crouchingHeight.playerSpeed = 3f;
         rb = GetComponent<Rigidbody>();
 
         crosshairObject = GetComponentInChildren<Image>();
@@ -513,14 +516,14 @@ public class FirstPersonController : MonoBehaviour
         if (isCrouched)
         {
             SetPlayerHeight(crouchingHeight);
-            walkSpeed /= speedReduction;
+            walkSpeed = crouchingHeight.playerSpeed;
         }
         //Crouches player down to set height
         // Reduces walkSpeed
         else
         {
             SetPlayerHeight(standingHeight);
-            walkSpeed *= speedReduction;
+            walkSpeed = standingHeight.playerSpeed;
         }
     }
 

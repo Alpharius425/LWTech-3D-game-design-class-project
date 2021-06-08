@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Shotgun_Cone : MonoBehaviour
 {
-    [HideInInspector] public List<GameObject> enemiesInRange = new List<GameObject>();
-    [HideInInspector] public List<GameObject> destructablesInRange = new List<GameObject>();
+    public List<GameObject> enemiesInRange = new List<GameObject>();
+    public List<GameObject> destructablesInRange = new List<GameObject>();
 
     private void OnTriggerEnter(Collider col)
     {
@@ -14,7 +14,7 @@ public class Shotgun_Cone : MonoBehaviour
         Destructable_Object destructableThatEntered = col.GetComponent<Destructable_Object>();
 
         if (enemyThatEntered != null) enemiesInRange.Add(enemyThatEntered.gameObject);
-        if (enemyThatEntered != null) enemiesInRange.Add(juggernautThatEntered.gameObject);
+        if (juggernautThatEntered != null) enemiesInRange.Add(juggernautThatEntered.gameObject);
         if (destructableThatEntered != null) destructablesInRange.Add(destructableThatEntered.gameObject);
     }
 
