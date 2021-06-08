@@ -1,0 +1,26 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Shotgun_Cone : MonoBehaviour
+{
+    [HideInInspector] public List<GameObject> enemiesInRange = new List<GameObject>();
+    [HideInInspector] public List<GameObject> destructablesInRange = new List<GameObject>();
+
+    private void OnTriggerEnter(Collider col)
+    {
+        EnemyHealth enemyThatEntered = col.GetComponent<EnemyHealth>();
+        JuggernautAI juggernautThatEntered = col.GetComponent<JuggernautAI>();
+        Destructable_Object destructableThatEntered = col.GetComponent<Destructable_Object>();
+
+        if (enemyThatEntered != null) enemiesInRange.Add(enemyThatEntered.gameObject);
+        if (enemyThatEntered != null) enemiesInRange.Add(juggernautThatEntered.gameObject);
+        if (destructableThatEntered != null) destructablesInRange.Add(destructableThatEntered.gameObject);
+    }
+
+    private void OnTriggerExit(Collider col)
+    {
+        if (enemiesInRange.Contains(col.gameObject)) enemiesInRange.Remove(col.gameObject);
+        if (destructablesInRange.Contains(col.gameObject)) destructablesInRange.Remove(col.gameObject);
+    }
+}
