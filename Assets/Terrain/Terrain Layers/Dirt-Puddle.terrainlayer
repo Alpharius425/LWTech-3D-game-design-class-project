@@ -7,7 +7,7 @@ TerrainLayer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Dirt-Puddle
-  m_DiffuseTexture: {fileID: 2800000, guid: f7f77e5e924c8b14ba7307aabf395ebd, type: 3}
+  m_DiffuseTexture: {fileID: 2800000, guid: dde6d8a756837b0448933d108b08a051, type: 3}
   m_NormalMapTexture: {fileID: 2800000, guid: ab1cdfa4235904649abed5c80f0a8ae0, type: 3}
   m_MaskMapTexture: {fileID: 2800000, guid: 8d2ff0d017e2cd6439f6b3bd44dea1e6, type: 3}
   m_TileSize: {x: 6, y: 6}
