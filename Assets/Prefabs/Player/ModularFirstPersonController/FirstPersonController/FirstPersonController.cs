@@ -152,8 +152,8 @@ public class FirstPersonController : MonoBehaviour
         standingHeight.capsuleCenter = 0f;
         standingHeight.playerSpeed = 5f;
 
-        crouchingHeight.jointPos = 0.5f;
-        crouchingHeight.capsuleHeight = 1.5f;
+        crouchingHeight.jointPos = 0.25f;
+        crouchingHeight.capsuleHeight = 1.25f;
         crouchingHeight.capsuleCenter = -0.25f;
         crouchingHeight.playerSpeed = 3f;
         rb = GetComponent<Rigidbody>();
