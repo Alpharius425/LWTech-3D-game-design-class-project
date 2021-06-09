@@ -25,7 +25,14 @@ public class DeathState : State
         stateManager.rb.useGravity = true;
         //Physics.gravity = new Vector3(0, 10f, 0);
 
-        GameObject.Destroy(stateManager.gameObject, 1.5f);
+        //Grant's Additions
+        stateManager.droneAudio.clip = stateManager.mutteringBroken;
+        stateManager.droneAudio.Play();
+        stateManager.propellerAudio.clip = stateManager.helicopterCrash;
+        stateManager.propellerAudio.Play();
+        GameObject.Instantiate(stateManager.deathExplosion, stateManager.spawnPoint.transform.position, Quaternion.identity); //create the magic bolt
+
+        GameObject.Destroy(stateManager.gameObject, 1f);
 
     }
 

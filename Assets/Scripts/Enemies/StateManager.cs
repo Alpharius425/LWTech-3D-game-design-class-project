@@ -49,7 +49,8 @@ public class StateManager : MonoBehaviour
     public GameObject chargeUpAttack;
     public GameObject magicAttack; //weapon effect
     public int damageAmount; //amount of damage enemy does to player
-    public float chargeTime = 3f;
+    public float reloadTime = 3f;
+    public float chargeTime = 2f;
     public float shootSpeed = 8f;
     public float rateOfFireMin = 3f;
     public float rateOfFireMax = 3f;
@@ -73,6 +74,24 @@ public class StateManager : MonoBehaviour
     public Animator animator;
 
     public Rigidbody rb;
+
+    //-------------------------GRANT'S STUFF-------------------------
+    [Header("SOUND EFFECTS")]
+    public AudioSource droneAudio; //reference to the part going beep-boop-beep
+    public AudioSource propellerAudio; //reference to the part going whoosh-whoosh
+    public AudioSource gunAudio; //reference to the part going wawawawa-boom
+    //-----
+    public AudioClip mutteringIdle; //the sound clip for the neutral-sounding blips
+    public AudioClip mutteringHostile; //the sound clip for the angry-sounding blips
+    public AudioClip mutteringBroken; //the sound clip for the broken-sounding blips upon death
+    public AudioClip helicopterNormal; //the sound clip for the constant helicopter noise
+    public AudioClip helicopterCrash; //the sound clip for the broken helicopter noise upon death
+    public AudioClip chargeSound; //the sound clip for the sound of the enemy charging a magic shot
+    public AudioClip fireSound; //the sound clip for the sound of the enemy firing
+    [Header("VISUAL EFFECTS")]
+    public GameObject deathExplosion;
+    public GameObject hurtParticles;
+    //-------------------------BACK TO JES' STUFF-------------------------
 
     public void OnValidate()
     {

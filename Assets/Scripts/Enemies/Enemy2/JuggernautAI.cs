@@ -33,6 +33,15 @@ public class JuggernautAI : MonoBehaviour
     public float visibilityAngle = 100.0f;
     public float maxDetectDistance = 10.0f;
 
+    [Header("SOUND EFFECTS")]
+    [SerializeField] AudioSource myAudio;
+    [SerializeField] AudioClip mutteringIdle;
+    [SerializeField] AudioClip mutteringHostile;
+    [SerializeField] AudioClip mutteringBroken;
+
+    [Header("VISUAL EFFECTS")]
+    [SerializeField] GameObject deathEffects;
+
     [Space(20)]
     [SerializeField] Animator animator;
 

@@ -15,6 +15,8 @@ public class ChaseState : State
         stateManager.animator.SetBool("chasing", true);
         stateManager.animator.SetBool("dead", false);
         stateManager.animator.SetBool("patrol", false);
+        stateManager.droneAudio.clip = stateManager.mutteringHostile;
+        stateManager.droneAudio.Play();
     }
 
     public override void RunCurrentState()
