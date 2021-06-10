@@ -17,8 +17,8 @@ public class JuggernautAI : MonoBehaviour
     [SerializeField] NavMeshAgent enemyAgent;
     public float enemyHealth = 100f;
     [Space(15)]
-    [SerializeField] Transform guardPost;
-    [SerializeField] Transform destination;
+    Transform guardPost;
+    Transform destination;
     [HideInInspector] bool hasArmor;
 
     [Header("PLAYER")]
