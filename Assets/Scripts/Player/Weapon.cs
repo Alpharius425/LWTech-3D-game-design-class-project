@@ -24,22 +24,12 @@ public abstract class Weapon : MonoBehaviour
         if (Physics.Raycast(playerStats.fpsCamera.transform.position, playerStats.fpsCamera.transform.forward, out hit, range, playerStats.attackMask))
         {
             trailZScale = hit.distance;
+            EnemyHealth curEnemy = hit.collider.GetComponent<EnemyHealth>();
+            if (curEnemy != null) curEnemy.DeductHealth(damage, ammoType);
 
             if (ammoType == AmmoType.acid && hit.collider.CompareTag("AcidDoor"))
             {
                 hit.collider.GetComponent<AcidDoor>().Melt();
-            }
-            if (hit.collider.CompareTag("Mayfly"))
-            {
-                hit.collider.GetComponent<EnemyHealth>().DeductHealth(damage);
-            }
-            if (ammoType == AmmoType.acid && hit.collider.CompareTag("Juggernaut"))
-            {
-                hit.collider.GetComponent<JuggernautAI>().TakeDamage(damage, true);
-            }
-            if (ammoType != AmmoType.acid && hit.collider.CompareTag("Juggernaut"))
-            {
-                hit.collider.GetComponent<JuggernautAI>().TakeDamage(damage, false);
             }
             if (hit.collider.CompareTag("Destructable"))
             {

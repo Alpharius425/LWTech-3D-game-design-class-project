@@ -4,33 +4,14 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public float enemyHealth = 100f;
-    public StateManager stateManager;
+    public float curHealth = 100f;
 
-    private void Start()
+    public virtual void DeductHealth(float damage, AmmoType ammoType = AmmoType.gas)
     {
-        stateManager = GetComponent<StateManager>();
+        curHealth -= damage;
+        if (curHealth < 0)
+        {
+            curHealth = 0;
+        }
     }
-    public void DeductHealth(float damage)
-    {
-        Debug.Log("Got hit!");
-      
-        enemyHealth -= damage;
-
-        //if(enemyHealth <= 0)
-        //{
-        //    stateManager.animator.SetBool("dead", true);
-        //    //Turn gravity on so the enemy appears to fall when dying.
-        //    stateManager.rb.useGravity = true;
-            
-        //    EnemyDead();
-        //}
-    }
-
-    //void EnemyDead()
-    //{
-    //    //Destroy the enemy including the parent.
-    //    Destroy(stateManager.gameObject, 4f);
-    //}
-                
 }

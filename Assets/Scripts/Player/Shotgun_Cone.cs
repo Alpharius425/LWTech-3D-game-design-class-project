@@ -10,11 +10,9 @@ public class Shotgun_Cone : MonoBehaviour
     private void OnTriggerEnter(Collider col)
     {
         EnemyHealth enemyThatEntered = col.GetComponent<EnemyHealth>();
-        JuggernautAI juggernautThatEntered = col.GetComponent<JuggernautAI>();
         Destructable_Object destructableThatEntered = col.GetComponent<Destructable_Object>();
 
         if (enemyThatEntered != null) enemiesInRange.Add(enemyThatEntered.gameObject);
-        if (juggernautThatEntered != null) enemiesInRange.Add(juggernautThatEntered.gameObject);
         if (destructableThatEntered != null) destructablesInRange.Add(destructableThatEntered.gameObject);
     }
 

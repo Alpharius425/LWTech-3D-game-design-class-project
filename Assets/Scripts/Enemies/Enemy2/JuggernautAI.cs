@@ -93,34 +93,6 @@ public class JuggernautAI : MonoBehaviour
         }
    
         //Debug.Log("Destination: " + destination);
-
-    }
-
-    public void TakeDamage (int amount, bool acid)
-    {
-        if(acid == true)
-        {
-            //If hit by acid - make armor disappear
-            hasArmor = false;
-            Debug.Log("Armor destroyed");
-        }
-
-        //Take no damage if projectile is non acid and has armor.
-        if(hasArmor == false)
-        {
-            //Take damage by any projectile
-            enemyHealth -= amount;
-            Debug.Log("Armor is gone so attack got through");
-            if (enemyHealth <= 0)
-            {
-                animator.SetBool("death", true);
-                Destroy(gameObject, 3f);
-            }
-        }
-        else
-        {
-            Debug.Log("Armor resisted the attack");
-        }
     }
         
     void MoveToward()

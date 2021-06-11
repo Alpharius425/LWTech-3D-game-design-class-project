@@ -691,8 +691,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dde90f595ed3e0428a19860e825fb5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 1
-  stateManager: {fileID: 344247566035998060}
+  curHealth: 100
 --- !u!114 &344247566035998060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -705,7 +704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba116be276382a84f929f9c53a35f2f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 1
+  enemyHealth: 100
   playerTarget: {fileID: 0}
   visibilityMask:
     serializedVersion: 2
