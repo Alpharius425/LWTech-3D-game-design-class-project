@@ -21,7 +21,7 @@ public class Pause_Menu : MonoBehaviour
     [SerializeField] GameObject pausePanel; // our panel with all our buttons and text
     [SerializeField] GameObject controlPanel; //the panel containing our controls text
     public bool pause = false; // checks if we are paused or not
-    private bool controlsUp; //keeps track of whether the controls panel is up or not
+    private bool controlsUp = true; //keeps track of whether the controls panel is up or not
     public int mainMenuScene; // saves the index of our main menu scene
     [SerializeField] Player_Stats myStats;
     //========================BASIC METHODS=========================

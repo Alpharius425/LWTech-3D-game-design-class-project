@@ -10,11 +10,11 @@ public class ProjectileMove : MonoBehaviour
     public static GameObject weapon;
     public static GameObject spawnPoint;
     public int damage;
-    Vector3 aimAt;
+    public Vector3 aimAt;
 
     private void Start()
     {
-        aimAt = AttackState.targetLastPos.position;
+        //aimAt = AttackState.targetLastPos.position;
     }
 
     public void Update()

@@ -56,7 +56,7 @@ public abstract class Weapon : MonoBehaviour
     {
         for (int i = 0; i < VFX.Length; i++)
         {
-            Instantiate(VFX[i], playerStats.firePoint.transform.position, playerStats.fpsCamera.transform.rotation); //creates the gold dust burst effect
+            Instantiate(VFX[i], playerStats.firePoint.transform.position, playerStats.fpsCamera.transform.rotation); //creates the weapon effect
         }
     }
 }

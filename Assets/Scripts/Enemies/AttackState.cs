@@ -49,5 +49,7 @@ public class AttackState : State
         stateManager.gunAudio.clip = stateManager.fireSound;
         stateManager.gunAudio.Play();
         projectile = GameObject.Instantiate(magicAttack, stateManager.spawnPoint.transform.position, Quaternion.identity); //create the magic bolt
+
+        projectile.GetComponent<ProjectileMove>().aimAt = targetLastPos.transform.position;
     }
 }
