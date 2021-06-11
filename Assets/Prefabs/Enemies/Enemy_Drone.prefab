@@ -844,7 +844,7 @@ MonoBehaviour:
     type: 3}
   damageAmount: 5
   reloadTime: 3
-  chargeTime: 2000
+  chargeTime: 2
   shootSpeed: 5
   rateOfFireMin: 3
   rateOfFireMax: 6
