@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 310552661}
   - component: {fileID: 310552662}
   - component: {fileID: 5754085504584722820}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FirstPersonController
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -348,6 +348,7 @@ MonoBehaviour:
   groundedLayers:
     serializedVersion: 2
     m_Bits: 0
+  stats: {fileID: 310552662}
   playerCamera: {fileID: 4459864851310106426}
   fov: 80
   invertCamera: 0

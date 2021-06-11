@@ -45,7 +45,7 @@ public class Player_Stats : MonoBehaviour
     [SerializeField] Image fadeRenderer;
 
 
-    [SerializeField] Pause_Menu pauseMenu;
+    public Pause_Menu pauseMenu;
     // Improvising the Potion change!!! This can probably be done better!!!
     [SerializeField] GameObject[] ammoPotions;
 

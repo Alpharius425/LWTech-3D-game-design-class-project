@@ -17,6 +17,7 @@ using UnityEngine.UI;
 public class FirstPersonController : MonoBehaviour
 {
     public LayerMask groundedLayers;
+    public Player_Stats stats;
 
     private Rigidbody rb;
 
@@ -473,7 +474,7 @@ public class FirstPersonController : MonoBehaviour
         float groundedBuffer = 0.01f;
         Vector3 origin = new Vector3(transform.position.x, transform.position.y - (standingHeight.capsuleHeight * .5f) - groundedBuffer, transform.position.z);
 
-        if (Physics.CheckSphere(origin, sphereRadius, groundedLayers))
+        if (Physics.CheckSphere(origin, sphereRadius, groundedLayers) && stats.pauseMenu.pause == false)
         {
             isGrounded = true;
         }
@@ -577,7 +578,7 @@ public class FirstPersonController : MonoBehaviour
     public override void OnInspectorGUI()
     {
         SerFPC.Update();
-
+        fpc.stats = (Player_Stats)EditorGUILayout.ObjectField(new GUIContent("Player_Stats", "our player stats"), fpc.stats, typeof(Player_Stats), true);
         EditorGUILayout.Space();
         GUILayout.Label("Modular First Person Controller", new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold, fontSize = 16 });
         GUILayout.Label("By Jess Case", new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Normal, fontSize = 12 });
