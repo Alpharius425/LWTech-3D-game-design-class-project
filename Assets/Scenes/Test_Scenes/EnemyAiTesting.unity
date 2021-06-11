@@ -3727,11 +3727,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4929650549517060357, guid: 6bacecc4f3df9584198879c73a6b6c36,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4979493693463974257, guid: 6bacecc4f3df9584198879c73a6b6c36,
         type: 3}
       propertyPath: m_Layer
@@ -4508,7 +4503,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1924
+  m_Name: pb_Mesh-71114
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5484,7 +5479,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Juggernaut
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 515129670724157142, guid: d7d3d36f5a92e674c98433d1171f98d4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d7d3d36f5a92e674c98433d1171f98d4, type: 3}
 --- !u!1001 &4293028339196632876
 PrefabInstance:
@@ -5518,6 +5514,11 @@ PrefabInstance:
       propertyPath: patrolPoints.Array.data[2]
       value: 
       objectReference: {fileID: 7563079032895460711}
+    - target: {fileID: 344247566382910396, guid: a9903c89f51a5704dbd51272593d2df5,
+        type: 3}
+      propertyPath: m_Range
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 6039562586696112903, guid: a9903c89f51a5704dbd51272593d2df5,
         type: 3}
       propertyPath: m_Name

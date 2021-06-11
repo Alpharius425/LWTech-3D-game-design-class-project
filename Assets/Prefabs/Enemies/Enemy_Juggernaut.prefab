@@ -1387,7 +1387,6 @@ GameObject:
   - component: {fileID: 48592683939338718}
   - component: {fileID: 515129670724157144}
   - component: {fileID: 515129670724157143}
-  - component: {fileID: 515129670724157142}
   - component: {fileID: 515129670724157139}
   - component: {fileID: 515129670724157138}
   - component: {fileID: 6268438570984913039}
@@ -1444,20 +1443,6 @@ CapsuleCollider:
   m_Height: 1.5806506
   m_Direction: 1
   m_Center: {x: 0, y: 0.44382167, z: 0}
---- !u!114 &515129670724157142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 857780034206909284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dde90f595ed3e0428a19860e825fb5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyHealth: 100
-  stateManager: {fileID: 0}
 --- !u!114 &515129670724157139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1472,8 +1457,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyAgent: {fileID: 0}
   enemyHealth: 100
-  guardPost: {fileID: 0}
-  destination: {fileID: 0}
   player: {fileID: 0}
   playerHealth: 100
   distanceFromPlayer: 0
