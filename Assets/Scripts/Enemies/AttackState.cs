@@ -14,11 +14,13 @@ public class AttackState : State
     }
 
     public static GameObject projectile;
+    public static GameObject projectileCharge;
     public static Transform targetLastPos;
     public static Vector3 shootDirection;
     private int damageAmount;
     [HideInInspector] public static GameObject magicAttack;
     [HideInInspector] public static GameObject spawnPoint;
+    [HideInInspector] public static GameObject magicCharge;
 
     //For timer
     [SerializeField] private float seconds; // How long the timer lasts in seconds
@@ -28,6 +30,8 @@ public class AttackState : State
     {
         damageAmount = stateManager.damageAmount;
         magicAttack = stateManager.magicAttack;
+        //Grant's additions
+        magicCharge = stateManager.chargeUpAttack;
         spawnPoint = stateManager.spawnPoint;
         stateManager.FOVCone.color = Color.red;
     }
@@ -42,8 +46,8 @@ public class AttackState : State
 
     private void ShootMagic()
     {
-        projectile = GameObject.Instantiate(magicAttack, stateManager.spawnPoint.transform.position, Quaternion.identity);
-
-        //Debug.Log("I have fired at the player!");
+        stateManager.gunAudio.clip = stateManager.fireSound;
+        stateManager.gunAudio.Play();
+        projectile = GameObject.Instantiate(magicAttack, stateManager.spawnPoint.transform.position, Quaternion.identity); //create the magic bolt
     }
 }
