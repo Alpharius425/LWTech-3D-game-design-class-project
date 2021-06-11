@@ -8,6 +8,8 @@ public class Weapon_Shotgun : Weapon
 
     public override void Fire()
     {
+
+        playerStats.playerAudio.PlayOneShot(fireSound);
         List<GameObject> enemies = new List<GameObject>(shotGunCone.enemiesInRange);
         List<GameObject> destructables = new List<GameObject>(shotGunCone.destructablesInRange);
 
