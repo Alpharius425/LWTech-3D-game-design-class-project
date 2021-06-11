@@ -58,7 +58,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 3
+    scalar: 2
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -749,7 +749,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 3
+      value: 1
       mode: 0
       spread: 0
       speed:
@@ -4989,4 +4989,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myAudioSource: {fileID: 6516911542397500494}
   myAudioClip: {fileID: 8300000, guid: b062d97627c11ca4094d840cdf55277e, type: 3}
-  delayTime: 1
+  delayTime: 3

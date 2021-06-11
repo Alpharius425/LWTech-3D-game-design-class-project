@@ -38,6 +38,7 @@ public class JuggernautAI : MonoBehaviour
     [SerializeField] AudioClip mutteringIdle;
     [SerializeField] AudioClip mutteringHostile;
     [SerializeField] AudioClip mutteringBroken;
+    private bool isHostile = false; //forces a sound effect to only change once
 
     [Header("VISUAL EFFECTS")]
     [SerializeField] GameObject deathEffects;
@@ -73,6 +74,12 @@ public class JuggernautAI : MonoBehaviour
         if (distanceFromPlayer < maxDetectDistance)
         {
             destination = player.transform;
+            if (!isHostile)
+            {
+                myAudio.clip = mutteringHostile;
+                myAudio.Play();
+                isHostile = true;
+            }
 
             animator.SetBool("chase", true);
             animator.SetBool("attack", false);
