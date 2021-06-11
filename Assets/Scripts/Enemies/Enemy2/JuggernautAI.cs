@@ -119,6 +119,9 @@ public class JuggernautAI : MonoBehaviour
 
     public void Died()
     {
+        myAudio.clip = mutteringBroken;
+        myAudio.Play();
+        Instantiate(deathEffects);
         animator.SetBool("death", true);
         Destroy(gameObject, 3f);
     }
