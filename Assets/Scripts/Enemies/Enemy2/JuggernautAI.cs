@@ -100,4 +100,16 @@ public class JuggernautAI : MonoBehaviour
         Vector3 targetVector = destination.transform.position;
         enemyAgent.SetDestination(targetVector);
     }
+
+    public void Died()
+    {
+        animator.SetBool("death", true);
+        Destroy(gameObject, 3f);
+    }
+
+    public void BreakArmor()
+    {
+        // TODO add breaking armor logic here
+        Debug.Log("Armor broken :(");
+    }
 }

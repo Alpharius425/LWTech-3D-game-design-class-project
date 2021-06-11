@@ -167,4 +167,9 @@ public class StateManager : MonoBehaviour
         currentState = nextState;
         currentState.OnStateEnter();
     }
+
+    public void Died()
+    {
+        ChangeState(deathState);
+    }
 }
