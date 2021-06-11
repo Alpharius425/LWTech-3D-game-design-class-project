@@ -8,7 +8,6 @@ using UnityEngine.Video;
 
 /// <summary>
 /// Script that has Juggernaut waiting until it detects the Player. Gives chase once detected.
-/// Patrol options currently commented out. Uncomment if patrol is desired.
 /// </summary>
 
 public class JuggernautAI : MonoBehaviour
@@ -19,7 +18,7 @@ public class JuggernautAI : MonoBehaviour
     [Space(15)]
     Transform guardPost;
     Transform destination;
-    [HideInInspector] bool hasArmor;
+    [HideInInspector] public bool hasArmor;
 
     [Header("PLAYER")]
     [SerializeField] GameObject player;
@@ -46,13 +45,16 @@ public class JuggernautAI : MonoBehaviour
     [Space(20)]
     [SerializeField] Animator animator;
 
+    [SerializeField] GameObject[] skinnedArmor;
+    [SerializeField] GameObject[] fallingOffArmor;
 
     void Start()
     {
         hasArmor = true; //Enemy is wearing armor.
 
         enemyAgent = this.GetComponent<NavMeshAgent>();
-
+        
+        // * Use this if you want the enemy to return to a certain spot *
         guardPost = this.transform; //Set the position where the enemy starts.
         destination = guardPost; //Start destination at the guard post.
 
@@ -107,8 +109,6 @@ public class JuggernautAI : MonoBehaviour
         {
             Debug.LogError("The NavMesh agent is missing for " + gameObject.name);
         }
-   
-        //Debug.Log("Destination: " + destination);
     }
         
     void MoveToward()
@@ -123,12 +123,24 @@ public class JuggernautAI : MonoBehaviour
         myAudio.Play();
         Instantiate(deathEffects);
         animator.SetBool("death", true);
-        Destroy(gameObject, 3f);
+        Destroy(gameObject, 2f);
     }
 
     public void BreakArmor()
     {
-        // TODO add breaking armor logic here
-        Debug.Log("Armor broken :(");
+        Debug.Log("Acid melted armor!");
+
+        for (int i = 0; i < skinnedArmor.Length; i++)
+        {
+            skinnedArmor[i].SetActive(false);
+            fallingOffArmor[i].SetActive(true);
+
+            fallingOffArmor[i].transform.SetParent(null, true);
+
+        }
+
+        hasArmor = false;
+
+        // Set vfx
     }
 }
