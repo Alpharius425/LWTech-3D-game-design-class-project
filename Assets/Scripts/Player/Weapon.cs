@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum AmmoType { gas, shotgun, acid }; // enum used to determine what ammo type we are using, can also be used in other scripts
+
 public abstract class Weapon : MonoBehaviour
 {
     public Player_Stats playerStats;

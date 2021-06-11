@@ -336,5 +336,3 @@ public class Player_Stats : MonoBehaviour
         myController.cameraCanMove = true; //unlock camera movement
     }
 }
-
-public enum AmmoType { gas, shotgun, acid}; // enum used to determine what ammo type we are using, can also be used in other scripts
