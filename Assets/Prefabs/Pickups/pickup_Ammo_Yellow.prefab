@@ -711,31 +711,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5582112234709053251}
     m_Modifications:
-    - target: {fileID: 1906448338362686766, guid: 0789a12bb323d634096884d87a25273e,
-        type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1906448338362686766, guid: 0789a12bb323d634096884d87a25273e,
-        type: 3}
-      propertyPath: InitialModule.startColor.maxColor.a
-      value: 0.21568628
-      objectReference: {fileID: 0}
-    - target: {fileID: 1906448338362686766, guid: 0789a12bb323d634096884d87a25273e,
-        type: 3}
-      propertyPath: InitialModule.startColor.maxColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1906448338362686766, guid: 0789a12bb323d634096884d87a25273e,
-        type: 3}
-      propertyPath: InitialModule.startColor.maxColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1906448338362686766, guid: 0789a12bb323d634096884d87a25273e,
-        type: 3}
-      propertyPath: InitialModule.startColor.maxColor.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2474238410010680406, guid: 0789a12bb323d634096884d87a25273e,
         type: 3}
       propertyPath: m_RootOrder
@@ -791,20 +766,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2769153888204380349, guid: 0789a12bb323d634096884d87a25273e,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 3285134967918015075, guid: 0789a12bb323d634096884d87a25273e,
         type: 3}
       propertyPath: m_Name
       value: vfx_shiny
-      objectReference: {fileID: 0}
-    - target: {fileID: 3285134967918015075, guid: 0789a12bb323d634096884d87a25273e,
-        type: 3}
-      propertyPath: m_Layer
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0789a12bb323d634096884d87a25273e, type: 3}
