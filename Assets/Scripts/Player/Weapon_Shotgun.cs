@@ -22,22 +22,14 @@ public class Weapon_Shotgun : Weapon
 
         foreach (GameObject enemy in enemies)
         {
-            if(enemy.CompareTag("Mayfly"))
+            EnemyHealth curEnemy = enemy.GetComponent<EnemyHealth>();
+            if (curEnemy != null)
             {
-                EnemyHealth curMayFly = enemy.GetComponent<EnemyHealth>();
-                curMayFly.DeductHealth(damage);
-
-                if (curMayFly.enemyHealth == 0) shotGunCone.enemiesInRange.Remove(enemy);
-            }
-
-            if (enemy.CompareTag("Juggernaut"))
-            {
-                JuggernautAI curJuggernaut = enemy.GetComponent<JuggernautAI>();
-                curJuggernaut.TakeDamage(damage, false);
-
-                if (curJuggernaut.enemyHealth == 0) shotGunCone.enemiesInRange.Remove(enemy);
+                curEnemy.DeductHealth(damage, ammoType);
+                if (curEnemy.curHealth == 0) shotGunCone.enemiesInRange.Remove(enemy);
             }
         }
+
         foreach (GameObject destructable in destructables)
         {
             destructable.GetComponent<Destructable_Object>().DestroyObject();

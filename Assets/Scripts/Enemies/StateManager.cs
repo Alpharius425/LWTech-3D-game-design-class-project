@@ -125,7 +125,7 @@ public class StateManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        enemyHealth = GetComponent<EnemyHealth>().enemyHealth;
+        enemyHealth = GetComponent<EnemyHealth>().curHealth;
         distanceFromTarget = Vector3.Distance(transform.position, playerTarget.transform.position);
         distanceFromGround = Terrain.activeTerrain.SampleHeight(transform.position);
 
@@ -166,5 +166,10 @@ public class StateManager : MonoBehaviour
         currentState.OnStateExit();
         currentState = nextState;
         currentState.OnStateEnter();
+    }
+
+    public void Died()
+    {
+        ChangeState(deathState);
     }
 }
