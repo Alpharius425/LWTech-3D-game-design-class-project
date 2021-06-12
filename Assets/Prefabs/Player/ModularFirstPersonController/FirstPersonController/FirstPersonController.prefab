@@ -424,8 +424,8 @@ MonoBehaviour:
   groundedLayer:
     serializedVersion: 2
     m_Bits: 4087
-  maxHealth: 1000000
-  curHealth: 1000000
+  maxHealth: 100
+  curHealth: 100
   maxTimeUntilRegen: 5
   timeUntilRegen: 1
   healthRegen: 1
