@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class Player_Stats : MonoBehaviour
 {
@@ -64,6 +66,12 @@ public class Player_Stats : MonoBehaviour
     [Header("UI Elements")]
     [SerializeField] Slider[] UISliders;
     [SerializeField] GameObject[] UISelectionOutlines;
+    [SerializeField] GameObject keyIcon; //a reference to the key icon that appears on the UI menu
+    //=========================VISUAL EFFECTS=========================
+    [Header("Visual Effects")]
+    [SerializeField] Volume pp_volume; //the post-processing volume that will be used
+    [SerializeField] Vignette pp_vignette; //the vignette in the ppv that will be used to show damage effects
+    [SerializeField] GameObject bloodSpatter; //the blood spatter effect that will show up when reaching critical low HP
     //=========================METHODS=========================
 
     private void Awake()
@@ -88,6 +96,10 @@ public class Player_Stats : MonoBehaviour
         UISelectionOutlines[System.Array.IndexOf(weapons, curWeapon)].gameObject.SetActive(true);
 
         Cursor.lockState = CursorLockMode.Locked; // locks the cursor
+
+        //-----Post-Processing Stuff-----
+        pp_volume.profile.TryGet(out pp_vignette); //set the reference for the vignette
+        pp_vignette.intensity.value = 0; //reset the vignette to zero
 
         StartCoroutine("BlackFadeOut");
     }
@@ -171,6 +183,11 @@ public class Player_Stats : MonoBehaviour
         playerAudio.clip = hurtSFX; //set sound clip
         playerAudio.Play(); //play sound clip
         curHealth -= damage; // subtracts from our health
+        pp_vignette.intensity.value = ((100 - curHealth) * 0.02f); //set vignette to health amount
+        if (curHealth <= 20)
+        {
+            bloodSpatter.SetActive(true);
+        }
         timeUntilRegen = maxTimeUntilRegen;
         //HealthBar.value = CalculateHealth(); //calculate health and set to current
         isRegening = false;
@@ -239,6 +256,11 @@ public class Player_Stats : MonoBehaviour
     public void HPRegen(float amount) // amount is the amount we are healed by
     {
         curHealth += amount; // increases our health
+        pp_vignette.intensity.value = ((100 - curHealth) * 0.02f); //set vignette to health amount
+        if (curHealth > 20)
+        {
+            bloodSpatter.SetActive(false);
+        }
         //Debug.Log("Our health is now" + curHealth);
         if (curHealth > maxHealth) // makes sure we don't go over our max health
         {
@@ -271,6 +293,7 @@ public class Player_Stats : MonoBehaviour
     {
         playerAudio.clip = getKeySFX; //set sound clip
         playerAudio.Play(); //play sound clip
+        keyIcon.SetActive(true);
         hasKey = true;
     }
 
