@@ -90,8 +90,8 @@ public class JuggernautAI : MonoBehaviour
             animator.SetBool("attack", false);
             animator.SetBool("idle", false);
 
-            //MoveToward();
-            enemyAgent.SetDestination(player.transform.position);
+            MoveToward();
+            //enemyAgent.SetDestination(player.transform.position);
 
             if (distanceFromPlayer <= attackDistance)
             {
