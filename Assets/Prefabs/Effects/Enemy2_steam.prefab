@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 423467108684653075}
   - component: {fileID: 9050854576787625993}
   m_Layer: 0
-  m_Name: vfx_acidSteam_Enemy2
+  m_Name: Enemy2_steam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4758,7 +4758,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
