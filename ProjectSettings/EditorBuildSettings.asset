@@ -6,15 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Test_Scenes/World_v1.unity
-    guid: b0663dbe9713a20488387da2ac8376ef
-  - enabled: 1
     path: Assets/Scenes/Gameplay_Scenes/Start_Menu.unity
     guid: ca5aef313508cb347aefe5e73528f622
   - enabled: 1
+    path: Assets/Scenes/Test_Scenes/World_v1.unity
+    guid: b0663dbe9713a20488387da2ac8376ef
+  - enabled: 0
     path: Assets/Scenes/Test_Scenes/EnemyAiTesting.unity
     guid: bcd148585abedf440bc694fb5ae2c11a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Test_Scenes/Mikey_Test.unity
     guid: 16ed8e9969cc13a459ba5fb3791e941f
   m_configObjects: {}

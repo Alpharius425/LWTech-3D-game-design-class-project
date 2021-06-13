@@ -1607,7 +1607,7 @@ MonoBehaviour:
   range: 0
   damage: 100
   ammoType: 1
-  fireSound: {fileID: 8300000, guid: 95963330bc3c2434abc503b3ae54a741, type: 3}
+  fireSound: {fileID: 8300000, guid: 2c80fb554c197b9439e951f449d0990b, type: 3}
   VFX:
   - {fileID: 6119337759062558984, guid: fa9d079393e0f3149b5e30c4b47421bd, type: 3}
   shotGunCone: {fileID: 1424518978}
@@ -2538,12 +2538,12 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 262229566958a3e428e61bdb3cff654b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.28
+      value: -0.324
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 262229566958a3e428e61bdb3cff654b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.34
+      value: 0.295
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 262229566958a3e428e61bdb3cff654b,
         type: 3}
