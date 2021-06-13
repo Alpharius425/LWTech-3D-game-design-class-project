@@ -1581,7 +1581,7 @@ MonoBehaviour:
   curAmmo: 100
   ammoCost: 5
   range: 10
-  damage: 100
+  damage: 30
   ammoType: 0
   fireSound: {fileID: 8300000, guid: 80d7b9edcc0d9544c8966e1cd2357e40, type: 3}
   VFX:
@@ -1627,7 +1627,7 @@ MonoBehaviour:
   curAmmo: 100
   ammoCost: 5
   range: 50
-  damage: 1
+  damage: 40
   ammoType: 2
   fireSound: {fileID: 8300000, guid: 0ff23568ea3480d4da611b932361d8a7, type: 3}
   VFX:
