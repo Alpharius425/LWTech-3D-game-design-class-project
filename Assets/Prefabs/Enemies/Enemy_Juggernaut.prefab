@@ -1504,6 +1504,7 @@ GameObject:
   - component: {fileID: 6268438570984913039}
   - component: {fileID: 2133897062}
   - component: {fileID: 236433781915402988}
+  - component: {fileID: 5615274214259512331}
   m_Layer: 10
   m_Name: Enemy_Juggernaut
   m_TagString: Juggernaut
@@ -1542,7 +1543,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!136 &515129670724157143
 CapsuleCollider:
@@ -1572,7 +1573,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyAgent: {fileID: 0}
   enemyHealth: 100
-  hasArmor: 0
   player: {fileID: 0}
   playerHealth: 100
   distanceFromPlayer: 0
@@ -1604,7 +1604,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 857780034206909284}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.75
   m_Speed: 3
   m_Acceleration: 4
   avoidancePriority: 50
@@ -1613,7 +1613,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 1
+  m_Height: 2
   m_BaseOffset: 0.5
   m_WalkableMask: 1
   m_ObstacleAvoidanceType: 4
@@ -1779,6 +1779,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &5615274214259512331
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 857780034206909284}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &944637842411982403
 GameObject:
   m_ObjectHideFlags: 0
@@ -1820,7 +1833,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1464997391006593276}
   - component: {fileID: 6120949935685411506}
-  - component: {fileID: 1015675753}
   m_Layer: 10
   m_Name: Enemy02_UVs:ForeArm_L
   m_TagString: Untagged
@@ -1945,18 +1957,6 @@ SkinnedMeshRenderer:
     m_Center: {x: -14.48563, y: 32.046516, z: 43.038193}
     m_Extent: {x: 16.152374, y: 38.205803, z: 8.42831}
   m_DirtyAABB: 0
---- !u!114 &1015675753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 988032625105114338}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee401c2a8ffe3374f979a103a5b1889b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &995312908606286781
 GameObject:
   m_ObjectHideFlags: 0

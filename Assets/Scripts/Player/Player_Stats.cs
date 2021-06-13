@@ -74,10 +74,10 @@ public class Player_Stats : MonoBehaviour
     [SerializeField] GameObject bloodSpatter; //the blood spatter effect that will show up when reaching critical low HP
     //=========================METHODS=========================
 
-    private void Awake()
-    {
-        //ammoType2Collider.SetActive(false);
-    }
+    //private void Awake()
+    //{
+    //    //ammoType2Collider.SetActive(false);
+    //}
 
     private void Start()
     {

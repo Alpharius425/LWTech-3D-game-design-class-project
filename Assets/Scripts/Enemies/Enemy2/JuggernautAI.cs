@@ -17,8 +17,7 @@ public class JuggernautAI : MonoBehaviour
     public float enemyHealth = 100f;
     [Space(15)]
     Transform guardPost;
-    Transform destination;
-    [HideInInspector] public bool hasArmor;
+    //Transform destination;
 
     [Header("PLAYER")]
     [SerializeField] GameObject player;
@@ -50,13 +49,17 @@ public class JuggernautAI : MonoBehaviour
 
     void Start()
     {
-        hasArmor = true; //Enemy is wearing armor.
-
         enemyAgent = this.GetComponent<NavMeshAgent>();
+
+        //Check that there is an agent.
+        if (enemyAgent == null)
+        {
+            Debug.LogError("The NavMesh agent is missing for " + gameObject.name);
+        }
         
         // * Use this if you want the enemy to return to a certain spot *
-        guardPost = this.transform; //Set the position where the enemy starts.
-        destination = guardPost; //Start destination at the guard post.
+        //guardPost = this.transform; //Set the position where the enemy starts.
+        //destination = guardPost; //Start destination at the guard post.
 
         player = GameObject.FindGameObjectWithTag("Player");
         
@@ -75,7 +78,7 @@ public class JuggernautAI : MonoBehaviour
         //Set the destination
         if (distanceFromPlayer < maxDetectDistance)
         {
-            destination = player.transform;
+            //destination = player.transform;
             if (!isHostile)
             {
                 myAudio.clip = mutteringHostile;
@@ -88,6 +91,7 @@ public class JuggernautAI : MonoBehaviour
             animator.SetBool("idle", false);
 
             MoveToward();
+            //enemyAgent.SetDestination(player.transform.position);
 
             if (distanceFromPlayer <= attackDistance)
             {
@@ -98,22 +102,16 @@ public class JuggernautAI : MonoBehaviour
         }
         else
         {
-            destination = guardPost; //Return to guard post.
+            //destination = guardPost; //Return to guard post.
 
             animator.SetBool("idle", true);
             animator.SetBool("chase", false);
-        }
-
-        //Check that there is an agent.
-        if (enemyAgent == null)
-        {
-            Debug.LogError("The NavMesh agent is missing for " + gameObject.name);
         }
     }
         
     void MoveToward()
     {
-        Vector3 targetVector = destination.transform.position;
+        Vector3 targetVector = player.transform.position;
         enemyAgent.SetDestination(targetVector);
     }
 
@@ -128,7 +126,7 @@ public class JuggernautAI : MonoBehaviour
 
     public void BreakArmor()
     {
-        Debug.Log("Acid melted armor!");
+        //Debug.Log("Armor Broke!!!");
 
         for (int i = 0; i < skinnedArmor.Length; i++)
         {
@@ -138,8 +136,6 @@ public class JuggernautAI : MonoBehaviour
             fallingOffArmor[i].transform.SetParent(null, true);
 
         }
-
-        hasArmor = false;
 
         // Set vfx
     }
