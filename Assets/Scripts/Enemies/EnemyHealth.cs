@@ -20,7 +20,7 @@ public class EnemyHealth : MonoBehaviour
         //-----Effects start-----
         Instantiate(damageEffect, gameObject.transform.position, gameObject.transform.rotation); //instantiate a particle effect for damage
         myAudio.PlayOneShot(damageSound); //play the damage clip provided
-        Debug.Log("Took Damage");
+        //Debug.Log("Took Damage");
         //-----Effects end-----
         if (curHealth < 0)
         {

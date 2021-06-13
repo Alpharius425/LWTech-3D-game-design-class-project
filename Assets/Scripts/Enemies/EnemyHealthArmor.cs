@@ -16,9 +16,10 @@ public class EnemyHealthArmor : EnemyHealth
             if (hasArmor)
             {
                 armorDestroyed.Invoke();
-                hasArmor = false;
             }
-            Debug.Log("Armor destroyed");
+
+            hasArmor = false;
+            //Debug.Log("Armor destroyed");
         }
 
         //Take no damage if projectile is non acid and has armor.
@@ -26,11 +27,11 @@ public class EnemyHealthArmor : EnemyHealth
         {
             base.DeductHealth(damage, ammoType);
             //Take damage by any projectile
-            Debug.Log("Armor is gone so attack got through");
+            //Debug.Log("Armor is gone so attack got through");
         }
         else
         {
-            Debug.Log("Armor resisted the attack");
+            //Debug.Log("Armor resisted the attack");
         }
     }
 }

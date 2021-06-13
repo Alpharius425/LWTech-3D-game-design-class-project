@@ -126,7 +126,7 @@ public class JuggernautAI : MonoBehaviour
 
     public void BreakArmor()
     {
-        Debug.Log("Acid melted armor!");
+        //Debug.Log("Armor Broke!!!");
 
         for (int i = 0; i < skinnedArmor.Length; i++)
         {
