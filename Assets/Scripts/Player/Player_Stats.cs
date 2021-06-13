@@ -66,7 +66,8 @@ public class Player_Stats : MonoBehaviour
     [Header("UI Elements")]
     [SerializeField] Slider[] UISliders;
     [SerializeField] GameObject[] UISelectionOutlines;
-    //=========================UI ELEMENTS=========================
+    [SerializeField] GameObject keyIcon; //a reference to the key icon that appears on the UI menu
+    //=========================VISUAL EFFECTS=========================
     [Header("Visual Effects")]
     [SerializeField] Volume pp_volume; //the post-processing volume that will be used
     [SerializeField] Vignette pp_vignette; //the vignette in the ppv that will be used to show damage effects
@@ -183,7 +184,10 @@ public class Player_Stats : MonoBehaviour
         playerAudio.Play(); //play sound clip
         curHealth -= damage; // subtracts from our health
         pp_vignette.intensity.value = ((100 - curHealth) * 0.02f); //set vignette to health amount
-        //change intensity of vignette
+        if (curHealth <= 20)
+        {
+            bloodSpatter.SetActive(true);
+        }
         timeUntilRegen = maxTimeUntilRegen;
         //HealthBar.value = CalculateHealth(); //calculate health and set to current
         isRegening = false;
@@ -253,6 +257,10 @@ public class Player_Stats : MonoBehaviour
     {
         curHealth += amount; // increases our health
         pp_vignette.intensity.value = ((100 - curHealth) * 0.02f); //set vignette to health amount
+        if (curHealth > 20)
+        {
+            bloodSpatter.SetActive(false);
+        }
         //Debug.Log("Our health is now" + curHealth);
         if (curHealth > maxHealth) // makes sure we don't go over our max health
         {
@@ -285,6 +293,7 @@ public class Player_Stats : MonoBehaviour
     {
         playerAudio.clip = getKeySFX; //set sound clip
         playerAudio.Play(); //play sound clip
+        keyIcon.SetActive(true);
         hasKey = true;
     }
 

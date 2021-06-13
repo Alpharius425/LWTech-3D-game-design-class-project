@@ -12,6 +12,7 @@ public class KeyDoor : MonoBehaviour
     [SerializeField] bool unlocked = false; //controls whether the door is locked
     [SerializeField] GameObject lockedPadlock; //holds a reference to the locked padlock object
     [SerializeField] GameObject openPadlock; //holds a reference to the unlocked padlock object so it can fall to the ground
+    [SerializeField] GameObject keyIcon; //reference to UI element
     //=========================SOUND EFFECTS=========================
     [Header("Sound Effects")]
     [SerializeField] AudioSource myAudio; //the source we will be playing sounds from on this specific object
@@ -27,6 +28,7 @@ public class KeyDoor : MonoBehaviour
                 StartCoroutine("OpenUp"); // starts opening the door
                 Debug.Log("turning off");
                 col.gameObject.GetComponent<Player_Stats>().hasKey = false; //uses up the key so others can be used with the same code
+                keyIcon.SetActive(false);
             }
         }
     }
