@@ -370,7 +370,7 @@ MonoBehaviour:
   enableSprint: 1
   unlimitedSprint: 0
   sprintKey: 304
-  sprintSpeed: 7
+  sprintSpeed: 10
   sprintDuration: 5
   sprintCooldown: 0.5
   sprintFOV: 80
