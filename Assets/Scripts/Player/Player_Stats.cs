@@ -256,7 +256,7 @@ public class Player_Stats : MonoBehaviour
     public void HPRegen(float amount) // amount is the amount we are healed by
     {
         curHealth += amount; // increases our health
-        pp_vignette.intensity.value = ((100 - curHealth) * 0.02f); //set vignette to health amount
+        pp_vignette.intensity.value = ((100 - curHealth) * 0.01f); //set vignette to health amount
         if (curHealth > 20)
         {
             bloodSpatter.SetActive(false);
