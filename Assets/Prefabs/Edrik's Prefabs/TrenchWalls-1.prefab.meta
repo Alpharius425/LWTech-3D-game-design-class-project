@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Prefabs/Environment-Terrain/Small/Smaller.meta
+guid: d3448dd6071aec447924821712e0e142
+folderAsset: yes
+DefaultImporter:
+=======
 guid: 7939dcb38776bca4d81d969af3e4d609
 PrefabImporter:
+>>>>>>> a08e212 (getting art assets from the art pass branch):Assets/Prefabs/Edrik's Prefabs/TrenchWalls-1.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
