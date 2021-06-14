@@ -12,15 +12,6 @@ public class Level_End : MonoBehaviour
     [SerializeField] Animator whiteFadePanel; //animator object attached to white fade panel
     [SerializeField] int startSceneIndex = 0; //reference to where the start scene is in the build settings
     //=========================METHODS=========================
-
-    
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void OnTriggerEnter(Collider col)
     {
         if(col.gameObject.tag == "Player") //when the player enters this area...
