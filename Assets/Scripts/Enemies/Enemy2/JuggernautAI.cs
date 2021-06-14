@@ -70,8 +70,6 @@ public class JuggernautAI : MonoBehaviour
 
     private void Update()
     {
-        playerHealth = player.GetComponent<Player_Stats>().curHealth;
-
         //Check the distance to the player
         distanceFromPlayer = Vector3.Distance(transform.position, player.transform.position);
 
