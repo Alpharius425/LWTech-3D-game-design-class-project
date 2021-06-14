@@ -829,7 +829,7 @@ MonoBehaviour:
   visibilityAngle: 117
   FOVCone: {fileID: 344247566382910396}
   maxDetectDistance: 10
-  patrolSpeed: 2
+  patrolSpeed: 3
   patrolIndex: 0
   patrolRoute: {fileID: 0}
   patrolPoints:
@@ -848,11 +848,11 @@ MonoBehaviour:
   magicAttack: {fileID: 8625836589822148755, guid: 1134b6c9a1471f142ae8e0b64e0f8370,
     type: 3}
   damageAmount: 100
-  reloadTime: 3
-  chargeTime: 2
-  shootSpeed: 5
-  rateOfFireMin: 3
-  rateOfFireMax: 6
+  reloadTime: 1
+  chargeTime: 1
+  shootSpeed: 8
+  rateOfFireMin: 1
+  rateOfFireMax: 3
   terrain: {fileID: 0}
   minDistanceFromGround: 4
   maxDistanceFromGround: 4
