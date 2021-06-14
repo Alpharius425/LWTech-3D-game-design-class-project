@@ -433,7 +433,7 @@ MonoBehaviour:
   isRegening: 0
   reloading: 0
   gasTimeMax: 5
-  gasDamage: 10
+  gasDamage: 20
   gasTrail: {fileID: 5358524114032736450, guid: 9030dae02e170554eba4e6ed112dcad7,
     type: 3}
   ammoType2Collider: {fileID: 4929650549517060357}

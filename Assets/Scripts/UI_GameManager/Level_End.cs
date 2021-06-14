@@ -24,6 +24,7 @@ public class Level_End : MonoBehaviour
     private IEnumerator FadeToWhite()
     {
         yield return new WaitForSeconds(3);
+        Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene(startSceneIndex);
     }
 }
