@@ -12,6 +12,7 @@ public class AmmoPickUp : MonoBehaviour
     [SerializeField] float respawnTime; // max time between respawns
     [SerializeField] float curTimeToRespawn; // how long until it respawns next
     [SerializeField] GameObject player; // reference for the player
+    [SerializeField] Player_Stats playerStats;
     [SerializeField] float requiredDistanceFromPlayer; // how far away the player needs to be
     [SerializeField] float distFromPlayer; // the actual distance from the player
 
@@ -27,12 +28,21 @@ public class AmmoPickUp : MonoBehaviour
     {
         if (col.CompareTag("Player") && active == true) // checks if the player runs into the pickup and that it is active
         {
-            myAudio.clip = pickupSFX; //set sound clip
-            myAudio.Play(); //play sound clip
-            col.GetComponent<Player_Stats>().IncreaseAmmo(ammoType, value); // gives the player ammo
-            curTimeToRespawn = respawnTime; // resets the spawn timer
-            active = false; // turns off the pickup
-            myChild.SetActive(false); // turns off the nested game object so it looks like it disappeared
+            for (int i = 0; i < playerStats.weapons.Length; i++)
+            {
+                if (playerStats.weapons[i].ammoType == ammoType)
+                {
+                    if (playerStats.weapons[i].curAmmo != playerStats.weapons[i].maxAmmo)
+                    {
+                        myAudio.clip = pickupSFX; //set sound clip
+                        myAudio.Play(); //play sound clip
+                        playerStats.IncreaseAmmo(ammoType, value); // gives the player ammo
+                        curTimeToRespawn = respawnTime; // resets the spawn timer
+                        active = false; // turns off the pickup
+                        myChild.SetActive(false); // turns off the nested game object so it looks like it disappeared
+                    }
+                }
+            }
         }
     }
 
@@ -51,6 +61,7 @@ public class AmmoPickUp : MonoBehaviour
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player"); // saves the player
+        playerStats = player.GetComponent<Player_Stats>();
     }
 
     void Reactivate() // turns the pickup back on and the renderer is reactivated
