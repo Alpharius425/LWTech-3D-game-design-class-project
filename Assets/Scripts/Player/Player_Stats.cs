@@ -183,7 +183,7 @@ public class Player_Stats : MonoBehaviour
         playerAudio.clip = hurtSFX; //set sound clip
         playerAudio.Play(); //play sound clip
         curHealth -= damage; // subtracts from our health
-        pp_vignette.intensity.value = ((100 - curHealth) * 0.02f); //set vignette to health amount
+        pp_vignette.intensity.value = ((100 - curHealth) * 0.008f); //set vignette to health amount
         if (curHealth <= 20)
         {
             bloodSpatter.SetActive(true);

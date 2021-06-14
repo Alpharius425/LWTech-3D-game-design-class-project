@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93f4cd1244bcaf340a0326d4a5e9dafa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spinSpeed: 0.2
+  spinSpeed: 100
 --- !u!114 &4360891380652805205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,6 +66,7 @@ MonoBehaviour:
   respawnTime: 5
   curTimeToRespawn: 0
   player: {fileID: 0}
+  playerStats: {fileID: 0}
   requiredDistanceFromPlayer: 20
   distFromPlayer: 0
   myChild: {fileID: 5134774211750204493}

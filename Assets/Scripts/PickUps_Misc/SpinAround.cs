@@ -11,6 +11,6 @@ public class SpinAround : MonoBehaviour
 
     void Update()
     {
-        gameObject.transform.Rotate(0f, spinSpeed, 0f, Space.Self);
+        gameObject.transform.Rotate(0f, (spinSpeed * Time.deltaTime), 0f, Space.Self);
     }
 }

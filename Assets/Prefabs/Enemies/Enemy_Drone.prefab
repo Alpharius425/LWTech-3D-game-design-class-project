@@ -848,9 +848,9 @@ MonoBehaviour:
   magicAttack: {fileID: 8625836589822148755, guid: 1134b6c9a1471f142ae8e0b64e0f8370,
     type: 3}
   damageAmount: 100
-  reloadTime: 3
+  reloadTime: 1
   chargeTime: 2
-  shootSpeed: 5
+  shootSpeed: 10
   rateOfFireMin: 3
   rateOfFireMax: 6
   terrain: {fileID: 0}

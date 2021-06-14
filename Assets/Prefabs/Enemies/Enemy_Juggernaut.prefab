@@ -1666,7 +1666,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  curHealth: 100
+  curHealth: 250
   damageEffect: {fileID: 5837935863486325412, guid: 8f499fc767f63d8499b6a2a72a21e494,
     type: 3}
   myAudio: {fileID: 7843197365545489857}
@@ -6222,7 +6222,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 30
+  MaxDistance: 40
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
