@@ -62,13 +62,13 @@ public abstract class State {
                 canSee = true;
             }
             //visualise the ray
-            Debug.DrawLine(stateManager.transform.position, hit.point);
+            //Debug.DrawLine(stateManager.transform.position, hit.point);
             //transform.LookAt(target);
         }
         else
         {
             //ray hit nothing
-            Debug.DrawRay(stateManager.transform.position, directionToTarget.normalized * rayDistance);
+            //Debug.DrawRay(stateManager.transform.position, directionToTarget.normalized * rayDistance);
 
         }
         return canSee;

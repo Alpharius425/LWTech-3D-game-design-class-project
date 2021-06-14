@@ -52,10 +52,10 @@ public class JuggernautAI : MonoBehaviour
         enemyAgent = this.GetComponent<NavMeshAgent>();
 
         //Check that there is an agent.
-        if (enemyAgent == null)
-        {
-            Debug.LogError("The NavMesh agent is missing for " + gameObject.name);
-        }
+        //if (enemyAgent == null)
+        //{
+        //    Debug.LogError("The NavMesh agent is missing for " + gameObject.name);
+        //}
         
         // * Use this if you want the enemy to return to a certain spot *
         //guardPost = this.transform; //Set the position where the enemy starts.

@@ -18,8 +18,6 @@ public class DoDamage : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             player.GetComponent<Player_Stats>().TakeDamage(damageAmount);
-            Debug.Log("Hit by the Juggernaut!");
-
         }
     }
 }

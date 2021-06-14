@@ -51,7 +51,7 @@ public class Pause_Menu : MonoBehaviour
     //========================CUSTOM METHODS=========================
     public void Quit() // quits the application. only works in builds!!!
     {
-        Debug.Log("Quit");
+        //Debug.Log("Quit");
         Application.Quit();
     }
 

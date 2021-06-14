@@ -26,7 +26,6 @@ public class KeyDoor : MonoBehaviour
             {
                 unlocked = true;
                 StartCoroutine("OpenUp"); // starts opening the door
-                Debug.Log("turning off");
                 col.gameObject.GetComponent<Player_Stats>().hasKey = false; //uses up the key so others can be used with the same code
                 keyIcon.SetActive(false);
             }
