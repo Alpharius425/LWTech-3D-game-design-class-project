@@ -10,9 +10,9 @@ public class EnemyHealth : MonoBehaviour
     public float curHealth = 100f;
     //=========================DAMAGE EFFECTS=========================
     [Header("Damage Effects")]
-    [SerializeField] GameObject damageEffect; //the damage effect gameobject that will be spawned when taking damage
-    [SerializeField] AudioSource myAudio; //the audiosource used to play damage sound effects
-    [SerializeField] AudioClip damageSound; //the audio clip to play upon taking damage
+    public GameObject damageEffect; //the damage effect gameobject that will be spawned when taking damage
+    public AudioSource myAudio; //the audiosource used to play damage sound effects
+    public AudioClip damageSound; //the audio clip to play upon taking damage
 
     public virtual void DeductHealth(float damage, AmmoType ammoType = AmmoType.gas)
     {

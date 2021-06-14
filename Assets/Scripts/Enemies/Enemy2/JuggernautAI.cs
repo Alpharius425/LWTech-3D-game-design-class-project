@@ -47,15 +47,13 @@ public class JuggernautAI : MonoBehaviour
     [SerializeField] GameObject[] skinnedArmor;
     [SerializeField] GameObject[] fallingOffArmor;
 
+    [SerializeField] float deathTimer; //amount of time to play the death animation for
+
     void Start()
     {
         enemyAgent = this.GetComponent<NavMeshAgent>();
 
         //Check that there is an agent.
-        //if (enemyAgent == null)
-        //{
-        //    Debug.LogError("The NavMesh agent is missing for " + gameObject.name);
-        //}
         
         // * Use this if you want the enemy to return to a certain spot *
         //guardPost = this.transform; //Set the position where the enemy starts.
@@ -117,14 +115,13 @@ public class JuggernautAI : MonoBehaviour
     {
         myAudio.clip = mutteringBroken;
         myAudio.Play();
-        Instantiate(deathEffects);
+        Instantiate(deathEffects, gameObject.transform.position, gameObject.transform.rotation);
         animator.SetBool("death", true);
-        Destroy(gameObject, 2f);
+        Destroy(gameObject, deathTimer);
     }
 
     public void BreakArmor()
     {
-        //Debug.Log("Armor Broke!!!");
 
         for (int i = 0; i < skinnedArmor.Length; i++)
         {
@@ -134,7 +131,5 @@ public class JuggernautAI : MonoBehaviour
             fallingOffArmor[i].transform.SetParent(null, true);
 
         }
-
-        // Set vfx
     }
 }
